@@ -8,7 +8,7 @@ public class PersonalData {
     private String cpf;
     private LocalDate dateOfBirth;
     private String postCode;
-    private String nacionalidade;
+    private String nationality;
     private List<String> phone;
     private List<String> email;
 
@@ -17,7 +17,7 @@ public class PersonalData {
         this.cpf = cpf;
         this.dateOfBirth = dateOfBirth;
         this.postCode = postCode;
-        this.nacionalidade = nacionalidade;
+        this.nationality = nationality;
         this.phone = phone;
         this.email = email;
     }
@@ -50,12 +50,12 @@ public class PersonalData {
         this.postCode = postCode;
     }
 
-    public String getNacionalidade() {
-        return nacionalidade;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     public List<String> getPhone() {
@@ -81,7 +81,7 @@ public class PersonalData {
                 ", cpf='" + cpf + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", postCode='" + postCode + '\'' +
-                ", nacionalidade='" + nacionalidade + '\'' +
+                ", nationality='" + nationality + '\'' +
                 ", phone=" + phone +
                 ", email=" + email +
                 '}';

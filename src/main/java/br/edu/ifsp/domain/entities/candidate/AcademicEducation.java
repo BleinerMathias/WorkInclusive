@@ -4,13 +4,20 @@ import java.time.LocalDate;
 
 public class AcademicEducation {
     private String course;
-    private Date courseStart;
-    private Date courseEnd;
+    private LocalDate courseStart;
+    private LocalDate courseEnd;
     private boolean completed;
     private AcademicDegree academicDegree;
     private String academicInstitution;
 
-    public AcademicEducation(String course, Date courseStart, Date courseEnd, boolean completed, AcademicDegree academicDegree, String academicInstitution) {
+    public AcademicEducation() {
+    }
+
+    public AcademicEducation(String course, LocalDate courseStart, LocalDate courseEnd, AcademicDegree academicDegree, String academicInstitution) {
+      this(course, courseStart, courseEnd, false, academicDegree, academicInstitution);
+    }
+
+    public AcademicEducation(String course, LocalDate courseStart, LocalDate courseEnd, boolean completed, AcademicDegree academicDegree, String academicInstitution) {
         this.course = course;
         this.courseStart = courseStart;
         this.courseEnd = courseEnd;
@@ -27,19 +34,19 @@ public class AcademicEducation {
         this.course = course;
     }
 
-    public Date getCourseStart() {
+    public LocalDate getCourseStart() {
         return courseStart;
     }
 
-    public void setCourseStart(Date courseStart) {
+    public void setCourseStart(LocalDate courseStart) {
         this.courseStart = courseStart;
     }
 
-    public Date getCourseEnd() {
+    public LocalDate getCourseEnd() {
         return courseEnd;
     }
 
-    public void setCourseEnd(Date courseEnd) {
+    public void setCourseEnd(LocalDate courseEnd) {
         this.courseEnd = courseEnd;
     }
 

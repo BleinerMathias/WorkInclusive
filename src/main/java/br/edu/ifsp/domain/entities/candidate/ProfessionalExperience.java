@@ -4,15 +4,15 @@ import java.time.LocalDate;
 
 public class ProfessionalExperience {
         private String companyName;
-        private Date admissionDate;
-        private Date resignationDate;
+        private LocalDate admissionDate;
+        private LocalDate resignationDate;
         private String office;
         private String carriedActivities;
 
         public ProfessionalExperience() {
         }
 
-        public ProfessionalExperience(String companyName, Date admissionDate, String office, String carriedActivities) {
+        public ProfessionalExperience(String companyName, LocalDate admissionDate, String office, String carriedActivities) {
                this(companyName,admissionDate,null, office,carriedActivities);
         }
 
@@ -32,19 +32,19 @@ public class ProfessionalExperience {
                 this.companyName = companyName;
         }
 
-        public Date getAdmissionDate() {
+        public LocalDate getAdmissionDate() {
                 return admissionDate;
         }
 
-        public void setAdmissionDate(Date admissionDate) {
+        public void setAdmissionDate(LocalDate admissionDate) {
                 this.admissionDate = admissionDate;
         }
 
-        public Date getResignationDate() {
+        public LocalDate getResignationDate() {
                 return resignationDate;
         }
 
-        public void setResignationDate(Date resignationDate) {
+        public void setResignationDate(LocalDate resignationDate) {
                 this.resignationDate = resignationDate;
         }
 
