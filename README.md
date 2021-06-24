@@ -23,7 +23,7 @@ Guia de modificações \
 (Programando em conjunto com o Code With Me) \
 Bleiner / Larissa/ Guilherme
 
-**23/06/2021** - *24/06/2021* - Reunião com a equipe
+**24/06/2021** - Reunião com a equipe
 (Programando em conjunto com o Code With Me) \
 Codificando casos de uso e validações \
 Bleiner / Larissa/ Guilherme
