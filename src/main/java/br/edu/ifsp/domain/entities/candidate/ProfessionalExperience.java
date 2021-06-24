@@ -16,7 +16,7 @@ public class ProfessionalExperience {
                this(companyName,admissionDate,null, office,carriedActivities);
         }
 
-        public ProfessionalExperience(String companyName, Date admissionDate, Date resignationDate, String office, String carriedActivities) {
+        public ProfessionalExperience(String companyName, LocalDate admissionDate, LocalDate resignationDate, String office, String carriedActivities) {
                 this.companyName = companyName;
                 this.admissionDate = admissionDate;
                 this.resignationDate = resignationDate;

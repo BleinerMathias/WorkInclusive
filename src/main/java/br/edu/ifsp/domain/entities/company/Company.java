@@ -11,6 +11,6 @@ public class Company {
         private List<String> email;
         private List<String> phone;
         private String address;
-        private Integer postCode;
+        private String postCode;
         private List<Accessibility> accessibilities;
 }
