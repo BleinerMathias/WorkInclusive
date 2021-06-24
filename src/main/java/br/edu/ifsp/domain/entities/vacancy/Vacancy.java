@@ -1,4 +1,4 @@
-package br.edu.ifsp.domain.entities.company;
+package br.edu.ifsp.domain.entities.vacancy;
 
 import br.edu.ifsp.domain.entities.user.Abiliity;
 import br.edu.ifsp.domain.entities.user.Accessibility;

@@ -1,6 +1,6 @@
 package br.edu.ifsp.domain.entities.candidate;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ProfessionalExperience {
         private String companyName;

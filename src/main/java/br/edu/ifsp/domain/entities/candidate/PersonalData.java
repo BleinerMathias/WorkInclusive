@@ -1,17 +1,18 @@
 package br.edu.ifsp.domain.entities.candidate;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public class PersonalData {
     private String name;
     private String cpf;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String postCode;
     private String nacionalidade;
     private List<String> phone;
     private List<String> email;
 
-    public PersonalData(String name, String cpf, Date dateOfBirth, String postCode, String nacionalidade, List<String> phone, List<String> email) {
+    public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality, List<String> phone, List<String> email) {
         this.name = name;
         this.cpf = cpf;
         this.dateOfBirth = dateOfBirth;
@@ -33,7 +34,7 @@ public class PersonalData {
         return cpf;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 

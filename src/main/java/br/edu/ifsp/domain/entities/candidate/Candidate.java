@@ -5,7 +5,6 @@ import br.edu.ifsp.domain.entities.user.Abiliity;
 import br.edu.ifsp.domain.entities.user.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
 
-import java.time.LocalDate;
 import java.util.List;
 
 

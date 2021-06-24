@@ -1,5 +1,7 @@
 # WorkInclusive
 
+:construction: Em desenvolvimento :construction:
+
 Projeto sendo desenvolvido a partir do documento de requisitos realizado por outro grupo 
 da disciplina de DOO (Desenvolvimento Orientado à Objeto).
 
@@ -17,6 +19,11 @@ Guia de modificações \
 \
 **20/06/2021** - Criando entidades e enums
 (Programando em conjunto com o Code With Me) \
+Bleiner / Larissa/ Guilherme
+
+**24/06/2021** - Reunião com a equipe
+(Programando em conjunto com o Code With Me) \
+Codificando casos de uso e validações \
 Bleiner / Larissa/ Guilherme
 
 
