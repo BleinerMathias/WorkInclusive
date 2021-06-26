@@ -21,7 +21,7 @@ public class UpdateCompanyUseCase {
         }
 
         String cnpj = company.getCNPJ();
-        if(companyDAO.findCNPJ(cnpj).isEmpty()){
+        if(companyDAO.findByCNPJ(cnpj).isEmpty()){
             throw new EntityNotFoundException("CNPJ not found.");
         }
         return companyDAO.update(company);

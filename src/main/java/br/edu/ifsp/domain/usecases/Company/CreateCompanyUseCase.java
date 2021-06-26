@@ -23,7 +23,7 @@ public class CreateCompanyUseCase {
         }
 
         String cnpj = company.getCNPJ();
-        if(companyDAO.findCNPJ(cnpj).isPresent()){
+        if(companyDAO.findByCNPJ(cnpj).isPresent()){
             throw new EntityAlreadyExistsException("This CNPJ is already in use.");
         }
         return companyDAO.create(company);

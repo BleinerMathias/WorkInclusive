@@ -1,10 +1,11 @@
 package br.edu.ifsp.domain.entities.company;
 
 import br.edu.ifsp.domain.entities.user.Accessibility;
+import br.edu.ifsp.domain.entities.user.User;
 
 import java.util.List;
 
-public class Company {
+public class Company extends User {
     private String name;
     private String companyName;
     private String sector;

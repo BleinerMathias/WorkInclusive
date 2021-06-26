@@ -8,7 +8,7 @@ import br.edu.ifsp.domain.entities.user.User;
 import java.util.List;
 
 
-public class Candidate extends User {
+public class Candidate extends User{
     private PersonalData personalData;
     private List<AcademicEducation> academicEducationsList;
     private List<ProfessionalExperience> professionalExperienceList;
