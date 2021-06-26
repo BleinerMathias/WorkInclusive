@@ -4,25 +4,12 @@ import br.edu.ifsp.domain.usecases.Candidate.FindCandidateUseCase;
 import br.edu.ifsp.domain.usecases.Candidate.UpdateCandidateUseCase;
 import br.edu.ifsp.domain.usecases.Company.FindCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.UpdateCompanyUseCase;
+import br.edu.ifsp.domain.usecases.Vacancy.FindVacancyUseCase;
+import br.edu.ifsp.domain.usecases.Vacancy.UpdateVacancyUseCase;
 
 public class MeetInterviewUseCase {
     private InterviewDAO interviewDAO;
     private FindCandidateUseCase findCandidateUseCase;
-    private FindCompanyUseCase findCompanyUseCase;
-    private UpdateCandidateUseCase updateCandidateUseCase;
-    private UpdateCompanyUseCase updateCompanyUseCase;
+    private FindVacancyUseCase findVacancyUseCase;
 
-    public MeetInterviewUseCase(
-            InterviewDAO interviewDAO,
-            FindCandidateUseCase findCandidateUseCase,
-            FindCompanyUseCase findCompanyUseCase,
-            UpdateCandidateUseCase updateCandidateUseCase,
-            UpdateCompanyUseCase updateCompanyUseCase) {
-
-        this.interviewDAO = interviewDAO;
-        this.findCandidateUseCase = findCandidateUseCase;
-        this.findCompanyUseCase = findCompanyUseCase;
-        this.updateCandidateUseCase = updateCandidateUseCase;
-        this.updateCompanyUseCase = updateCompanyUseCase;
-    }
 }

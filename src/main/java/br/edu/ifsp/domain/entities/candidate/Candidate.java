@@ -1,8 +1,7 @@
 package br.edu.ifsp.domain.entities.candidate;
 
-import br.edu.ifsp.domain.entities.candidate.AcademicEducation;
-import br.edu.ifsp.domain.entities.user.Abiliity;
-import br.edu.ifsp.domain.entities.user.Accessibility;
+import br.edu.ifsp.domain.entities.vacancy.Abiliity;
+import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
 
 import java.util.List;

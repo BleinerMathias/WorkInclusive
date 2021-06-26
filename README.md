@@ -28,4 +28,7 @@ Bleiner / Larissa/ Guilherme
 Codificando casos de uso e validações \
 Bleiner / Larissa / Guilherme
 
-
+**26/06/2021** Reunião com a equipe 
+(Programando em conjunto com o Code With Me) \
+Verificação e codificando casos de uso,validações e correções de Enums \
+Larissa / Guilherme

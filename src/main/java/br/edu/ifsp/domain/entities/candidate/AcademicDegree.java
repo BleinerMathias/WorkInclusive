@@ -14,4 +14,9 @@ public enum AcademicDegree {
     AcademicDegree(String label) {
         this.label = label;
     }
+
+    @Override
+    public String toString() {
+        return label;
+    }
 }

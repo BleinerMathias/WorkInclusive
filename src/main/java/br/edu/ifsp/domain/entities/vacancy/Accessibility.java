@@ -1,4 +1,4 @@
-package br.edu.ifsp.domain.entities.user;
+package br.edu.ifsp.domain.entities.vacancy;
 
 public enum Accessibility {
 

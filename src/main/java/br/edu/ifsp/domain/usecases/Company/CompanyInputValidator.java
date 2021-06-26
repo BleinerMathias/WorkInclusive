@@ -23,6 +23,10 @@ public class CompanyInputValidator extends Validator<Company> {
             notification.addError("Name is null or empty");
         }
 
+        if (nullOrEmpty(company.getCompanyName())) {
+            notification.addError("Company name is null or empty");
+        }
+
         if (nullOrEmpty(company.getCNPJ())) {
             notification.addError("CNPJ is null or empty");
         }
@@ -30,7 +34,7 @@ public class CompanyInputValidator extends Validator<Company> {
         if (nullOrEmpty(company.getSector())) {
             notification.addError("Sector is null or empty");
         }
-        // Pode empresas que não tem algum tipo de acessibilidade usarem a plataforma?
+        // Test list
         if (nullOrEmpty(company.getAccessibilities())) {
             notification.addError("Accessibilities is null or empty");
         }
@@ -57,7 +61,7 @@ public class CompanyInputValidator extends Validator<Company> {
         if (!nullOrEmpty(Collections.singleton(company.getPhone().isEmpty()))) {
             ArrayList<String> phones = new ArrayList<>();
             for (String phone : phones) {
-                if (isEmail(phone)) {
+                if (isPhone(phone)) {
                     notification.addError("Phone is invalid");
                 }
             }

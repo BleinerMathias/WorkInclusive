@@ -1,6 +1,6 @@
 package br.edu.ifsp.domain.entities.company;
 
-import br.edu.ifsp.domain.entities.user.Accessibility;
+import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
 
 import java.util.List;
