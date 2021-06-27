@@ -4,7 +4,7 @@ public enum Hierarchy {
     TRAINEE("Estagiário"),
     JUNIOR("Junior"),
     ENGINEER("Pleno"),
-    SENIO("Senior");
+    SENIOR("Senior");
 
     private String label;
 

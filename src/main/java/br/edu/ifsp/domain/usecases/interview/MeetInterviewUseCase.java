@@ -12,4 +12,11 @@ public class MeetInterviewUseCase {
     private FindCandidateUseCase findCandidateUseCase;
     private FindVacancyUseCase findVacancyUseCase;
 
+    // Verificar se tem meet
+
+
+
+    // pegar a lista dos que deram met
+    // marcar entrevista com cada um
+
 }

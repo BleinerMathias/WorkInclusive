@@ -11,12 +11,6 @@ public class FindVacancyUseCase {
         this.vacancyDAO = vacancyDAO;
     }
 
-    public Optional<Vacancy> findOneByName(String name){
-        if (name == null)
-            throw new IllegalArgumentException("Name can not be null.");
-        return vacancyDAO.findOne(name);
-    }
-
     public List<Vacancy> findAll(){
         return vacancyDAO.findAll();
     }

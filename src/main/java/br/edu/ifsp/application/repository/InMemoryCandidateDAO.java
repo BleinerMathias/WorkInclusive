@@ -5,7 +5,7 @@ import br.edu.ifsp.domain.usecases.Candidate.CandidateDAO;
 
 import java.util.*;
 
-public class InMemoryCandidate implements CandidateDAO {
+public class InMemoryCandidateDAO implements CandidateDAO {
 
     private static final Map<String, Candidate> db = new LinkedHashMap<>();
 

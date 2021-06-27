@@ -3,16 +3,20 @@ package br.edu.ifsp.domain.entities.candidate;
 import br.edu.ifsp.domain.entities.vacancy.Abiliity;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class Candidate extends User{
     private PersonalData personalData;
-    private List<AcademicEducation> academicEducationsList;
-    private List<ProfessionalExperience> professionalExperienceList;
-    private List<Accessibility> accessibilities;
-    private List<Abiliity> abiliities;
+    private List<AcademicEducation> academicEducationsList  = new ArrayList<>();
+    private List<ProfessionalExperience> professionalExperienceList = new ArrayList<>();
+    private List<Accessibility> accessibilities  = new ArrayList<>();
+    private List<Abiliity> abiliities  = new ArrayList<>();
 
     public Candidate() {
     }

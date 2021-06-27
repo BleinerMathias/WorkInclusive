@@ -1,5 +1,7 @@
 package br.edu.ifsp.domain.entities.vacancy;
 
+import br.edu.ifsp.domain.entities.company.Company;
+
 public class Vacancy {
     private Integer Id;
     private String name;
@@ -11,12 +13,13 @@ public class Vacancy {
     private Accessibility accessibility;
     private Abiliity abiliity;
     private StatusVacancy statusVacancy;
+    private Company company;
 
-    public Vacancy(String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, Benefits benefits, Accessibility accessibility, Abiliity abiliity, StatusVacancy statusVacancy) {
-        this(null, name, description, hierarchy, compatibilidade, salary, benefits, accessibility, abiliity, statusVacancy) ;
+    public Vacancy(String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, Benefits benefits, Accessibility accessibility, Abiliity abiliity, StatusVacancy statusVacancy, Company company) {
+        this(null, name, description, hierarchy, compatibilidade, salary, benefits, accessibility, abiliity, statusVacancy, company) ;
     }
 
-    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, Benefits benefits, Accessibility accessibility, Abiliity abiliity, StatusVacancy statusVacancy) {
+    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, Benefits benefits, Accessibility accessibility, Abiliity abiliity, StatusVacancy statusVacancy, Company company) {
         this.Id = id;
         this.name = name;
         this.description = description;
@@ -27,6 +30,7 @@ public class Vacancy {
         this.accessibility = accessibility;
         this.abiliity = abiliity;
         this.statusVacancy = statusVacancy;
+        this.company = company;
     }
 
     public Vacancy() {
@@ -114,6 +118,10 @@ public class Vacancy {
         this.statusVacancy = statusVacancy;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
     @Override
     public String toString() {
         return "Vacancy{" +
@@ -126,6 +134,7 @@ public class Vacancy {
                 ", benefits=" + benefits +
                 ", accessibility=" + accessibility +
                 ", abiliity=" + abiliity +
+                ", company=" + company.getCompanyName() +
                 ", statusVacancy=" + statusVacancy +
                 '}';
     }

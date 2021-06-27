@@ -71,40 +71,48 @@ public class CandidateInputValidator extends Validator<Candidate> {
 
         // Professional Experience Validate
 
-        List<ProfessionalExperience> professionalExperienceList = (List<ProfessionalExperience>) new ProfessionalExperience();
-        for (ProfessionalExperience pe : professionalExperienceList) {
-            if (nullOrEmpty(pe.getCompanyName())) {
-                notification.addError("Company name is null or empty");
-            }
+        if(candidate.getProfessionalExperienceList() != null){
+            ArrayList<ProfessionalExperience> professionalExperienceList = new ArrayList<>(candidate.getProfessionalExperienceList());
+            for (ProfessionalExperience pe : professionalExperienceList) {
+                if (nullOrEmpty(pe.getCompanyName())) {
+                    notification.addError("Company name is null or empty");
+                }
 
-            if (!nullOrEmpty(pe.getAdmissionDate().toString()) && !validateDateAfterToday(pe.getAdmissionDate())) {
-                notification.addError("Admission date is null or invalid");
-            }
+                if (nullOrEmpty(pe.getAdmissionDate().toString()) || validateDateAfterToday(pe.getAdmissionDate())) {
+                    notification.addError("Admission date is null or invalid");
+                }
 
-            if (nullOrEmpty(pe.getOffice())) {
-                notification.addError("Office is null or empty");
-            }
+                if (nullOrEmpty(pe.getOffice())) {
+                    notification.addError("Office is null or empty");
+                }
 
-            if (nullOrEmpty(pe.getCarriedActivities())) {
-                notification.addError("CarriedActivities is null or empty");
+                if (nullOrEmpty(pe.getCarriedActivities())) {
+                    notification.addError("CarriedActivities is null or empty");
+                }
             }
         }
 
+
         // Academic Education Validate
-        List<AcademicEducation> academicEducationList = (List<AcademicEducation>) new AcademicEducation();
-        for (AcademicEducation ae : academicEducationList) {
-            if (nullOrEmpty(ae.getCourse())){
-                notification.addError("Course is null or empty");
+        if(candidate.getAcademicEducationsList() != null) {
+            ArrayList<AcademicEducation> academicEducationList = new ArrayList<>(candidate.getAcademicEducationsList());
+            for (AcademicEducation ae : academicEducationList) {
+                if (nullOrEmpty(ae.getCourse())) {
+                    notification.addError("Course is null or empty");
+                }
+                if (nullOrEmpty(ae.getCourseStart().toString()) || validateDateAfterToday(ae.getCourseStart())) {
+                    notification.addError("Course Start is null or invalid");
+                }
+                if (nullOrEmpty(ae.getCourseEnd().toString())) {
+                    notification.addError("Course END is null or empty");
+                }
+                if (nullOrEmpty(ae.getAcademicInstitution())) {
+                    notification.addError("Academic Institution is null or empty");
+                }
             }
-            if (!nullOrEmpty(ae.getCourseStart().toString()) && !validateDateAfterToday(ae.getCourseStart())) {
-                notification.addError("Course Start is null or invalid");
-            }
-            if (nullOrEmpty(ae.getCourseEnd().toString())){
-                notification.addError("Course END is null or empty");
-            }
-            if (nullOrEmpty(ae.getAcademicInstitution())){
-                notification.addError("Academic Institution is null or empty");
-            }
+        }
+        else {
+            notification.addError("Academic Education List is null");
         }
 
         return notification;

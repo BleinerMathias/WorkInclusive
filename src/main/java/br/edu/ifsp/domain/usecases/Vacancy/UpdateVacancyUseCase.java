@@ -17,10 +17,14 @@ public class UpdateVacancyUseCase {
 
     public boolean update(Vacancy vacancy){
 
+        /*
         String name = vacancy.getName();
         if(vacancyDAO.findOneByName(name).isEmpty()){
             throw new EntityNotFoundException("Name not found.");
         }
         return vacancyDAO.update(vacancy);
+
+         */
+        return false;
     }
 }

@@ -32,3 +32,16 @@ Bleiner / Larissa / Guilherme
 (Programando em conjunto com o Code With Me) \
 Verificação e codificando casos de uso,validações e correções de Enums \
 Larissa / Guilherme
+
+**27/06/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme \
+
+<h3>Tarde</h3>
+<ul>
+    <li>Revisando classes e casos de usos</li>
+    <li>Correções de validações</li>
+    <li>Criando os InMemoryDAOs - Candidato, Empresa e vaga</li>
+    <li>Execução de testes de persistência de dados no db "simulado"</li>
+</ul>
+
