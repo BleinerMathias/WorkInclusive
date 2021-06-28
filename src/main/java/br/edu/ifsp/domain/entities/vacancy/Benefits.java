@@ -2,6 +2,7 @@ package br.edu.ifsp.domain.entities.vacancy;
 
 public enum Benefits {
 
+    NONE("Nenhum"),
     FOOD_VOUCHER("Vale Alimentação"),
     MEAL_VOUCHER("Vale Refeição"),
     LIFE_INSURANCE("Seguro de Vida"),

@@ -13,10 +13,10 @@ public class FindCompanyUseCase {
         this.companyDAO = companyDAO;
     }
 
-    public Optional<Company> findByCNPJ(String cpf){
-        if (cpf == null)
+    public Optional<Company> findByCNPJ(String cnpj){
+        if (cnpj == null)
             throw new IllegalArgumentException("CNPJ can not be null.");
-        return companyDAO.findOne(cpf);
+        return companyDAO.findOne(cnpj);
     }
 
     public List<Company> findAll(){

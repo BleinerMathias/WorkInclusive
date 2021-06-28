@@ -4,7 +4,6 @@ import br.edu.ifsp.domain.entities.company.Company;
 
 import java.time.LocalDateTime;
 
-
 public class Interview {
     private Integer id;
     private LocalDateTime date;

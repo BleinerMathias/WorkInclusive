@@ -21,7 +21,6 @@ import br.edu.ifsp.domain.usecases.Company.UpdateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Vacancy.*;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.*;
 
 public class Main {
@@ -43,8 +42,7 @@ public class Main {
     public static void main(String[] args) {
         configureInjection();
 
-        // Candidate
-
+        // Create a new Candidate
         List<String> phones_c1 = new ArrayList<>();
         phones_c1.add("(19) 3333-3333");
         phones_c1.add("(16) 3333-3333");
@@ -67,22 +65,21 @@ public class Main {
         aE_c1.add(ae1);
         aE_c1.add(ae2);
 
-        List<Accessibility> accessibilityList = new ArrayList<>();
-        accessibilityList.add(Accessibility.VISUAL_DEFICIENT);
+        List<Accessibility> acc_c1 = new ArrayList<>();
+        acc_c1.add(Accessibility.VISUAL_DEFICIENT);
 
         List<Abiliity> abiliityList = new ArrayList<>();
         abiliityList.add(Abiliity.JAVA);
         abiliityList.add(Abiliity.JAVASCRIPT);
         abiliityList.add(Abiliity.NODEJS);
         
-        Candidate c1 = new Candidate(p_c1,aE_c1,null,accessibilityList,abiliityList);
+        Candidate c1 = new Candidate(p_c1,aE_c1,null,acc_c1,abiliityList);
         createCandidateUseCase.insert(c1);
 
-        // Company
-
+        // Create a new Company
         List<String> emails_comp1 = new ArrayList<>();
-        emails_comp1.add("groupcomp@company.com.br");
-        emails_comp1.add("group@company.com.br");
+        emails_comp1.add("grupoempresa@company.com.br");
+        emails_comp1.add("grupo@company.com.br");
 
         List<String> phones_comp1 = new ArrayList<>();
         phones_comp1.add("(16) 3343-3343");
@@ -91,7 +88,7 @@ public class Main {
         List<Accessibility> acc_comp1 = new ArrayList<>();
         acc_comp1.add(Accessibility.VISUAL_DEFICIENT);
     
-        Company comp1 = new Company("Gruop", "Group Company", "Computing", "13.146.255/0001-09", emails_comp1, phones_comp1, "Rua Manoel Vasques Pineda, 717", "18114-440", acc_comp1);
+        Company comp1 = new Company("Grupo", "Grupo Empresa", "Informática", "13.146.255/0001-09", emails_comp1, phones_comp1, "Rua Manoel Vasques Pineda, 717", "18114-440", acc_comp1);
         createCompanyUseCase.insert(comp1);
     }
 

@@ -3,13 +3,9 @@ package br.edu.ifsp.domain.entities.candidate;
 import br.edu.ifsp.domain.entities.vacancy.Abiliity;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 
 public class Candidate extends User{
     private PersonalData personalData;

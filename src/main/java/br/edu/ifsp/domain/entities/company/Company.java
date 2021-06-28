@@ -2,7 +2,7 @@ package br.edu.ifsp.domain.entities.company;
 
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,11 +11,14 @@ public class Company extends User {
     private String companyName;
     private String sector;
     private String CNPJ;
-    private List<String> email;
-    private List<String> phone;
+    private List<String> email = new ArrayList<>();
+    private List<String> phone = new ArrayList<>();
     private String address;
     private String postCode;
-    private List<Accessibility> accessibilities;
+    private List<Accessibility> accessibilities = new ArrayList<>();
+
+    public Company(){
+    }
 
     public Company(String name, String companyName, String sector, String CNPJ, List<String> email, List<String> phone, String address, String postCode, List<Accessibility> accessibilities) {
         this.name = name;
