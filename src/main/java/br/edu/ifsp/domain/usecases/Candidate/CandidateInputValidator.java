@@ -72,9 +72,9 @@ public class CandidateInputValidator extends Validator<Candidate> {
         // Professional Experience Validate
 
         if(candidate.getProfessionalExperienceList() != null){
-            ArrayList<ProfessionalExperience> professionalExperienceList = new ArrayList<>(candidate.getProfessionalExperienceList());
-            for (ProfessionalExperience pe : professionalExperienceList) {
-                if (nullOrEmpty(pe.getCompanyName())) {
+                ArrayList<ProfessionalExperience> professionalExperienceList = new ArrayList<>(candidate.getProfessionalExperienceList());
+                for (ProfessionalExperience pe : professionalExperienceList) {
+                    if (nullOrEmpty(pe.getCompanyName())) {
                     notification.addError("Company name is null or empty");
                 }
 

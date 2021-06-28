@@ -2,14 +2,14 @@ package br.edu.ifsp.application;
 
 import br.edu.ifsp.application.repository.InMemoryCandidateDAO;
 import br.edu.ifsp.application.repository.InMemoryCompanyDAO;
+import br.edu.ifsp.application.repository.InMemoryInterviewDAO;
 import br.edu.ifsp.application.repository.InMemoryVacancyDAO;
 import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
 import br.edu.ifsp.domain.entities.candidate.AcademicEducation;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.candidate.PersonalData;
 import br.edu.ifsp.domain.entities.company.Company;
-import br.edu.ifsp.domain.entities.vacancy.Abiliity;
-import br.edu.ifsp.domain.entities.vacancy.Accessibility;
+import br.edu.ifsp.domain.entities.vacancy.*;
 import br.edu.ifsp.domain.usecases.Candidate.CandidateDAO;
 import br.edu.ifsp.domain.usecases.Candidate.CreateCandidateUseCase;
 import br.edu.ifsp.domain.usecases.Candidate.FindCandidateUseCase;
@@ -19,6 +19,8 @@ import br.edu.ifsp.domain.usecases.Company.CreateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.FindCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.UpdateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Vacancy.*;
+import br.edu.ifsp.domain.usecases.interview.InterviewDAO;
+import br.edu.ifsp.domain.usecases.interview.MatchInterviewUseCase;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -37,6 +39,8 @@ public class Main {
     private static FindVacancyUseCase findVacancyUseCase;
     private static UpdateVacancyUseCase updateVacancyUseCase;
     private static RemoveVacancyUseCase removeVacancyUseCase;
+
+    private static MatchInterviewUseCase matchInterviewUseCase;
 
 
     public static void main(String[] args) {
@@ -90,6 +94,62 @@ public class Main {
     
         Company comp1 = new Company("Grupo", "Grupo Empresa", "Informática", "13.146.255/0001-09", emails_comp1, phones_comp1, "Rua Manoel Vasques Pineda, 717", "18114-440", acc_comp1);
         createCompanyUseCase.insert(comp1);
+
+
+        // create new vacancies
+        // Vacancy 1
+        List<Benefits> be_v1 = new ArrayList<>();
+        be_v1.add(Benefits.FOOD_VOUCHER);
+        be_v1.add(Benefits.MEAL_VOUCHER);
+        be_v1.add(Benefits.MEDICAL_PLAN);
+
+        List<Accessibility> acc_v1 = new ArrayList<>();
+        acc_v1.add(Accessibility.VISUAL_DEFICIENT);
+
+        List<Abiliity> abiliityList_v1 = new ArrayList<>();
+        abiliityList_v1.add(Abiliity.JAVA);
+        abiliityList_v1.add(Abiliity.JAVASCRIPT);
+        abiliityList_v1.add(Abiliity.NODEJS);
+
+        Vacancy v1 = new Vacancy("Analista JR","Irá trabalhar com equipe de desenvolvimento em NODE.JS", Hierarchy.JUNIOR, 2900.0,
+                be_v1, acc_v1,abiliityList_v1,StatusVacancy.AVAILABLE,comp1);
+        createVacancyUseCase.insert(v1);
+
+        // Vacancy 2
+        List<Benefits> be_v2 = new ArrayList<>();
+        be_v2.add(Benefits.FOOD_VOUCHER);
+        be_v2.add(Benefits.MEDICAL_PLAN);
+
+        List<Accessibility> acc_v2 = new ArrayList<>();
+        acc_v2.add(Accessibility.FISIC_DEFICIENT);
+
+        List<Abiliity> abiliityList_v2 = new ArrayList<>();
+        abiliityList_v2.add(Abiliity.ANDROID);
+
+        abiliityList_v2.add(Abiliity.ANDROID);
+
+        Vacancy v2 = new Vacancy("Desenvolvedor Senior","Irá desenvolvedor aplicativo android", Hierarchy.SENIOR, 4500.0,
+                be_v2, acc_v2,abiliityList_v2,StatusVacancy.AVAILABLE,comp1);
+        createVacancyUseCase.insert(v2);
+
+        // Vacancy 3
+        List<Benefits> be_v3 = new ArrayList<>();
+        be_v3.add(Benefits.MEDICAL_PLAN);
+
+        List<Accessibility> acc_v3 = new ArrayList<>();
+        acc_v3.add(Accessibility.VISUAL_DEFICIENT);
+
+        List<Abiliity> abiliityList_v3 = new ArrayList<>();
+        abiliityList_v3.add(Abiliity.JAVA);
+        abiliityList_v3.add(Abiliity.JAVASCRIPT);        
+
+        Vacancy v3 = new Vacancy("Estágio","Irá trabalhar com equipe de desenvolvimento em JAVA", Hierarchy.TRAINEE, 1500.00,
+                be_v3, acc_v3,abiliityList_v3,StatusVacancy.AVAILABLE,comp1);
+        createVacancyUseCase.insert(v3);
+
+        // Find the vacancy 1
+       // System.out.println(findVacancyUseCase.findOne(v1.getId()));
+        System.out.println("Vacancy Avaliable to me: \n"+ matchInterviewUseCase.match(c1));
     }
 
     private static void configureInjection(){
@@ -108,6 +168,9 @@ public class Main {
         updateVacancyUseCase = new UpdateVacancyUseCase(vacancyDAO);
         findVacancyUseCase = new FindVacancyUseCase(vacancyDAO);
         removeVacancyUseCase = new RemoveVacancyUseCase(vacancyDAO);
+
+        InterviewDAO interviewDAO = new InMemoryInterviewDAO();
+        matchInterviewUseCase = new MatchInterviewUseCase(findCandidateUseCase,findVacancyUseCase);
 
     }
 

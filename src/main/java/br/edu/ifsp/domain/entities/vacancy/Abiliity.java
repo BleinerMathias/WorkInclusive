@@ -13,7 +13,7 @@ public enum Abiliity {
     FLASK("Flask"),
     JAVA("Java"),
     C_PLUS_PLUS("C++"),
-    CSHAP("C#"),
+    CSHARP("C#"),
     PHP("PHP"),
     DOTNET(".NET"),
     LARAVEL("Laravel"),

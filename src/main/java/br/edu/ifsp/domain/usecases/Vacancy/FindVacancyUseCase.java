@@ -20,4 +20,5 @@ public class FindVacancyUseCase {
     public List<Vacancy> findAll(){
         return vacancyDAO.findAll();
     }
+
 }

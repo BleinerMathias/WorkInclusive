@@ -2,33 +2,36 @@ package br.edu.ifsp.domain.entities.vacancy;
 
 import br.edu.ifsp.domain.entities.company.Company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Vacancy {
-    private Integer Id;
+    private Integer id;
     private String name;
     private String description;
     private Hierarchy hierarchy;
     private Integer compatibilidade;
-    private Double Salary;
-    private Benefits benefits;
-    private Accessibility accessibility;
-    private Abiliity abiliity;
+    private Double salary;
+    private List<Benefits> benefitsList = new ArrayList<>();
+    private List<Accessibility> accessibilityList = new ArrayList<>();
+    private List<Abiliity> abiliityList = new ArrayList<>();
     private StatusVacancy statusVacancy;
     private Company company;
 
-    public Vacancy(String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, Benefits benefits, Accessibility accessibility, Abiliity abiliity, StatusVacancy statusVacancy, Company company) {
-        this(null, name, description, hierarchy, compatibilidade, salary, benefits, accessibility, abiliity, statusVacancy, company) ;
+    public Vacancy(String name, String description, Hierarchy hierarchy, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<Abiliity> abiliityList, StatusVacancy statusVacancy, Company company) {
+      this(null, name, description, hierarchy, 0,salary,benefitsList, accessibilityList, abiliityList, statusVacancy, company);
     }
 
-    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, Benefits benefits, Accessibility accessibility, Abiliity abiliity, StatusVacancy statusVacancy, Company company) {
-        this.Id = id;
+    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<Abiliity> abiliityList, StatusVacancy statusVacancy, Company company) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.hierarchy = hierarchy;
         this.compatibilidade = compatibilidade;
-        this.Salary = salary;
-        this.benefits = benefits;
-        this.accessibility = accessibility;
-        this.abiliity = abiliity;
+        this.salary = salary;
+        this.benefitsList = benefitsList;
+        this.accessibilityList = accessibilityList;
+        this.abiliityList = abiliityList;
         this.statusVacancy = statusVacancy;
         this.company = company;
     }
@@ -38,12 +41,49 @@ public class Vacancy {
         statusVacancy = StatusVacancy.AVAILABLE;
     }
 
+
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public List<Benefits> getBenefitsList() {
+        return benefitsList;
+    }
+
+    public void setBenefitsList(List<Benefits> benefitsList) {
+        this.benefitsList = benefitsList;
+    }
+
+    public List<Accessibility> getAccessibilityList() {
+        return accessibilityList;
+    }
+
+    public void setAccessibilityList(List<Accessibility> accessibilityList) {
+        this.accessibilityList = accessibilityList;
+    }
+
+    public List<Abiliity> getAbiliityList() {
+        return abiliityList;
+    }
+
+    public void setAbiliityList(List<Abiliity> abiliityList) {
+        this.abiliityList = abiliityList;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public String getName() {
@@ -78,37 +118,7 @@ public class Vacancy {
         this.compatibilidade = compatibilidade;
     }
 
-    public Double getSalary() {
-        return Salary;
-    }
 
-    public void setSalary(Double salary) {
-        Salary = salary;
-    }
-
-    public Benefits getBenefits() {
-        return benefits;
-    }
-
-    public void setBenefits(Benefits benefits) {
-        this.benefits = benefits;
-    }
-
-    public Accessibility getAccessibility() {
-        return accessibility;
-    }
-
-    public void setAccessibility(Accessibility accessibility) {
-        this.accessibility = accessibility;
-    }
-
-    public Abiliity getAbiliity() {
-        return abiliity;
-    }
-
-    public void setAbiliity(Abiliity abiliity) {
-        this.abiliity = abiliity;
-    }
 
     public StatusVacancy getStatusVacancy() {
         return statusVacancy;
@@ -125,17 +135,17 @@ public class Vacancy {
     @Override
     public String toString() {
         return "Vacancy{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", hierarchy=" + hierarchy +
                 ", compatibilidade=" + compatibilidade +
-                ", Salary=" + Salary +
-                ", benefits=" + benefits +
-                ", accessibility=" + accessibility +
-                ", abiliity=" + abiliity +
+                ", Salary=" + salary +
+                ", benefits=" + benefitsList +
+                ", accessibility=" + accessibilityList +
+                ", abiliity=" + abiliityList +
                 ", company=" + company.getCompanyName() +
                 ", statusVacancy=" + statusVacancy +
-                '}';
+                '}'+ '\n';
     }
 }

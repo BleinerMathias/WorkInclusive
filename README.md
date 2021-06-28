@@ -45,3 +45,11 @@ Bleiner / Larissa / Guilherme \
     <li>Execução de testes de persistência de dados no db "simulado"</li>
 </ul>
 
+<h3>Noite</h3>
+<ul>
+    <li>Revisando classes e Enums</li>
+    <li>Correções de validações</li>
+    <li>Primeira solução para "match" entre vaga e candidato</li>
+    <li>Execução de testes de persistência de dados no db "simulado"</li>
+</ul>
+

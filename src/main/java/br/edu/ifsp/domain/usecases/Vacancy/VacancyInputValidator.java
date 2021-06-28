@@ -24,6 +24,7 @@ public class VacancyInputValidator extends Validator<Vacancy> {
         if (nullOrEmpty(vacancy.getSalary().toString())) {
             notification.addError("Salary is null or empty");
         }
+
     return notification;
     }
 }
