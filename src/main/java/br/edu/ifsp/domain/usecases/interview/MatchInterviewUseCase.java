@@ -43,8 +43,8 @@ public class MatchInterviewUseCase {
            }
         }
 
-       for (Vacancy vm : vacancyAccessible) {
-           Integer countAbility =0;
+        for (Vacancy vm : vacancyAccessible) {
+           Integer countAbility = 0;
            Integer coenfient = (vm.getAbiliityList().size() * 70)/100;
 
            for(Abiliity abiliity: candidate.getAbiliities()){
@@ -57,6 +57,7 @@ public class MatchInterviewUseCase {
                }
            }
        }
+
         return vacancyMatch;
     }
 

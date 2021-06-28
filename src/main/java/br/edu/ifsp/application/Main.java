@@ -1,9 +1,7 @@
 package br.edu.ifsp.application;
 
-import br.edu.ifsp.application.repository.InMemoryCandidateDAO;
-import br.edu.ifsp.application.repository.InMemoryCompanyDAO;
-import br.edu.ifsp.application.repository.InMemoryInterviewDAO;
-import br.edu.ifsp.application.repository.InMemoryVacancyDAO;
+import br.edu.ifsp.application.repository.*;
+import br.edu.ifsp.domain.usecases.candidacy.CandidacyDAO;
 import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
 import br.edu.ifsp.domain.entities.candidate.AcademicEducation;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
@@ -19,6 +17,8 @@ import br.edu.ifsp.domain.usecases.Company.CreateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.FindCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.UpdateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Vacancy.*;
+import br.edu.ifsp.domain.usecases.candidacy.CandidateSubscribeInVacancy;
+import br.edu.ifsp.domain.usecases.candidacy.ListCandidacyUseCase;
 import br.edu.ifsp.domain.usecases.interview.InterviewDAO;
 import br.edu.ifsp.domain.usecases.interview.MatchInterviewUseCase;
 
@@ -42,6 +42,8 @@ public class Main {
 
     private static MatchInterviewUseCase matchInterviewUseCase;
 
+    private static CandidateSubscribeInVacancy candidateSubscribeInVacancy;
+    private static ListCandidacyUseCase listCandidacyUseCase;
 
     public static void main(String[] args) {
         configureInjection();
@@ -149,7 +151,13 @@ public class Main {
 
         // Find the vacancy 1
        // System.out.println(findVacancyUseCase.findOne(v1.getId()));
-        System.out.println("Vacancy Avaliable to me: \n"+ matchInterviewUseCase.match(c1));
+        List<Vacancy> myMatchVacancy = c1.myMatchVacancy(matchInterviewUseCase);
+        System.out.println("Vacancy Avaliable to me: \n"+ myMatchVacancy);
+
+       candidateSubscribeInVacancy.subscribe(c1,myMatchVacancy.get(1));
+        System.out.println(listCandidacyUseCase.listAllCandidacy(comp1));
+
+
     }
 
     private static void configureInjection(){
@@ -171,6 +179,10 @@ public class Main {
 
         InterviewDAO interviewDAO = new InMemoryInterviewDAO();
         matchInterviewUseCase = new MatchInterviewUseCase(findCandidateUseCase,findVacancyUseCase);
+
+        CandidacyDAO candidacyDAO = new InMemoryCandidacyDAO();
+        candidateSubscribeInVacancy = new CandidateSubscribeInVacancy(candidacyDAO);
+        listCandidacyUseCase = new ListCandidacyUseCase(candidacyDAO);
 
     }
 

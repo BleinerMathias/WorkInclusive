@@ -3,6 +3,8 @@ package br.edu.ifsp.domain.entities.candidate;
 import br.edu.ifsp.domain.entities.vacancy.Abiliity;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
+import br.edu.ifsp.domain.entities.vacancy.Vacancy;
+import br.edu.ifsp.domain.usecases.interview.MatchInterviewUseCase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +69,11 @@ public class Candidate extends User{
 
     public void setAbiliities(List<Abiliity> abiliities) {
         this.abiliities = abiliities;
+    }
+
+    public List<Vacancy> myMatchVacancy(MatchInterviewUseCase matchInterviewUseCase){
+        return matchInterviewUseCase.match(this);
+
     }
 
     @Override
