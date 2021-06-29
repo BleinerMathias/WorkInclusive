@@ -2,6 +2,8 @@ package br.edu.ifsp.domain.usecases.candidacy;
 
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.company.Company;
+import br.edu.ifsp.domain.entities.vacancy.Vacancy;
+import br.edu.ifsp.domain.usecases.utils.EntityAlreadyExistsException;
 
 import java.util.List;
 
@@ -13,9 +15,11 @@ public class ListCandidacyUseCase {
         this.candidacyDAO = candidacyDAO;
     }
 
-    public List<Candidacy> listAllCandidacy(Company company){
-        return candidacyDAO.findByCompany(company.getCNPJ());
+    public List<Candidacy> listAllCandidacyByVacancy(Company company, Vacancy vacancy){
+        // Create a Exception
+        if(!company.getCNPJ().equals(vacancy.getCompany().getCNPJ()))
+            return null;
+        return candidacyDAO.findAllByVancancy(company, vacancy);
     }
-
 
 }

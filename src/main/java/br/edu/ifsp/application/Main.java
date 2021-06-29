@@ -149,15 +149,20 @@ public class Main {
                 be_v3, acc_v3,abiliityList_v3,StatusVacancy.AVAILABLE,comp1);
         createVacancyUseCase.insert(v3);
 
-        // Find the vacancy 1
-       // System.out.println(findVacancyUseCase.findOne(v1.getId()));
+        // Match Vacancy Candidate 1
         List<Vacancy> myMatchVacancy = c1.myMatchVacancy(matchInterviewUseCase);
+
+        // Show Match List Vacancy - Candidate 1
         System.out.println("Vacancy Avaliable to me: \n"+ myMatchVacancy);
 
-       candidateSubscribeInVacancy.subscribe(c1,myMatchVacancy.get(1));
-        System.out.println(listCandidacyUseCase.listAllCandidacy(comp1));
+        // Candidate subscribe in vacancy índice 0
+        candidateSubscribeInVacancy.subscribe(c1,myMatchVacancy.get(0)); //
 
+        System.out.println("\n Candidatos inscritos para a vaga de id 1 da empresa comp1");
+        System.out.println(comp1.myListCandidateToVacancy(listCandidacyUseCase,v1));
 
+        System.out.println("\n Candidatos inscritos para a vaga de id 3 da empresa comp1");
+        System.out.println(comp1.myListCandidateToVacancy(listCandidacyUseCase,v3));
     }
 
     private static void configureInjection(){

@@ -1,6 +1,8 @@
 package br.edu.ifsp.application.repository;
 
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
+import br.edu.ifsp.domain.entities.company.Company;
+import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 import br.edu.ifsp.domain.usecases.candidacy.CandidacyDAO;
 
 import java.util.*;
@@ -48,8 +50,12 @@ public class InMemoryCandidacyDAO implements CandidacyDAO {
         return false;
     }
 
+
     @Override
-    public List<Candidacy> findByCompany(String cnpj) {
-       return new ArrayList<>(db.values());
+    public List<Candidacy> findAllByVancancy(Company company, Vacancy vacancy) {
+        return new ArrayList<>(db.values().stream()
+                .filter(candidacy -> candidacy.getVacancy().getCompany().getCNPJ().equals(company.getCNPJ()))
+                .filter(candidacy -> candidacy.getVacancy().getId().equals(vacancy.getId()))
+                .collect(Collectors.toList()));
     }
 }

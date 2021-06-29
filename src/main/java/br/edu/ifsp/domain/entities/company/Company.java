@@ -1,7 +1,11 @@
 package br.edu.ifsp.domain.entities.company;
 
+import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
+import br.edu.ifsp.domain.entities.vacancy.Vacancy;
+import br.edu.ifsp.domain.usecases.candidacy.ListCandidacyUseCase;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -102,6 +106,10 @@ public class Company extends User {
 
     public void setAccessibilities(List<Accessibility> accessibilities) {
         this.accessibilities = accessibilities;
+    }
+
+    public List<Candidacy> myListCandidateToVacancy(ListCandidacyUseCase listCandidacyUseCase, Vacancy vacancy){
+        return listCandidacyUseCase.listAllCandidacyByVacancy(this, vacancy);
     }
 
     @Override
