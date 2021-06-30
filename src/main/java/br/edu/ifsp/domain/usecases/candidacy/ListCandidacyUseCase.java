@@ -3,7 +3,7 @@ package br.edu.ifsp.domain.usecases.candidacy;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.vacancy.Vacancy;
-import br.edu.ifsp.domain.usecases.utils.EntityAlreadyExistsException;
+
 
 import java.util.List;
 

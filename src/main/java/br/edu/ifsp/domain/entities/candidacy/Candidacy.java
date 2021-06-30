@@ -7,7 +7,6 @@ public class Candidacy {
     private int id;
     private Vacancy vacancy;
     private Candidate candidate;
-
     private StatusCandidacy statusCandidacy;
 
 
@@ -16,6 +15,7 @@ public class Candidacy {
         this.candidate = candidate;
         this.statusCandidacy = StatusCandidacy.IN_ANALYSIS;
     }
+
 
     public int getId() {
         return id;

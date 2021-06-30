@@ -1,7 +1,6 @@
 package br.edu.ifsp.domain.usecases.Vacancy;
 
 import br.edu.ifsp.domain.entities.vacancy.Vacancy;
-import br.edu.ifsp.domain.usecases.utils.EntityAlreadyExistsException;
 import br.edu.ifsp.domain.usecases.utils.Notification;
 import br.edu.ifsp.domain.usecases.utils.Validator;
 
