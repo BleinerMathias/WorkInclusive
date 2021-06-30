@@ -53,3 +53,50 @@ Bleiner / Larissa / Guilherme \
     <li>Execução de testes de persistência de dados no db "simulado"</li>
 </ul>
 
+**28/06/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / 
+
+<ul>
+    <li>Desenvolvimento - Match entre candidato e vaga</li>
+    <li>Correções de validações</li>
+</ul>
+
+**29/06/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Correções em candidaturas</li>
+    <li>Criando sistema de aceite de candidatura para vaga</li>
+    <li>Criando caso de uso para criar entrevista</li>
+</ul>
+
+<h1> Primeira entrega - Entrega parcial :sweat_smile: </h1>
+
+Foi entregue o sistema realizando (em memória)
+
+<ul>
+    <li>Criar usuário empresa</li>
+    <li>Criar usuário candidato</li>
+    <li>Empresa gera vagas</li>
+    <li>Visualiza candidaturas para vagas</li>
+    <li>Candidato verifica matchs com vagas</li>
+    <li>Candidato se inscreve em vagas</li>
+    <li>Candidato visualiza situação da sua candidatura</li>
+</ul>
+
+<h2>	:warning: Para correções 	:warning:</h2>
+<ul>
+    <li>Corrigir aceite e negação da candidatura do candidato a vaga</li>
+</ul>
+
+<h2> :memo: Para fazer</h2>
+<ul>
+    <li>Criar entrevista</li>
+    <li>Combinar data e horário de entrevista</li>
+    <li>Finalizar processo de entrevista</li>
+</ul>
+
+
+
