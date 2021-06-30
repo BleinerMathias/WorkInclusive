@@ -4,7 +4,7 @@ import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 import br.edu.ifsp.domain.usecases.utils.Notification;
 import br.edu.ifsp.domain.usecases.utils.Validator;
 
-public class VacancyInputValidator extends Validator<Vacancy> {
+public class CreateVacancyInputValidator extends Validator<Vacancy> {
 
     public Notification validate(Vacancy vacancy) {
         Notification notification = new Notification();

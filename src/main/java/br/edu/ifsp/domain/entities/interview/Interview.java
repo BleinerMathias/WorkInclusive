@@ -1,4 +1,5 @@
 package br.edu.ifsp.domain.entities.interview;
+import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.company.Company;
 
@@ -6,27 +7,24 @@ import java.time.LocalDateTime;
 
 public class Interview {
     private Integer id;
-    private LocalDateTime date;
-    private LocalDateTime timeOfInterview;
+    private LocalDateTime dateTime;
     private String address;
-    private Candidate candidate;
+    private Candidacy candidacy;
     private Company company;
 
 
-    public Interview(LocalDateTime date, LocalDateTime timeOfInterview, String address, Candidate candidate, Company company) {
-        this.date = date;
-        this.timeOfInterview = timeOfInterview;
+    public Interview(LocalDateTime dateTime, String address, Candidacy candidacy, Company company) {
+        this.dateTime = dateTime;
         this.address = address;
-        this.candidate = candidate;
+        this.candidacy = candidacy;
         this.company = company;
     }
 
-    public Interview(Integer id, LocalDateTime date, LocalDateTime timeOfInterview, String address, Candidate candidate, Company company) {
+    public Interview(Integer id, LocalDateTime dateTime, String address, Candidacy candidacy, Company company) {
         this.id = id;
-        this.date = date;
-        this.timeOfInterview = timeOfInterview;
+        this.dateTime = dateTime;
         this.address = address;
-        this.candidate = candidate;
+        this.candidacy = candidacy;
         this.company = company;
     }
 
@@ -38,20 +36,12 @@ public class Interview {
         this.id = id;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public LocalDateTime getTimeOfInterview() {
-        return timeOfInterview;
-    }
-
-    public void setTimeOfInterview(LocalDateTime timeOfInterview) {
-        this.timeOfInterview = timeOfInterview;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getAddress() {
@@ -62,12 +52,12 @@ public class Interview {
         this.address = address;
     }
 
-    public Candidate getCandidate() {
-        return candidate;
+    public Candidacy getCandidacy() {
+        return candidacy;
     }
 
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
+    public void setCandidacy(Candidacy candidacy) {
+        this.candidacy = candidacy;
     }
 
     public Company getCompany() {
@@ -82,10 +72,9 @@ public class Interview {
     public String toString() {
         return "Interview{" +
                 "id=" + id +
-                ", date=" + date +
-                ", timeOfInterview=" + timeOfInterview +
+                ", date=" + dateTime +
                 ", address='" + address + '\'' +
-                ", candidate=" + candidate +
+                ", candidate=" + candidacy +
                 ", company=" + company +
                 '}';
     }

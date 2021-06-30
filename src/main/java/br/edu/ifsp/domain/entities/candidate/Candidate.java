@@ -4,10 +4,11 @@ import br.edu.ifsp.domain.entities.vacancy.Abiliity;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
 import br.edu.ifsp.domain.entities.vacancy.Vacancy;
-import br.edu.ifsp.domain.usecases.interview.MatchInterviewUseCase;
+import br.edu.ifsp.domain.usecases.candidacy.MatchCandidacyUseCase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Candidate extends User{
     private PersonalData personalData;
@@ -71,9 +72,22 @@ public class Candidate extends User{
         this.abiliities = abiliities;
     }
 
-    public List<Vacancy> myMatchVacancy(MatchInterviewUseCase matchInterviewUseCase){
-        return matchInterviewUseCase.match(this);
+    public List<Vacancy> myMatchVacancy(MatchCandidacyUseCase matchCandidacyUseCase){
+        return matchCandidacyUseCase.match(this);
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Candidate candidate = (Candidate) o;
+        return Objects.equals(personalData, candidate.personalData) && Objects.equals(academicEducationsList, candidate.academicEducationsList) && Objects.equals(professionalExperienceList, candidate.professionalExperienceList) && Objects.equals(accessibilities, candidate.accessibilities) && Objects.equals(abiliities, candidate.abiliities);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(personalData, academicEducationsList, professionalExperienceList, accessibilities, abiliities);
     }
 
     @Override

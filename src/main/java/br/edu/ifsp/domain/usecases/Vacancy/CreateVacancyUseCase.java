@@ -13,7 +13,7 @@ public class CreateVacancyUseCase {
     }
 
     public Integer insert(Vacancy vacancy){
-        Validator<Vacancy> validator = new VacancyInputValidator();
+        Validator<Vacancy> validator = new CreateVacancyInputValidator();
         Notification notification = validator.validate(vacancy);
 
         if(notification.hasError()){

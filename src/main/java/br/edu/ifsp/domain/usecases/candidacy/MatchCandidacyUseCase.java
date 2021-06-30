@@ -1,4 +1,4 @@
-package br.edu.ifsp.domain.usecases.interview;
+package br.edu.ifsp.domain.usecases.candidacy;
 
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.candidate.ProfessionalExperience;
@@ -11,6 +11,7 @@ import br.edu.ifsp.domain.usecases.Company.FindCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.UpdateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Vacancy.FindVacancyUseCase;
 import br.edu.ifsp.domain.usecases.Vacancy.UpdateVacancyUseCase;
+import br.edu.ifsp.domain.usecases.interview.InterviewDAO;
 
 import java.nio.channels.AcceptPendingException;
 import java.util.ArrayList;
@@ -19,12 +20,12 @@ import java.util.Optional;
 
 
 // This UseCase show to cadidate which vacancies he can apply
-public class MatchInterviewUseCase {
+public class MatchCandidacyUseCase {
     private InterviewDAO interviewDAO;
     private FindCandidateUseCase findCandidateUseCase;
     private FindVacancyUseCase findVacancyUseCase;
 
-    public MatchInterviewUseCase(FindCandidateUseCase findCandidateUseCase, FindVacancyUseCase findVacancyUseCase) {
+    public MatchCandidacyUseCase(FindCandidateUseCase findCandidateUseCase, FindVacancyUseCase findVacancyUseCase) {
         this.findCandidateUseCase = findCandidateUseCase;
         this.findVacancyUseCase = findVacancyUseCase;
     }

@@ -6,9 +6,11 @@ import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 import br.edu.ifsp.domain.usecases.utils.DAO;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface CandidacyDAO extends DAO<Candidacy, Integer> {
     List<Candidacy> findAllByVancancy(Company company, Vacancy vacancy);
+    Optional<Candidacy> findCandidacyById(Integer id);
 
 }

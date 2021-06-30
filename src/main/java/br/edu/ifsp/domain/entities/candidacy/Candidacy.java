@@ -37,6 +37,10 @@ public class Candidacy {
         this.statusCandidacy = statusCandidacy;
     }
 
+    public StatusCandidacy getStatusCandidacy() {
+        return statusCandidacy;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Candidacy{");

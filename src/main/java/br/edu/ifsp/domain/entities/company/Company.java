@@ -112,6 +112,7 @@ public class Company extends User {
         return listCandidacyUseCase.listAllCandidacyByVacancy(this, vacancy);
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

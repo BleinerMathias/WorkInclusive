@@ -13,7 +13,6 @@ public class InMemoryCandidacyDAO implements CandidacyDAO {
     private static final Map<Integer, Candidacy> db = new LinkedHashMap<>();
     private static int id;
 
-
     @Override
     public Integer create(Candidacy candidacy) {
         id++;
@@ -62,5 +61,12 @@ public class InMemoryCandidacyDAO implements CandidacyDAO {
                 .filter(candidacy -> candidacy.getVacancy().getCompany().getCNPJ().equals(company.getCNPJ()))
                 .filter(candidacy -> candidacy.getVacancy().getId().equals(vacancy.getId()))
                 .collect(Collectors.toList()));
+    }
+
+    @Override
+    public Optional<Candidacy> findCandidacyById(Integer id) {
+        if(db.containsKey(id))
+            return Optional.of(db.get(id));
+        return null;
     }
 }
