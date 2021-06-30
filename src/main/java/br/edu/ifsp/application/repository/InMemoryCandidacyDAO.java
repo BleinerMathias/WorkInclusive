@@ -37,6 +37,11 @@ public class InMemoryCandidacyDAO implements CandidacyDAO {
 
     @Override
     public boolean update(Candidacy candidacy) {
+        Integer id = candidacy.getId();
+        if(db.containsKey(id)){
+            db.replace(id, candidacy);
+            return true;
+        }
         return false;
     }
 
