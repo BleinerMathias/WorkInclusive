@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public class FindCandidacyUseCase {
 
-    CandidacyDAO candidacyDAO;
+    private CandidacyDAO candidacyDAO;
 
     public FindCandidacyUseCase(CandidacyDAO candidacyDAO) {
         this.candidacyDAO = candidacyDAO;

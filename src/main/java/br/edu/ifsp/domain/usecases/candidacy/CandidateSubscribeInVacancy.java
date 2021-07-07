@@ -6,7 +6,7 @@ import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 
 public class CandidateSubscribeInVacancy {
 
-    CandidacyDAO candidacyDAO;
+    private CandidacyDAO candidacyDAO;
 
     public CandidateSubscribeInVacancy(CandidacyDAO candidacyDAO) {
         this.candidacyDAO = candidacyDAO;

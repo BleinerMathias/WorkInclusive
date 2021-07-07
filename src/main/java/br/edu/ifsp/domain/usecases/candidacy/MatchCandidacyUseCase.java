@@ -30,12 +30,13 @@ public class MatchCandidacyUseCase {
         this.findVacancyUseCase = findVacancyUseCase;
     }
 
-    // Verificar se tem meet
+       // Verificar se tem meet
        public List<Vacancy> match(Candidate candidate){
         List<Vacancy> vacancyInSystem = new ArrayList<>(findVacancyUseCase.findAll());
         List<Vacancy> vacancyAccessible = new ArrayList<>();
         List<Vacancy> vacancyMatch = new ArrayList<>();
 
+        // vaga.remove()
         for (Vacancy vacancy : vacancyInSystem) {
            for(Accessibility vaAccessibility: candidate.getAccessibilities()){
               if (vacancy.getAccessibilityList().contains(vaAccessibility)){
@@ -44,6 +45,8 @@ public class MatchCandidacyUseCase {
            }
         }
 
+
+        // Criar variavel para porcentagem
         for (Vacancy vm : vacancyAccessible) {
            Integer countAbility = 0;
            Integer coenfient = (vm.getAbiliityList().size() * 70)/100;
@@ -58,7 +61,6 @@ public class MatchCandidacyUseCase {
                }
            }
        }
-
         return vacancyMatch;
     }
 

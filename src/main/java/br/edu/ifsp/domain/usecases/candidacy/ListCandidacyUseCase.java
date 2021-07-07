@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ListCandidacyUseCase {
 
-    CandidacyDAO candidacyDAO;
+    private CandidacyDAO candidacyDAO;
 
     public ListCandidacyUseCase(CandidacyDAO candidacyDAO) {
         this.candidacyDAO = candidacyDAO;

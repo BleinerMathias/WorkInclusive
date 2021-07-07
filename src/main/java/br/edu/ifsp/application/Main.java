@@ -190,6 +190,7 @@ public class Main {
                 be_v3, acc_v3,abiliityList_v3,StatusVacancy.AVAILABLE,comp1);
         createVacancyUseCase.insert(v3);
 
+
         // Match Vacancy Candidate 1
         List<Vacancy> myMatchVacancyC1 = c1.myMatchVacancy(matchCandidacyUseCase);
 
@@ -219,7 +220,11 @@ public class Main {
 
 
         System.out.println("\n" + findCandidacyUseCase.findCandidacyById(2));
-         // Comp accept candidacy of the Larissa
+
+        // Comp accept candidacy of the Larissa
+
+
+
 
     }
 

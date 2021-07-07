@@ -10,8 +10,8 @@ import br.edu.ifsp.domain.usecases.utils.Validator;
 import java.time.LocalDateTime;
 
 public class CreateInterviewUseCase{
-    InterviewDAO interviewDAO;
-    FindCandidacyUseCase findCandidacyUseCase;
+    private InterviewDAO interviewDAO;
+    private FindCandidacyUseCase findCandidacyUseCase;
 
     public CreateInterviewUseCase(InterviewDAO interviewDAO, FindCandidacyUseCase findCandidacyUseCase) {
         this.interviewDAO = interviewDAO;
