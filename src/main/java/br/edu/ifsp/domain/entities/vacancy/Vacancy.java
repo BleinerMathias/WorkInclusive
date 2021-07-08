@@ -12,26 +12,26 @@ public class Vacancy {
     private Hierarchy hierarchy;
     private Integer compatibilidade;
     private Double salary;
-    private List<Benefits> benefitsList = new ArrayList<>();
-    private List<Accessibility> accessibilityList = new ArrayList<>();
-    private List<Abiliity> abiliityList = new ArrayList<>();
+    private List<Benefits> benefitsList;
+    private List<Accessibility> accessibilityList;
+    private List<String> abiliityList;
     private StatusVacancy statusVacancy;
     private Company company;
 
-    public Vacancy(String name, String description, Hierarchy hierarchy, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<Abiliity> abiliityList, StatusVacancy statusVacancy, Company company) {
-      this(null, name, description, hierarchy, 0,salary,benefitsList, accessibilityList, abiliityList, statusVacancy, company);
+    public Vacancy(String name, String description, Hierarchy hierarchy, Double salary, StatusVacancy statusVacancy, Company company) {
+      this(null, name, description, hierarchy, 0,salary,null,null,null, statusVacancy, company);
     }
 
-    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<Abiliity> abiliityList, StatusVacancy statusVacancy, Company company) {
+    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<String> abiliityList, StatusVacancy statusVacancy, Company company) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.hierarchy = hierarchy;
         this.compatibilidade = compatibilidade;
         this.salary = salary;
-        this.benefitsList = benefitsList;
-        this.accessibilityList = accessibilityList;
-        this.abiliityList = abiliityList;
+        this.benefitsList = new ArrayList<>();
+        this.accessibilityList= new ArrayList<>();
+        this.abiliityList = new ArrayList<>();
         this.statusVacancy = statusVacancy;
         this.company = company;
     }
@@ -74,11 +74,11 @@ public class Vacancy {
         this.accessibilityList = accessibilityList;
     }
 
-    public List<Abiliity> getAbiliityList() {
+    public List<String> getAbiliityList() {
         return abiliityList;
     }
 
-    public void setAbiliityList(List<Abiliity> abiliityList) {
+    public void setAbiliityList(List<String> abiliityList) {
         this.abiliityList = abiliityList;
     }
 
@@ -110,16 +110,6 @@ public class Vacancy {
         this.hierarchy = hierarchy;
     }
 
-    public Integer getCompatibilidade() {
-        return compatibilidade;
-    }
-
-    public void setCompatibilidade(Integer compatibilidade) {
-        this.compatibilidade = compatibilidade;
-    }
-
-
-
     public StatusVacancy getStatusVacancy() {
         return statusVacancy;
     }
@@ -131,6 +121,29 @@ public class Vacancy {
     public Company getCompany() {
         return company;
     }
+
+    public void addBenefits(Benefits benefits){
+        benefitsList.add(benefits);
+    }
+    public void removeBenefits(Benefits benefits){
+        benefitsList.remove(benefits);
+    }
+
+    public void addAccessibility(Accessibility accessibility){
+        accessibilityList.add(accessibility);
+    }
+    public void removeAccessibility(Accessibility accessibility){
+        accessibilityList.remove(accessibility);
+    }
+
+    public void addAbiliity(String abiliity){
+        abiliityList.add(abiliity);
+    }
+    public void removeAbiliity(String abiliity){
+        abiliityList.remove(abiliity);
+    }
+
+
 
     @Override
     public String toString() {

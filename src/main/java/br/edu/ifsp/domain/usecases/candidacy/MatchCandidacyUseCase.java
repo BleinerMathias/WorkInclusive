@@ -51,7 +51,7 @@ public class MatchCandidacyUseCase {
            Integer countAbility = 0;
            Integer coenfient = (vm.getAbiliityList().size() * 70)/100;
 
-           for(Abiliity abiliity: candidate.getAbiliities()){
+           for(String abiliity: candidate.getAbiliities()){
                if (vm.getAbiliityList().contains(abiliity)){
                    countAbility++;
                }
