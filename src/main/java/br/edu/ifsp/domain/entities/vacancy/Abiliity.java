@@ -1,46 +1,23 @@
 package br.edu.ifsp.domain.entities.vacancy;
 
-public enum Abiliity {
+public class Abiliity {
 
+    private String name;
 
-    UI_UX("UI/UX"),
-    MYSQL("Mysql"),
-    MONGO_DB("MongoDB"),
-    ORACLE_SQL("OracleDb"),
-    SQL_SERVER("SQL server"),
-    POSTGRE_SQL("PostgreSQL"),
-    PYTHON("Python"),
-    FLASK("Flask"),
-    JAVA("Java"),
-    C_PLUS_PLUS("C++"),
-    CSHARP("C#"),
-    PHP("PHP"),
-    DOTNET(".NET"),
-    LARAVEL("Laravel"),
-    REDIS("Redis"),
-    JAVASCRIPT("Javascript"),
-    ANGULARJS("AngularJS"),
-    NODEJS("NodeJS"),
-    REACTJS("ReactJS"),
-    VUEJS("VueJS"),
-    BOOTSTRAP("Bootstrap"),
-    ANDROID("Android"),
-    FLUTTER("Fltter"),
-    SWIFT("Swift"),
-    IONIC("Ionic"),
-    GOLANG("GoLang"),
-    ARC_SISTEMAS("Aquitetura de sistemas"),
-    AWS("AWS"),
-    AZURE("Azure");
+    public Abiliity(String name) {
+        this.name = name;
+    }
 
-    private String label;
+    public String getName() {
+        return name;
+    }
 
-    Abiliity(String label) {
-        this.label = label;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return label;
+        return name;
     }
 }

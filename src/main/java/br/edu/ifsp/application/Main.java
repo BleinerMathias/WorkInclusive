@@ -56,143 +56,117 @@ public class Main {
         configureInjection();
 
 
-
-        // Create a new Candidate
-        List<String> phones_c1 = new ArrayList<>();
-        phones_c1.add("(19) 3333-3333");
-        phones_c1.add("(16) 3333-3333");
-
-        List<String> emails_c1 = new ArrayList<>();
-        emails_c1.add("larissa@teste.com.br");
-        emails_c1.add("larissa2@teste.com.br");
-
         PersonalData p_c1 = new PersonalData("Larissa Aline", "111.111.111-11",
-                LocalDate.of(1996,5,5),"13690-000","Brasileira", phones_c1, emails_c1);
-        
-        List<AcademicEducation> aE_c1 = new ArrayList<>();
-        AcademicEducation ae1 = new AcademicEducation("Técnico em enfermagem", LocalDate.of(2017, 6, 5),
-                LocalDate.of(2019, 6, 5),true, AcademicDegree.TECHNOLOSIT,"SENAC");
-        
-        AcademicEducation ae2 = new AcademicEducation("Análise e desenolvimento de sistemas", LocalDate.of(2019, 1, 25),
-                LocalDate.of(2022, 1, 25),false, AcademicDegree.TECHNOLOSIT,"IFSP" );
-        
-        
-        aE_c1.add(ae1);
-        aE_c1.add(ae2);
+                LocalDate.of(1996,5,5),"13690-000","Brasileira");
 
-        List<Accessibility> acc_c1 = new ArrayList<>();
-        acc_c1.add(Accessibility.VISUAL_DEFICIENT);
+        p_c1.addEmail("larissa@teste.com.br");
+        p_c1.addEmail("larissa2@teste.com.br");
+        p_c1.addPhone("(19) 3333-3333");
+        p_c1.addPhone("(16) 3333-3333");
 
-        List<Abiliity> abiliityList = new ArrayList<>();
-        abiliityList.add(Abiliity.JAVA);
-        abiliityList.add(Abiliity.JAVASCRIPT);
-        abiliityList.add(Abiliity.NODEJS);
-        
-        Candidate c1 = new Candidate(p_c1,aE_c1,null,acc_c1,abiliityList);
+        Candidate c1 = new Candidate(p_c1);
+
+        c1.addAcademicEducation(new AcademicEducation("Técnico em enfermagem", LocalDate.of(2017, 6, 5),
+                LocalDate.of(2019, 6, 5),true, AcademicDegree.TECHNOLOSIT,"SENAC"));
+
+        c1.addAcademicEducation(new AcademicEducation("Análise e desenolvimento de sistemas", LocalDate.of(2019, 1, 25),
+                LocalDate.of(2022, 1, 25),false, AcademicDegree.TECHNOLOSIT,"IFSP" ));
+
+        c1.addAccessibility(Accessibility.VISUAL_DEFICIENT);
+
+        c1.addAbility("JAVA");
+        c1.addAbility("JAVASCRIPT");
+        c1.addAbility("NODEJS");
+
         createCandidateUseCase.insert(c1);
 
         // Create a second candidate
-        List<String> phones_c2 = new ArrayList<>();
-        phones_c2.add("(19) 3333-3333");
-        phones_c2.add("(16) 3333-3333");
-
-        List<String> emails_c2 = new ArrayList<>();
-        emails_c2.add("bleiner@teste.com.br");
-        emails_c2.add("bleiner@teste.com.br");
 
         PersonalData p_c2 = new PersonalData("Bleiner Bertoluci", "444.444.444-44",
-                LocalDate.of(1999,4,19),"13690-000","Brasileira", phones_c2, emails_c2);
+                LocalDate.of(1999,4,19),"13690-000","Brasileira");
 
-        List<AcademicEducation> aE_c2 = new ArrayList<>();
-        AcademicEducation ae3 = new AcademicEducation("Técnico em mecatronica", LocalDate.of(2018, 12, 24),
-                LocalDate.of(2019, 6, 5),true, AcademicDegree.TECHNOLOSIT,"SENAC");
+        p_c2.addEmail("bleiner@teste.com.br");
+        p_c2.addEmail("bleiner@teste.com.br");
+        p_c2.addPhone("(19) 3333-3333");
+        p_c2.addPhone("(16) 3333-3333");
 
-        AcademicEducation ae4 = new AcademicEducation("Análise e desenolvimento de sistemas", LocalDate.of(2019, 1, 25),
-                LocalDate.of(2022, 1, 25),false, AcademicDegree.TECHNOLOSIT,"IFSP" );
+        Candidate c2 = new Candidate(p_c2);
 
+        c2.addAcademicEducation(new AcademicEducation("Técnico em mecatronica", LocalDate.of(2018, 12, 24),
+                LocalDate.of(2019, 6, 5),true, AcademicDegree.TECHNOLOSIT,"SENAC"));
 
-        aE_c2.add(ae3);
-        aE_c2.add(ae4);
+        c2.addAcademicEducation(new AcademicEducation("Análise e desenolvimento de sistemas", LocalDate.of(2019, 1, 25),
+                LocalDate.of(2022, 1, 25),false, AcademicDegree.TECHNOLOSIT,"IFSP" ));
 
-        List<Accessibility> acc_c2 = new ArrayList<>();
-        acc_c2.add(Accessibility.FISIC_DEFICIENT);
+        c2.addAccessibility(Accessibility.FISIC_DEFICIENT);
 
-        List<Abiliity> abiliityList_c2 = new ArrayList<>();
-        abiliityList.add(Abiliity.ANDROID);
-        abiliityList.add(Abiliity.JAVASCRIPT);
-        abiliityList.add(Abiliity.NODEJS);
+        c2.addAbility("ANDROID");
+        c2.addAbility("JAVASCRIPT");
+        c2.addAbility("NODEJS");
 
-        Candidate c2 = new Candidate(p_c2,aE_c2,null,acc_c2,abiliityList);
         createCandidateUseCase.insert(c2);
 
         // Create a new Company
+        Company comp1 = new Company("Grupo", "Grupo Empresa", "Informática", "13.146.255/0001-09", "Rua Manoel Vasques Pineda, 717", "18114-440");
+
+
         List<String> emails_comp1 = new ArrayList<>();
-        emails_comp1.add("grupoempresa@company.com.br");
-        emails_comp1.add("grupo@company.com.br");
-
-        List<String> phones_comp1 = new ArrayList<>();
-        phones_comp1.add("(16) 3343-3343");
-        phones_comp1.add("(19) 3434-2233");
-
-        List<Accessibility> acc_comp1 = new ArrayList<>();
-        acc_comp1.add(Accessibility.VISUAL_DEFICIENT);
-    
-        Company comp1 = new Company("Grupo", "Grupo Empresa", "Informática", "13.146.255/0001-09", emails_comp1, phones_comp1, "Rua Manoel Vasques Pineda, 717", "18114-440", acc_comp1);
+        comp1.addEmail("grupoempresa@company.com.br");
+        comp1.addEmail("grupo@company.com.br");
+        comp1.addPhone("(16) 3343-3343");
+        comp1.addPhone("(19) 3434-2233");
+        comp1.addAccessibility(Accessibility.VISUAL_DEFICIENT);
         createCompanyUseCase.insert(comp1);
 
 
         // create new vacancies
+
+
         // Vacancy 1
-        List<Benefits> be_v1 = new ArrayList<>();
-        be_v1.add(Benefits.FOOD_VOUCHER);
-        be_v1.add(Benefits.MEAL_VOUCHER);
-        be_v1.add(Benefits.MEDICAL_PLAN);
-
-        List<Accessibility> acc_v1 = new ArrayList<>();
-        acc_v1.add(Accessibility.VISUAL_DEFICIENT);
-
-        List<Abiliity> abiliityList_v1 = new ArrayList<>();
-        abiliityList_v1.add(Abiliity.JAVA);
-        abiliityList_v1.add(Abiliity.JAVASCRIPT);
-        abiliityList_v1.add(Abiliity.NODEJS);
-
         Vacancy v1 = new Vacancy("Analista JR","Irá trabalhar com equipe de desenvolvimento em NODE.JS", Hierarchy.JUNIOR, 2900.0,
-                be_v1, acc_v1,abiliityList_v1,StatusVacancy.AVAILABLE,comp1);
+                StatusVacancy.AVAILABLE,comp1);
+
+        v1.addBenefits(Benefits.FOOD_VOUCHER);
+        v1.addBenefits(Benefits.MEAL_VOUCHER);
+        v1.addBenefits(Benefits.MEDICAL_PLAN);
+
+        v1.addAccessibility(Accessibility.VISUAL_DEFICIENT);
+
+        v1.addAbiliity("JAVA");
+        v1.addAbiliity("JAVASCRIPT");
+        v1.addAbiliity("NODEJS");
+
         createVacancyUseCase.insert(v1);
 
-        // Vacancy 2
-        List<Benefits> be_v2 = new ArrayList<>();
-        be_v2.add(Benefits.FOOD_VOUCHER);
-        be_v2.add(Benefits.MEDICAL_PLAN);
-
-        List<Accessibility> acc_v2 = new ArrayList<>();
-        acc_v2.add(Accessibility.FISIC_DEFICIENT);
-
-        List<Abiliity> abiliityList_v2 = new ArrayList<>();
-        abiliityList_v2.add(Abiliity.ANDROID);
 
         Vacancy v2 = new Vacancy("Desenvolvedor Senior","Irá desenvolvedor aplicativo android", Hierarchy.SENIOR, 4500.0,
-                be_v2, acc_v2,abiliityList_v2,StatusVacancy.AVAILABLE,comp1);
+                StatusVacancy.AVAILABLE,comp1);
+
+        v2.addBenefits(Benefits.FOOD_VOUCHER);
+        v2.addBenefits(Benefits.MEDICAL_PLAN);
+
+        v2.addAccessibility(Accessibility.FISIC_DEFICIENT);
+
+        v2.addAbiliity("ANDROID");
+
         createVacancyUseCase.insert(v2);
 
         // Vacancy 3
-        List<Benefits> be_v3 = new ArrayList<>();
-        be_v3.add(Benefits.MEDICAL_PLAN);
-
-        List<Accessibility> acc_v3 = new ArrayList<>();
-        acc_v3.add(Accessibility.VISUAL_DEFICIENT);
-
-        List<Abiliity> abiliityList_v3 = new ArrayList<>();
-        abiliityList_v3.add(Abiliity.JAVA);
-        abiliityList_v3.add(Abiliity.JAVASCRIPT);        
-
         Vacancy v3 = new Vacancy("Estágio","Irá trabalhar com equipe de desenvolvimento em JAVA", Hierarchy.TRAINEE, 1500.00,
-                be_v3, acc_v3,abiliityList_v3,StatusVacancy.AVAILABLE,comp1);
+              StatusVacancy.AVAILABLE,comp1);
+
+        v3.addBenefits(Benefits.MEDICAL_PLAN);
+
+        v3.addAccessibility(Accessibility.VISUAL_DEFICIENT);
+
+        v3.addAbiliity("JAVA");
+        v3.addAbiliity("JAVASCRIPT");
+
         createVacancyUseCase.insert(v3);
 
 
         // Match Vacancy Candidate 1
-        List<Vacancy> myMatchVacancyC1 = c1.myMatchVacancy(matchCandidacyUseCase);
+        List<Vacancy> myMatchVacancyC1 = matchCandidacyUseCase.match(c1);
 
         // Show Match List Vacancy - Candidate 1
         System.out.println("Vagas disponíveis (candidata: Larissa): \n"+ myMatchVacancyC1);
@@ -202,7 +176,7 @@ public class Main {
         candidateSubscribeInVacancy.subscribe(c1,myMatchVacancyC1.get(1)); //
 
         // Match Vacancy Candidate 1
-        List<Vacancy> myMatchVacancyC2 = c2.myMatchVacancy(matchCandidacyUseCase);
+        List<Vacancy> myMatchVacancyC2 = matchCandidacyUseCase.match(c2);
         // Show Match List Vacancy - Candidate 2
         System.out.println("\nVagas disponíveis (candidato: Bleiner): \n"+ myMatchVacancyC2);
 
@@ -210,13 +184,13 @@ public class Main {
         candidateSubscribeInVacancy.subscribe(c2,myMatchVacancyC2.get(0)); //
 
         System.out.println("\n Candidatos inscritos para a vaga de id 1 da empresa comp1");
-        System.out.println(comp1.myListCandidateToVacancy(listCandidacyUseCase,v1));
+        System.out.println(listCandidacyUseCase.listAllCandidacyByVacancy(comp1,v1));
 
         System.out.println("\n Candidatos inscritos para a vaga de id 2 da empresa comp1");
-        System.out.println(comp1.myListCandidateToVacancy(listCandidacyUseCase,v2));
+        System.out.println(listCandidacyUseCase.listAllCandidacyByVacancy(comp1,v2));
 
         System.out.println("\n Candidatos inscritos para a vaga de id 3 da empresa comp1");
-        System.out.println(comp1.myListCandidateToVacancy(listCandidacyUseCase,v3));
+        System.out.println(listCandidacyUseCase.listAllCandidacyByVacancy(comp1,v3));
 
 
         System.out.println("\n" + findCandidacyUseCase.findCandidacyById(2));

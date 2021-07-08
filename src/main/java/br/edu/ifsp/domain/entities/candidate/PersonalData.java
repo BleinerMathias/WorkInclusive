@@ -1,5 +1,6 @@
 package br.edu.ifsp.domain.entities.candidate;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,17 +10,21 @@ public class PersonalData {
     private LocalDate dateOfBirth;
     private String postCode;
     private String nationality;
-    private List<String> phone;
-    private List<String> email;
+    private List<String> phones;
+    private List<String> emails;
 
-    public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality, List<String> phone, List<String> email) {
+    public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality) {
+        this(name, cpf, dateOfBirth, postCode, nationality,null,null);
+    }
+
+    public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality, List<String> phones, List<String> emails) {
         this.name = name;
         this.cpf = cpf;
         this.dateOfBirth = dateOfBirth;
         this.postCode = postCode;
         this.nationality = nationality;
-        this.phone = phone;
-        this.email = email;
+        this.phones = new ArrayList<>();
+        this.emails = new ArrayList<>();
     }
 
     public String getName() {
@@ -58,21 +63,36 @@ public class PersonalData {
         this.nationality = nationality;
     }
 
+    // ?
     public List<String> getPhone() {
-        return phone;
+        return phones;
     }
-
-    public void setPhone(List<String> phone) {
-        this.phone = phone;
+    public void setPhone(List<String> phones) {
+        this.phones = phones;
     }
-
     public List<String> getEmail() {
-        return email;
+        return emails;
+    }
+    public void setEmail(List<String> emails) {
+        this.emails = emails;
+    }
+    //?
+
+
+    public void addPhone(String phoneNumber){
+        phones.add(phoneNumber);
+    }
+    public void removePhone(String phoneNumber){
+        phones.remove(phoneNumber);
     }
 
-    public void setEmail(List<String> email) {
-        this.email = email;
+    public void addEmail(String emailAddress){
+        emails.add(emailAddress);
     }
+    public void removeEmail(String emailAddress){
+        emails.remove(emailAddress);
+    }
+
 
     @Override
     public String toString() {
@@ -82,8 +102,8 @@ public class PersonalData {
                 ", dateOfBirth=" + dateOfBirth +
                 ", postCode='" + postCode + '\'' +
                 ", nationality='" + nationality + '\'' +
-                ", phone=" + phone +
-                ", email=" + email +
+                ", phone=" + phones +
+                ", email=" + emails +
                 '}';
     }
 }
