@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.LoginUIController">
+   <children>
+      <TextField fx:id="txtUsername" layoutX="100.0" layoutY="139.0" prefHeight="26.0" prefWidth="160.0" />
+      <Label layoutX="157.0" layoutY="99.0" prefHeight="26.0" prefWidth="47.0" text="Usuário" />
+      <Label layoutX="164.0" layoutY="212.0" text="Senha" />
+      <PasswordField fx:id="txtPassword" layoutX="106.0" layoutY="246.0" />
+      <Button fx:id="btnLogin" layoutX="158.0" layoutY="339.0" mnemonicParsing="false" text="Login" />
+      <Hyperlink />
+      <Button fx:id="btnCreateAccount" layoutX="132.0" layoutY="432.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Criar conta" />
+      <Button fx:id="btnCandidate" layoutX="33.0" layoutY="500.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Candidato" visible="true" />
+      <Button fx:id="btnCompany" layoutX="231.0" layoutY="500.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Empresa" visible="true" />
+   </children>
+</AnchorPane>

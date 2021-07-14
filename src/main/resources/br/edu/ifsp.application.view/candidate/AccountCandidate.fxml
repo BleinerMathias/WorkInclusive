@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.LoginCreateAccount">
+   <children>
+      <Label layoutX="136.0" layoutY="14.0" text="Conta candidato" />
+      <Label layoutX="49.0" layoutY="50.0" text="Usuário" />
+      <Label layoutX="53.0" layoutY="96.0" text="Senha" />
+      <Label layoutX="53.0" layoutY="141.0" text="Nome" />
+      <Label layoutX="10.0" layoutY="191.0" text="Data de nascimento" />
+      <Label layoutX="59.0" layoutY="235.0" text="CEP" />
+      <Label layoutX="32.0" layoutY="287.0" text="Nacionalidade" />
+      <Label layoutX="47.0" layoutY="337.0" text="Telefone" />
+      <Label layoutX="53.0" layoutY="389.0" text="E-mail" />
+      <Button fx:id="btnAcademicEducation" layoutX="137.0" layoutY="428.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Formação academica" />
+      <Button fx:id="btnProfessionalExperience" layoutX="137.0" layoutY="466.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Experiência profissional" />
+      <Button fx:id="btnAccessibilities" layoutX="137.0" layoutY="506.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Acessibilidades" />
+      <Button fx:id="btnAbilites" layoutX="137.0" layoutY="542.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Habilidades" />
+      <Button fx:id="btnAddPhone" layoutX="304.0" layoutY="333.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="btnAddEmail" layoutX="304.0" layoutY="385.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="btnSave" layoutX="269.0" layoutY="587.0" mnemonicParsing="false" onAction="#saveOrUpdate" text="Salvar" />
+      <Button fx:id="btnCancel" layoutX="181.0" layoutY="587.0" mnemonicParsing="false" onAction="#backToPreviousScene" text="Cancelar" />
+      <TextField fx:id="txtUsername" layoutX="137.0" layoutY="46.0" />
+      <TextField fx:id="txtPassword" layoutX="137.0" layoutY="92.0" />
+      <TextField fx:id="txtName" layoutX="139.0" layoutY="137.0" />
+      <TextField fx:id="txtPostCode" layoutX="137.0" layoutY="231.0" />
+      <TextField fx:id="txtNationality" layoutX="137.0" layoutY="283.0" />
+      <TextField fx:id="txtPhone" layoutX="137.0" layoutY="333.0" />
+      <TextField fx:id="txtEmail" layoutX="137.0" layoutY="385.0" />
+      <DatePicker fx:id="dtBirthday" layoutX="137.0" layoutY="187.0" prefHeight="25.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>
