@@ -45,6 +45,8 @@ public class Main {
     private static ListCandidacyUseCase listCandidacyUseCase;
     private static AcceptOrDeclineCandidacyUseCase acceptOrDeclineCandidacyUseCase;
     private static FindCandidacyUseCase findCandidacyUseCase;
+    private static UpdateCandidacyUseCase updateCandidacyUseCase;
+
 
     private static CreateInterviewUseCase createInterviewUseCase;
     private static FindInterviewUseCase findInterviewUseCase;
@@ -228,6 +230,7 @@ public class Main {
         listCandidacyUseCase = new ListCandidacyUseCase(candidacyDAO);
         acceptOrDeclineCandidacyUseCase = new AcceptOrDeclineCandidacyUseCase(candidacyDAO,findCandidacyUseCase);
         findCandidacyUseCase = new  FindCandidacyUseCase(candidacyDAO);
+        updateCandidacyUseCase = new UpdateCandidacyUseCase(candidacyDAO);
 
         findInterviewUseCase = new FindInterviewUseCase(interviewDAO);
         createInterviewUseCase = new CreateInterviewUseCase(interviewDAO, findCandidacyUseCase);
