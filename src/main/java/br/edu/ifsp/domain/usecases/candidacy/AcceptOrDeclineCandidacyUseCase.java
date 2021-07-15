@@ -17,9 +17,6 @@ public class AcceptOrDeclineCandidacyUseCase {
 
     public boolean accept(Company company, Candidacy candidacy) {
 
-        if(findCandidacyUseCase.findCandidacyById(candidacy.getId()).isEmpty())
-            throw new EntityNotFoundException("ID candidacy not found.");
-
         if (company.getCNPJ().equals(candidacy.getVacancy().getCompany().getCNPJ())){
             candidacy.setStatusCandidacy(StatusCandidacy.ACCEPT);
             candidacyDAO.update(candidacy);
@@ -30,7 +27,7 @@ public class AcceptOrDeclineCandidacyUseCase {
     }
 
     public boolean decline(Company company, Candidacy candidacy){
-        if (findCandidacyUseCase.findCandidacyById(candidacy.getId()).isEmpty())
+        if (candidacyDAO.findOne(candidacy.getId()).isEmpty())
             throw new EntityNotFoundException("ID candidacy not found.");
 
         if(company.getCNPJ().equals(candidacy.getVacancy().getCompany().getCNPJ())){

@@ -18,11 +18,10 @@ import br.edu.ifsp.domain.usecases.Company.CreateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.FindCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Company.UpdateCompanyUseCase;
 import br.edu.ifsp.domain.usecases.Vacancy.*;
-import br.edu.ifsp.domain.usecases.interview.CreateInterviewUseCase;
-import br.edu.ifsp.domain.usecases.interview.FindInterviewUseCase;
-import br.edu.ifsp.domain.usecases.interview.InterviewDAO;
+import br.edu.ifsp.domain.usecases.interview.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
@@ -50,6 +49,8 @@ public class Main {
 
     private static CreateInterviewUseCase createInterviewUseCase;
     private static FindInterviewUseCase findInterviewUseCase;
+    private static AcceptInterview acceptInterview;
+    private static FindCombinedInterview findCombinedInterview;
 
 
 
@@ -198,9 +199,21 @@ public class Main {
         System.out.println("\n" + findCandidacyUseCase.findCandidacyById(2));
 
         // Comp accept candidacy of the Larissa
+        Optional<Candidacy> candidacy_larissa = findCandidacyUseCase.findCandidacyById(1);
+        acceptOrDeclineCandidacyUseCase.accept(comp1, candidacy_larissa.get());
+
+        createInterviewUseCase.createNewInterview(comp1,candidacy_larissa.get(), LocalDateTime.from(LocalDateTime.now()),"Rua das lagoas, 11, Centro,Google");
+
+        System.out.println("\n\nMostrando entrevistas marcadas para Larissa");
+        System.out.println(findInterviewUseCase.findInterviewByCandidate(c1));
 
 
+        System.out.println("\n\nMostrando entrevista codigo 1");
+        System.out.println(findInterviewUseCase.findInterviewById(1));
 
+
+        System.out.println("\n\nMostrando entrevistas combinadas");
+        System.out.println(findCombinedInterview.findAllCombinedInterviewByCompany(comp1));
 
     }
 
@@ -233,8 +246,9 @@ public class Main {
         updateCandidacyUseCase = new UpdateCandidacyUseCase(candidacyDAO);
 
         findInterviewUseCase = new FindInterviewUseCase(interviewDAO);
-        createInterviewUseCase = new CreateInterviewUseCase(interviewDAO, findCandidacyUseCase);
-
+        createInterviewUseCase = new CreateInterviewUseCase(interviewDAO,findCandidacyUseCase, updateCandidacyUseCase);
+        acceptInterview = new AcceptInterview(interviewDAO, findInterviewUseCase);
+        findCombinedInterview = new FindCombinedInterview(interviewDAO);
 
 
     }

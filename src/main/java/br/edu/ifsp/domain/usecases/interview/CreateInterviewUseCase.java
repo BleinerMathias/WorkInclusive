@@ -4,6 +4,7 @@ import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.candidacy.StatusCandidacy;
 import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.interview.Interview;
+import br.edu.ifsp.domain.usecases.Company.CompanyInputValidator;
 import br.edu.ifsp.domain.usecases.candidacy.FindCandidacyUseCase;
 import br.edu.ifsp.domain.usecases.candidacy.UpdateCandidacyUseCase;
 import br.edu.ifsp.domain.usecases.utils.EntityNotAvaliableException;
@@ -35,8 +36,12 @@ public class CreateInterviewUseCase{
         // candidacyToInterview.get().setStatusCandidacy(StatusCandidacy.ACCEPT);
 
         // Create interview
+        Interview interview = new Interview(date_time,address,candidacy,company);
+        interview.companyAcceptDateTimeInterview();
 
+        Validator<Interview> validator = new CreateInterviewInputValidator();
+        Notification notification = validator.validate(interview);
 
-
+        return interviewDAO.create(interview);
     }
 }

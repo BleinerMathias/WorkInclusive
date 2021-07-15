@@ -99,4 +99,24 @@ Foi entregue o sistema realizando (em memória)
 </ul>
 
 
+<h1> Continuando o desenvolvimento</h1>
+
+**07/07/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Criando primeiros layout de telas FXML</li>
+    <li>Correção de problemas e melhorias no código conforme discutido na apresentação</li>
+</ul>
+
+**14/07/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Continuando criação de layout de telas FXML</li>
+    <li>Criando entrevista</li>
+    <li>Criando combinação de data e horario [candidato <---> empresa]</li>
+</ul>
 

@@ -1,7 +1,9 @@
 package br.edu.ifsp.application.repository;
 
 import br.edu.ifsp.domain.entities.candidate.Candidate;
+import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.interview.Interview;
+import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 import br.edu.ifsp.domain.usecases.interview.InterviewDAO;
 
 import java.util.*;
@@ -22,7 +24,9 @@ public class InMemoryInterviewDAO implements InterviewDAO {
     }
 
     @Override
-    public Optional<Interview> findOne(Integer key) {
+    public Optional<Interview> findOne(Integer id) {
+        if(db.containsKey(id))
+            return Optional.of(db.get(id));
         return Optional.empty();
     }
 
@@ -57,4 +61,18 @@ public class InMemoryInterviewDAO implements InterviewDAO {
         }
         return null;
     }
+
+    @Override
+    public List<Interview> findAllCombinedInterviewByCompany(Company company) {
+        List<Interview> interviews = new ArrayList<>(db.values().stream()
+                .filter(interview -> interview.getCompany().equals(company) && interview.isAcceptCompany() && interview.isAcceptCandidate())
+                .collect(Collectors.toList()));
+        return interviews;
+    }
+
+    @Override
+    public List<Interview> findAllCombinedInterviewByVacancy(Vacancy vacancy) {
+        return null;
+    }
+
 }

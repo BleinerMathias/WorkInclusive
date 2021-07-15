@@ -1,16 +1,16 @@
 package br.edu.ifsp.domain.usecases.interview;
 
-import br.edu.ifsp.domain.entities.candidacy.Candidacy;
-import br.edu.ifsp.domain.entities.candidacy.StatusCandidacy;
-import br.edu.ifsp.domain.entities.company.Company;
+
 import br.edu.ifsp.domain.entities.interview.Interview;
 import br.edu.ifsp.domain.usecases.utils.Notification;
 import br.edu.ifsp.domain.usecases.utils.Validator;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-public class CreateInterviewInputValidator extends Validator<Interview> {
+public class CreateInterviewDataValidator extends Validator<Interview> {
+
     @Override
     public Notification validate(Interview interview) {
         Notification notification = new Notification();
@@ -20,11 +20,11 @@ public class CreateInterviewInputValidator extends Validator<Interview> {
             return notification;
         }
 
-        if(nullOrEmpty(interview.getDateTime().toString())){
-            notification.addError("Date and Time of the Interview is null or empty");
+        if (nullOrEmpty((Collection) interview.getCompany())) {
+            notification.addError("Name is null or empty");
         }
 
-        if(nullOrEmpty(interview.getAddress())){
+        if (nullOrEmpty(interview.getAddress().toString())) {
             notification.addError("Address is null or empty");
         }
 
@@ -32,16 +32,16 @@ public class CreateInterviewInputValidator extends Validator<Interview> {
             notification.addError("DateTime is null or empty");
         }
 
-        if (nullOrEmpty(Collections.singleton((Company) interview.getCompany()))) {
+        if (nullOrEmpty((Collection) interview.getCompany())) {
             notification.addError("Company is null or empty");
         }
 
-        Company companySolict = interview.getCompany();
-        Company companyCandidacy = interview.getCandidacy().getVacancy().getCompany();
+        if (nullOrEmpty((Collection) interview.getCandidacy())) {
+            notification.addError("Candidacy is null or empty");
+        }
 
-
-        if(interview.getCandidacy().getStatusCandidacy() != StatusCandidacy.ACCEPT){
-            notification.addError("Candidate was not accept to create interview");
+        if (interview.getCandidacy().getVacancy().getCompany().equals(interview.getCompany())) {
+            notification.addError("Company to Vacancy is diferent this Interview Company");
         }
 
         return notification;

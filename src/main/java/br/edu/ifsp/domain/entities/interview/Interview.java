@@ -4,6 +4,9 @@ import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.company.Company;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Interview {
     private Integer id;
@@ -11,13 +14,12 @@ public class Interview {
     private String address;
     private Candidacy candidacy;
     private Company company;
-
+    private List<SchedulesHistory> schedulesHistoryList;
+    private boolean acceptCompany = false;
+    private boolean acceptCandidate = false;
 
     public Interview(LocalDateTime dateTime, String address, Candidacy candidacy, Company company) {
-        this.dateTime = dateTime;
-        this.address = address;
-        this.candidacy = candidacy;
-        this.company = company;
+        this(null,dateTime,address,candidacy,company);
     }
 
     public Interview(Integer id, LocalDateTime dateTime, String address, Candidacy candidacy, Company company) {
@@ -26,6 +28,8 @@ public class Interview {
         this.address = address;
         this.candidacy = candidacy;
         this.company = company;
+        this.schedulesHistoryList = new ArrayList<>();
+        addNewSchedule(dateTime);
     }
 
     public Integer getId() {
@@ -59,7 +63,6 @@ public class Interview {
     public void setCandidacy(Candidacy candidacy) {
         this.candidacy = candidacy;
     }
-
     public Company getCompany() {
         return company;
     }
@@ -68,14 +71,52 @@ public class Interview {
         this.company = company;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Interview interview = (Interview) o;
+        return Objects.equals(id, interview.id) && Objects.equals(dateTime, interview.dateTime) && Objects.equals(address, interview.address) && Objects.equals(candidacy, interview.candidacy) && Objects.equals(company, interview.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, dateTime, address, candidacy, company);
+    }
+
+    public void addNewSchedule(LocalDateTime dateTime){
+        schedulesHistoryList.add(new SchedulesHistory(dateTime));
+    }
+
+    public void candidateAcceptDateTimeInterview(){
+        acceptCandidate = true;
+    }
+
+    public void companyAcceptDateTimeInterview(){
+        acceptCompany = true;
+    }
+
+    public boolean isAcceptCompany() {
+        return acceptCompany;
+    }
+
+    public boolean isAcceptCandidate() {
+        return acceptCandidate;
+    }
+
     @Override
     public String toString() {
         return "Interview{" +
                 "id=" + id +
-                ", date=" + dateTime +
+                ", name= " + candidacy.getCandidate().getPersonalData().getName() +
+                ", date interview= " + dateTime.getDayOfMonth() +"/"+ dateTime.getMonthValue() + "/" + dateTime.getYear() +
+                ", hour interview= " + dateTime.getHour() +":"+ dateTime.getMinute()  +
+                ", empresa aceitou = " + acceptCompany +
+                ", candidato aceitou = " + acceptCandidate +
                 ", address='" + address + '\'' +
-                ", candidate=" + candidacy +
-                ", company=" + company +
+                ", vaga=" + candidacy.getVacancy().getDescription() +
+                ", company=" + company.getCompanyName() +
                 '}';
     }
 }
