@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.candidacy.Candidacypage">
+   <children>
+      <TextField fx:id="txtId" layoutX="89.0" layoutY="95.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label layoutX="44.0" layoutY="99.0" text="Id" />
+      <TextField fx:id="txtNameVacancy" layoutX="89.0" layoutY="141.0" prefHeight="25.0" prefWidth="189.0" />
+      <Label layoutX="35.0" layoutY="145.0" prefHeight="17.0" prefWidth="30.0" text="Vaga" />
+      <Label layoutX="26.0" layoutY="200.0" prefHeight="17.0" prefWidth="59.0" text="Candidato" />
+      <TextField fx:id="txtNameCandidate" layoutX="89.0" layoutY="196.0" prefHeight="25.0" prefWidth="189.0" />
+      <Label layoutX="36.0" layoutY="259.0" prefHeight="17.0" prefWidth="40.0" text="Status" />
+      <ComboBox fx:id="cbStatusCandidacy" layoutX="89.0" layoutY="255.0" prefHeight="25.0" prefWidth="189.0" />
+      <Label layoutX="140.0" layoutY="37.0" text="Candidatura">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnPrevious" layoutX="40.0" layoutY="548.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Voltar" />
+   </children>
+</AnchorPane>

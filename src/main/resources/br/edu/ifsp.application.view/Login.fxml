@@ -2,17 +2,42 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.LoginUIController">
    <children>
-      <TextField fx:id="txtUsername" layoutX="100.0" layoutY="139.0" prefHeight="26.0" prefWidth="160.0" />
-      <Label layoutX="157.0" layoutY="99.0" prefHeight="26.0" prefWidth="47.0" text="Usuário" />
-      <Label layoutX="164.0" layoutY="212.0" text="Senha" />
-      <PasswordField fx:id="txtPassword" layoutX="106.0" layoutY="246.0" />
-      <Button fx:id="btnLogin" layoutX="158.0" layoutY="339.0" mnemonicParsing="false" text="Login" />
+      <TextField fx:id="txtUsername" accessibleText="teste" layoutX="122.0" layoutY="89.0" prefHeight="26.0" prefWidth="193.0" />
+      <Label layoutX="36.0" layoutY="89.0" prefHeight="26.0" prefWidth="59.0" text="Usuário">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="44.0" layoutY="147.0" text="Senha">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <PasswordField fx:id="txtPassword" layoutX="119.0" layoutY="147.0" prefHeight="25.0" prefWidth="193.0" />
+      <Button fx:id="btnLogin" layoutX="81.0" layoutY="204.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="199.0" text="Acessar">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <Hyperlink />
-      <Button fx:id="btnCreateAccount" layoutX="132.0" layoutY="432.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Criar conta" />
-      <Button fx:id="btnCandidate" layoutX="33.0" layoutY="500.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Candidato" visible="true" />
-      <Button fx:id="btnCompany" layoutX="231.0" layoutY="500.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Empresa" visible="true" />
+      <Button fx:id="btnCandidate" layoutX="107.0" layoutY="487.0" mnemonicParsing="false" prefWidth="150.0" text="Candidato" visible="true">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnCompany" layoutX="107.0" layoutY="427.0" mnemonicParsing="false" prefWidth="150.0" text="Empresa" visible="true">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Label layoutX="157.0" layoutY="29.0" text="Login">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="132.0" layoutY="352.0" text="Criar conta">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

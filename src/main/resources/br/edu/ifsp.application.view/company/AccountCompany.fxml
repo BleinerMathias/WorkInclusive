@@ -2,10 +2,14 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.LoginCreateAccount">
    <children>
-      <Label layoutX="137.0" layoutY="25.0" prefHeight="29.0" prefWidth="87.0" text="Conta empresa" />
+      <Label layoutX="124.0" layoutY="24.0" prefHeight="29.0" prefWidth="113.0" text="Conta empresa">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
       <Label layoutX="41.0" layoutY="76.0" text="Usuário" />
       <TextField fx:id="txtUsername" layoutX="128.0" layoutY="72.0" />
       <Label layoutX="44.0" layoutY="117.0" text="Senha" />
@@ -26,9 +30,8 @@
       <Label layoutX="35.0" layoutY="457.0" text="Endereço" />
       <TextField fx:id="txtPostCode" layoutX="128.0" layoutY="508.0" />
       <Label layoutX="51.0" layoutY="512.0" text="CEP" />
-      <Button fx:id="btnAccessibilities" layoutX="128.0" layoutY="558.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Acessibilidades" />
-      <Button fx:id="btnSave" layoutX="289.0" layoutY="605.0" mnemonicParsing="false" onAction="#saveOrUpdate" text="Salvar" />
-      <Button fx:id="btnCancel" layoutX="209.0" layoutY="605.0" mnemonicParsing="false" onAction="#backToPreviousScene" text="Cancelar" />
+      <Button fx:id="btnNext" layoutX="224.0" layoutY="570.0" mnemonicParsing="false" onAction="#nextToScene" prefHeight="46.0" prefWidth="87.0" text="Proximo" />
+      <Button fx:id="btnCancel" layoutX="51.0" layoutY="570.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="46.0" prefWidth="87.0" text="Cancelar" />
       <TextField fx:id="txtCNPJ" layoutX="128.0" layoutY="285.0" />
       <Label layoutX="48.0" layoutY="289.0" text="CNPJ" />
    </children>
