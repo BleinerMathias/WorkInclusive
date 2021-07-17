@@ -200,7 +200,7 @@ public class Main {
 
         // Comp accept candidacy of the Larissa
         Optional<Candidacy> candidacy_larissa = findCandidacyUseCase.findCandidacyById(1);
-        acceptOrDeclineCandidacyUseCase.accept(comp1, candidacy_larissa.get());
+        acceptOrDeclineCandidacyUseCase.decline(comp1, candidacy_larissa.get());
 
         createInterviewUseCase.createNewInterview(comp1,candidacy_larissa.get(), LocalDateTime.from(LocalDateTime.now()),"Rua das lagoas, 11, Centro,Google");
 

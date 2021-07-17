@@ -3,7 +3,6 @@ package br.edu.ifsp.domain.usecases.interview;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.interview.Interview;
 import br.edu.ifsp.domain.usecases.utils.EntityNotAvaliableException;
-import br.edu.ifsp.domain.usecases.utils.EntityNotFoundException;
 
 public class AcceptInterview {
     private InterviewDAO interviewDAO;

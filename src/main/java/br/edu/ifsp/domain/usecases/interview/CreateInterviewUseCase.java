@@ -42,6 +42,10 @@ public class CreateInterviewUseCase{
         Validator<Interview> validator = new CreateInterviewInputValidator();
         Notification notification = validator.validate(interview);
 
+        if(notification.hasError()){
+            throw new IllegalArgumentException(notification.errorMessage());
+        }
+
         return interviewDAO.create(interview);
     }
 }
