@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.HomePage">
+   <children>
+      <MenuBar fx:id="mbMenudefault" layoutX="1.0" layoutY="-1.0" prefHeight="31.0" prefWidth="360.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+          <Menu fx:id="itHome" mnemonicParsing="false" text="Inicio" />
+            <Menu fx:id="itPerfil" mnemonicParsing="false" text="Perfil" />
+          <Menu fx:id="itVacancies" mnemonicParsing="false" text="Vagas" />
+            <Menu fx:id="itConfig" mnemonicParsing="false" text="Configurações" />
+        </menus>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </MenuBar>
+      <Label layoutX="111.0" layoutY="46.0" text="Entrevistas marcadas">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TableView layoutY="80.0" prefHeight="558.0" prefWidth="360.0">
+        <columns>
+          <TableColumn fx:id="cId" prefWidth="54.0" text="Id" />
+          <TableColumn fx:id="cDateTime" minWidth="0.0" prefWidth="104.0" text="Data e horário" />
+            <TableColumn fx:id="cAddress" minWidth="0.0" prefWidth="84.0" text="Endereço" />
+            <TableColumn fx:id="cCompany" minWidth="0.0" prefWidth="117.0" text="Empresa" />
+        </columns>
+      </TableView>
+       
+   </children>
+</AnchorPane>
