@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.candidate.MatchVacancyPage">
+   <ListView layoutY="77.0" prefHeight="563.0" prefWidth="360.0" />
+    <MenuBar fx:id="mbMenudefault" layoutX="1.0" layoutY="-1.0" prefHeight="31.0" prefWidth="360.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+            <Menu fx:id="itHome" mnemonicParsing="false" text="Inicio" />
+            <Menu fx:id="itPerfil" mnemonicParsing="false" text="Perfil" />
+            <Menu fx:id="itVacancies" mnemonicParsing="false" text="Vagas" />
+            <Menu fx:id="itConfig" mnemonicParsing="false" text="Configurações" />
+        </menus>
+      <padding>
+         <Insets left="50.0" />
+      </padding>
+    </MenuBar>
+   <Label layoutX="126.0" layoutY="45.0" text="Vagas para você">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <Button fx:id="btnAccept" layoutX="214.0" layoutY="485.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0" style="-fx-background-color: green; -fx-background-radius: 5em;" />
+   <Button fx:id="btnDecline" layoutX="39.0" layoutY="485.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0" style="-fx-background-color: red; -fx-background-radius: 5em;" />
+   <Line endX="30.0" layoutX="94.0" layoutY="539.0" rotate="45.0" startX="-30.0" stroke="WHITE" strokeWidth="4.0" />
+   <Line endX="30.0" layoutX="95.0" layoutY="539.0" rotate="135.0" startX="-30.0" stroke="WHITE" strokeWidth="4.0" />
+   <Line endX="30.0" layoutX="282.0" layoutY="540.0" rotate="-45.0" startX="-34.0" stroke="WHITE" strokeWidth="4.0" />
+   <Line endX="15.0" layoutX="244.0" layoutY="551.0" rotate="-138.8" startX="-15.0" stroke="WHITE" strokeWidth="4.0" />
+   <Label layoutX="141.0" layoutY="140.0" text="Nome da vaga" />
+   <Label layoutX="142.0" layoutY="233.0" text="Descrição dela" />
+   <Label layoutX="152.0" layoutY="287.0" text="Hierarquia" />
+   <Label layoutX="162.0" layoutY="338.0" text="Salario" />
+   <Label layoutX="153.0" layoutY="385.0" text="Bebeficios" />
+   <Label layoutX="158.0" layoutY="185.0" text="Empresa" />
+
+</AnchorPane>
