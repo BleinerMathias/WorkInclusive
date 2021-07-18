@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.vacancy.Vacancy">
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.vacancy.VacancyUIController">
    <children>
       <Button fx:id="btnCancel" layoutX="37.0" layoutY="562.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
       <Label layoutX="163.0" layoutY="35.0" text="Vaga">
@@ -23,8 +23,8 @@
       <Label layoutX="25.0" layoutY="392.0" text="Compatibilidade" />
       <TextArea fx:id="txtDescripition" layoutX="119.0" layoutY="158.0" prefHeight="134.0" prefWidth="196.0" />
       <Label layoutX="53.0" layoutY="500.0" text="Status" />
-      <CheckBox fx:id="ckAvaiable" layoutX="119.0" layoutY="500.0" mnemonicParsing="false" text="Disponível" />
-      <CheckBox fx:id="ckUnavaivable" layoutX="223.0" layoutY="500.0" mnemonicParsing="false" text="Indisponível" />
+      <CheckBox fx:id="ckAvailable" layoutX="125.0" layoutY="500.0" mnemonicParsing="false" text="Disponível" />
+      <CheckBox fx:id="ckUnavailable" layoutX="223.0" layoutY="500.0" mnemonicParsing="false" text="Indisponível" />
       <TextField fx:id="txtNameCompany" layoutX="119.0" layoutY="69.0" prefHeight="25.0" prefWidth="196.0" />
       <Label layoutX="46.0" layoutY="73.0" text="Empresa" />
    </children>

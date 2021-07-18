@@ -6,7 +6,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.ConfigPage">
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.ConfigPageUIController">
     <MenuBar fx:id="mbMenudefault" layoutX="1.0" layoutY="-1.0" prefHeight="31.0" prefWidth="360.0" AnchorPane.rightAnchor="0.0">
         <menus>
             <Menu mnemonicParsing="false" text="Inicio" />
@@ -52,5 +52,11 @@
          <Font size="14.0" />
       </font>
    </Button>
+   <Label layoutX="25.0" layoutY="267.0" text="Tamanho da fonte">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <TextField fx:id="txtFontSize" layoutX="142.0" layoutY="265.0" prefHeight="25.0" prefWidth="78.0" />
 
 </AnchorPane>

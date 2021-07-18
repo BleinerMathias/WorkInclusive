@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.view.company.HomePageCompany">
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.company.HomePageCompanyUIController">
     <children>
     <MenuBar fx:id="mbMenudefault" layoutX="1.0" layoutY="-1.0" prefHeight="31.0" prefWidth="360.0" AnchorPane.rightAnchor="0.0">
         <menus>
@@ -26,8 +26,8 @@
       </Label>
         <TableView fx:id="tableView" layoutY="80.0" prefHeight="558.0" prefWidth="360.0">
             <columns>
-                <TableColumn fx:id="cId" prefWidth="54.0" text="Id" />
-                <TableColumn fx:id="cDateTime" minWidth="0.0" prefWidth="104.0" text="Data e horário" />
+                <TableColumn fx:id="cId" prefWidth="49.0" text="Id" />
+                <TableColumn fx:id="cDateTime" minWidth="0.0" prefWidth="109.0" text="Data e horário" />
                 <TableColumn fx:id="cAddress" minWidth="0.0" prefWidth="84.0" text="Endereço" />
                 <TableColumn fx:id="cCandidate" minWidth="0.0" prefWidth="117.0" text="Candidato" />
             </columns>
