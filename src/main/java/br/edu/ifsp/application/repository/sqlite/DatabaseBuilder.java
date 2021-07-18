@@ -42,7 +42,7 @@ public class DatabaseBuilder {
 
         sqlBuilder.append("CREATE TABLE User(\n");
         sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT,");
-        sqlBuilder.append("username TEXT NOT NULL, \n");
+        sqlBuilder.append("username TEXT NOT NULL UNIQUE, \n");
         sqlBuilder.append("password TEXT NOT NULL \n");
         sqlBuilder.append(");");
 
