@@ -1,4 +1,4 @@
-package br.edu.ifsp.application;
+package br.edu.ifsp;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
@@ -55,7 +55,6 @@ public class Main {
     private static AcceptCombineInterview acceptCombineInterview;
     private static FindCombinedInterview findCombinedInterview;
     private static UnacceptCombineInterview unacceptCombineInterview;
-
 
 
 

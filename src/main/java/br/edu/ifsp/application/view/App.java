@@ -1,4 +1,4 @@
-package br.edu.ifsp;
+package br.edu.ifsp.application.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 360, 640);
+        scene = new Scene(loadFXML("Login"), 360, 640);
         stage.setScene(scene);
         stage.show();
     }
