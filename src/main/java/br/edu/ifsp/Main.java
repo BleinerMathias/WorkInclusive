@@ -235,10 +235,16 @@ public class Main {
         System.out.println("\n\nMostrando entrevistas combinadas");
         System.out.println(findCombinedInterview.findAllCombinedInterviewByCompany(comp1));
 
+
         System.out.println("\n\nMostrando histórico de entrevistas");
         for(SchedulesHistory schedulesHistory : findInterviewUseCase.findInterviewById(1).get().getSchedulesHistoryList()){
             System.out.println(schedulesHistory);
         }
+
+        System.out.println("\n\nMostrando entrevistas combinadas de Larissa");
+        System.out.println(findCombinedInterview.findCombinedInterviewByCandidate(c1));
+
+        acceptCombineInterview.candidateAcceptInterview(c1, findInterviewUseCase.findInterviewById(1).get());
 
     }
 

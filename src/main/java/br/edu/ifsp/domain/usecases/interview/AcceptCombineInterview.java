@@ -3,6 +3,7 @@ package br.edu.ifsp.domain.usecases.interview;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.interview.Interview;
+import br.edu.ifsp.domain.usecases.utils.AcceptInterviewException;
 import br.edu.ifsp.domain.usecases.utils.EntityNotAvaliableException;
 
 public class AcceptCombineInterview {
@@ -24,6 +25,10 @@ public class AcceptCombineInterview {
             return interviewDAO.update(interview);
         }
 
+        if(interview.isCombined()){
+            throw new AcceptInterviewException("This interview has already been combined.");
+        }
+
         return true;
     }
 
@@ -37,7 +42,12 @@ public class AcceptCombineInterview {
             return interviewDAO.update(interview);
         }
 
+        if(interview.isCombined()){
+            throw new AcceptInterviewException("This interview has already been combined.");
+        }
+
         return true;
     }
 
 }
+

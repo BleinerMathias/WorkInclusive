@@ -12,5 +12,6 @@ import java.util.Optional;
 public interface InterviewDAO extends DAO<Interview, Integer> {
     List<Interview> findAllInterviewByCandidate(Candidate candidate);
     List<Interview> findAllCombinedInterviewByCompany(Company company);
+    List<Interview> findAllCombinedInterviewByCandidate(Candidate candidate);
     List<Interview> findAllCombinedInterviewByVacancy(Vacancy vacancy);
 }

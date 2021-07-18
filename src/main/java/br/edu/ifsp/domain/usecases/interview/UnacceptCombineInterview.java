@@ -24,7 +24,7 @@ public class UnacceptCombineInterview {
 
         // !! Create validator to it.
         if(!newDateTimeInterview.toLocalDate().isEqual(interview.getDateTime().toLocalDate()) &&
-            !newDateTimeInterview.toLocalDate().isBefore(LocalDate.now()))  {
+                !newDateTimeInterview.toLocalDate().isBefore(LocalDate.now()))  {
             interview.addNewSchedule(newDateTimeInterview);
             return interviewDAO.update(interview);
         }

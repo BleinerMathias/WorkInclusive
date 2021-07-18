@@ -65,7 +65,15 @@ public class InMemoryInterviewDAO implements InterviewDAO {
     @Override
     public List<Interview> findAllCombinedInterviewByCompany(Company company) {
         List<Interview> interviews = new ArrayList<>(db.values().stream()
-                .filter(interview -> interview.getCompany().equals(company) && interview.isAcceptCompany() && interview.isAcceptCandidate())
+                .filter(interview -> interview.getCompany().equals(company) && interview.isCombined())
+                .collect(Collectors.toList()));
+        return interviews;
+    }
+
+    @Override
+    public List<Interview> findAllCombinedInterviewByCandidate(Candidate candidate) {
+        List<Interview> interviews = new ArrayList<>(db.values().stream()
+                .filter(interview -> interview.getCandidacy().getCandidate().equals(candidate) && interview.isCombined())
                 .collect(Collectors.toList()));
         return interviews;
     }
