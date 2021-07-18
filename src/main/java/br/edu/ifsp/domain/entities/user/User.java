@@ -3,6 +3,7 @@ package br.edu.ifsp.domain.entities.user;
 public abstract class User {
     private String username;
     private String password;
+    private int typeUser;
 
     public User() {
     }
@@ -28,5 +29,11 @@ public abstract class User {
         this.password = password;
     }
 
+    public int getTypeUser() {
+        return typeUser;
+    }
 
+    public void setTypeUser(int typeUser) {
+        this.typeUser = typeUser;
+    }
 }

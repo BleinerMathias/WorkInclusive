@@ -103,6 +103,7 @@ public class Candidate extends User{
     public void createLogin(String username, String password){
         this.setUsername(username);
         this.setPassword(password);
+        this.setTypeUser(1);
     }
 
 

@@ -126,6 +126,13 @@ public class Company extends User {
         accessibilities.remove(accessibility);
     }
 
+    public void createLogin(String username, String password){
+        this.setUsername(username);
+        this.setPassword(password);
+        this.setTypeUser(2);
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -138,4 +145,5 @@ public class Company extends User {
     public int hashCode() {
         return Objects.hash(name, companyName, sector, CNPJ, emails, phones, address, postCode, accessibilities);
     }
+
 }

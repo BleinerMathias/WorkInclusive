@@ -22,13 +22,13 @@ public class DatabaseBuilder {
         try(Statement statement = ConnectionFactory.createStatement()){
             statement.addBatch(createUser());
             statement.addBatch(createAcademicEducationCandidates());
-        //    statement.addBatch(createProfessionalExperienceCandidates());
-//            statement.addBatch(createVacancy());
-           // statement.addBatch(createBenefitsListVacancy());
-          //  statement.addBatch(createAccessibilityListVacancy());
-//            statement.addBatch(createCandidacy());
-         //   statement.addBatch(createInterview());
-         //   statement.addBatch(createSchedulesHistory());
+            statement.addBatch(createProfessionalExperienceCandidates());
+            statement.addBatch(createVacancy());
+            statement.addBatch(createBenefitsListVacancy());
+            statement.addBatch(createAccessibilityListVacancy());
+            statement.addBatch(createCandidacy());
+            statement.addBatch(createInterview());
+            statement.addBatch(createSchedulesHistory());
             statement.executeBatch();
 
             System.out.println("Database successfully created.");
@@ -43,7 +43,8 @@ public class DatabaseBuilder {
         sqlBuilder.append("CREATE TABLE User(\n");
         sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT,");
         sqlBuilder.append("username TEXT NOT NULL UNIQUE, \n");
-        sqlBuilder.append("password TEXT NOT NULL \n");
+        sqlBuilder.append("password TEXT NOT NULL, \n");
+        sqlBuilder.append("typeUser INTEGER NOT NULL \n");
         sqlBuilder.append(");");
 
         System.out.println(sqlBuilder.toString());
@@ -136,7 +137,7 @@ public class DatabaseBuilder {
     private String createBenefitsListVacancy() {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("CREATE TABLE BenefitsListVacancy(\n");
-        sqlBuilder.append("id INTEGER AUTOINCREMENT, \n");
+        sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
         sqlBuilder.append("vacancy_id NOT NULL, \n");
         sqlBuilder.append("name TEXT NOT NULL, \n ");
         sqlBuilder.append("FOREIGN KEY(vacancy_id) REFERENCES Vacancy(id) \n");
@@ -148,10 +149,10 @@ public class DatabaseBuilder {
     private String createAccessibilityListVacancy() {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("CREATE TABLE AccessibilityListVacancy(\n");
-        sqlBuilder.append("id INTEGER AUTOINCREMENT, \n");
+        sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
         sqlBuilder.append("vacancy_id NOT NULL, \n");
         sqlBuilder.append("name TEXT NOT NULL, \n ");
-        sqlBuilder.append("FOREIGN KEY vacancy_id(id) REFERENCES Vacancy(id) \n");
+        sqlBuilder.append("FOREIGN KEY (vacancy_id) REFERENCES Vacancy(id) \n");
         sqlBuilder.append(");");
 
         System.out.println(sqlBuilder.toString());
