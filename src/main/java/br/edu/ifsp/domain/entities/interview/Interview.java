@@ -17,6 +17,7 @@ public class Interview {
     private List<SchedulesHistory> schedulesHistoryList;
     private boolean acceptCompany = false;
     private boolean acceptCandidate = false;
+    private boolean combined = false;
 
     public Interview(LocalDateTime dateTime, String address, Candidacy candidacy, Company company) {
         this(null,dateTime,address,candidacy,company);
@@ -86,7 +87,9 @@ public class Interview {
     }
 
     public void addNewSchedule(LocalDateTime dateTime){
+
         schedulesHistoryList.add(new SchedulesHistory(dateTime));
+        setDateTime(dateTime);
     }
 
     public void candidateAcceptDateTimeInterview(){
@@ -103,6 +106,30 @@ public class Interview {
 
     public boolean isAcceptCandidate() {
         return acceptCandidate;
+    }
+
+    public void candidateUnacceptCombinedInterview(){
+        acceptCompany = false;
+        candidateAcceptDateTimeInterview();
+    }
+
+    public void companyUnacceptCombinedInterview(){
+        acceptCandidate = false;
+        companyAcceptDateTimeInterview();
+    }
+    public void combined(){
+        combined = true;
+    }
+
+    public boolean isCombined() {
+        return combined;
+    }
+
+    public List<SchedulesHistory> getSchedulesHistoryList() {
+        return schedulesHistoryList;
+    }
+    public void addNewDateTime(LocalDateTime newDateTime){
+
     }
 
     @Override

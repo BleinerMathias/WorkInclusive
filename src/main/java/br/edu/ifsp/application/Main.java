@@ -2,6 +2,8 @@ package br.edu.ifsp.application;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
+import br.edu.ifsp.domain.entities.interview.Interview;
+import br.edu.ifsp.domain.entities.interview.SchedulesHistory;
 import br.edu.ifsp.domain.usecases.candidacy.*;
 import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
 import br.edu.ifsp.domain.entities.candidate.AcademicEducation;
@@ -22,6 +24,7 @@ import br.edu.ifsp.domain.usecases.interview.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.*;
 
 public class Main {
@@ -49,13 +52,14 @@ public class Main {
 
     private static CreateInterviewUseCase createInterviewUseCase;
     private static FindInterviewUseCase findInterviewUseCase;
-    private static AcceptInterview acceptInterview;
+    private static AcceptCombineInterview acceptCombineInterview;
     private static FindCombinedInterview findCombinedInterview;
+    private static UnacceptCombineInterview unacceptCombineInterview;
 
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         configureInjection();
 
 
@@ -200,7 +204,7 @@ public class Main {
 
         // Comp accept candidacy of the Larissa
         Optional<Candidacy> candidacy_larissa = findCandidacyUseCase.findCandidacyById(1);
-        acceptOrDeclineCandidacyUseCase.decline(comp1, candidacy_larissa.get());
+        acceptOrDeclineCandidacyUseCase.accept(comp1, candidacy_larissa.get());
 
         createInterviewUseCase.createNewInterview(comp1,candidacy_larissa.get(), LocalDateTime.from(LocalDateTime.now()),"Rua das lagoas, 11, Centro,Google");
 
@@ -214,6 +218,28 @@ public class Main {
 
         System.out.println("\n\nMostrando entrevistas combinadas");
         System.out.println(findCombinedInterview.findAllCombinedInterviewByCompany(comp1));
+
+
+        Interview interviewLarissa = findInterviewUseCase.findInterviewById(1).get();
+        System.out.println("\n\n Candidato não aceita data da entrevista");
+        unacceptCombineInterview.candidateUnacceptCombineInterview(c1, interviewLarissa,LocalDateTime.of(2021, Month.DECEMBER,15,10,0));
+
+        System.out.println("\n\nMostrando entrevistas combinadas");
+        System.out.println(findCombinedInterview.findAllCombinedInterviewByCompany(comp1));
+
+        System.out.println("\n\nEmpresa nega data passada pelo o candidato, e propõe nova data");
+        unacceptCombineInterview.companyAcceptInterview(comp1, findInterviewUseCase.findInterviewById(1).get(),LocalDateTime.of(2021, Month.OCTOBER,20,10,0));
+
+        System.out.println("\n\n Candidata Larissa aceita combinação de data e horario");
+        acceptCombineInterview.candidateAcceptInterview(c1, findInterviewUseCase.findInterviewById(1).get());
+
+        System.out.println("\n\nMostrando entrevistas combinadas");
+        System.out.println(findCombinedInterview.findAllCombinedInterviewByCompany(comp1));
+
+        System.out.println("\n\nMostrando histórico de entrevistas");
+        for(SchedulesHistory schedulesHistory : findInterviewUseCase.findInterviewById(1).get().getSchedulesHistoryList()){
+            System.out.println(schedulesHistory);
+        }
 
     }
 
@@ -247,8 +273,9 @@ public class Main {
 
         findInterviewUseCase = new FindInterviewUseCase(interviewDAO);
         createInterviewUseCase = new CreateInterviewUseCase(interviewDAO,findCandidacyUseCase, updateCandidacyUseCase);
-        acceptInterview = new AcceptInterview(interviewDAO, findInterviewUseCase);
+        acceptCombineInterview = new AcceptCombineInterview(interviewDAO, findInterviewUseCase);
         findCombinedInterview = new FindCombinedInterview(interviewDAO);
+        unacceptCombineInterview = new UnacceptCombineInterview(interviewDAO, findInterviewUseCase);
 
 
     }

@@ -18,4 +18,12 @@ public class SchedulesHistory {
     public LocalDateTime getSuggestedDate() {
         return suggestedDate;
     }
+
+    @Override
+    public String toString() {
+        return "SchedulesHistory{" +
+                "suggestedIn=" + suggestedIn +
+                ", suggestedDate=" + suggestedDate +
+                '}';
+    }
 }
