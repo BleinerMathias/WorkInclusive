@@ -100,6 +100,11 @@ public class Candidate extends User{
         abiliities.remove(abiliity);
     }
 
+    public void createLogin(String username, String password){
+        this.setUsername(username);
+        this.setPassword(password);
+    }
+
 
     @Override
     public boolean equals(Object o) {

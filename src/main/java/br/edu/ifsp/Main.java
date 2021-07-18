@@ -1,6 +1,7 @@
 package br.edu.ifsp;
 
 import br.edu.ifsp.application.repository.*;
+import br.edu.ifsp.application.repository.sqlite.DatabaseBuilder;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.interview.Interview;
 import br.edu.ifsp.domain.entities.interview.SchedulesHistory;
@@ -60,8 +61,10 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         configureInjection();
+        setupDatabase();
+    }
 
-
+    private static void populateDatabase(){
         PersonalData p_c1 = new PersonalData("Larissa Aline", "111.111.111-11",
                 LocalDate.of(1996,5,5),"13690-000","Brasileira");
 
@@ -70,7 +73,11 @@ public class Main {
         p_c1.addPhone("(19) 3333-3333");
         p_c1.addPhone("(16) 3333-3333");
 
+
+
         Candidate c1 = new Candidate(p_c1);
+
+        c1.createLogin("larissaaline", "123123");
 
         c1.addAcademicEducation(new AcademicEducation("Técnico em enfermagem", LocalDate.of(2017, 6, 5),
                 LocalDate.of(2019, 6, 5),true, AcademicDegree.TECHNOLOSIT,"SENAC"));
@@ -159,7 +166,7 @@ public class Main {
 
         // Vacancy 3
         Vacancy v3 = new Vacancy("Estágio","Irá trabalhar com equipe de desenvolvimento em JAVA", Hierarchy.TRAINEE, 1500.00,
-              StatusVacancy.AVAILABLE,comp1);
+                StatusVacancy.AVAILABLE,comp1);
 
         v3.addBenefits(Benefits.MEDICAL_PLAN);
 
@@ -246,6 +253,11 @@ public class Main {
 
         acceptCombineInterview.candidateAcceptInterview(c1, findInterviewUseCase.findInterviewById(1).get());
 
+    }
+
+    private static void setupDatabase() {
+        DatabaseBuilder dbBuilder = new DatabaseBuilder();
+        dbBuilder.buildDatabaseIfMissing();
     }
 
     private static void configureInjection(){
