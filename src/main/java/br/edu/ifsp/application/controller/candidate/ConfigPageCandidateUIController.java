@@ -4,12 +4,12 @@ import br.edu.ifsp.application.view.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class MatchVacancyPageUIController {
+public class ConfigPageCandidateUIController {
 
     @FXML
     private Button btnhome;
@@ -24,28 +24,16 @@ public class MatchVacancyPageUIController {
     private Button btnConfig;
 
     @FXML
-    private Label lbNameVacancy;
+    private ColorPicker cpTxtColor;
 
     @FXML
-    private Label lbCompany;
+    private ColorPicker cpViewColor;
 
     @FXML
-    private Label lbDesc;
+    private TextField txtFontSize;
 
     @FXML
-    private Label lbHierarch;
-
-    @FXML
-    private Label lbSalary;
-
-    @FXML
-    private Label lbBenefities;
-
-    @FXML
-    private Button btnDecline;
-
-    @FXML
-    private Button btnAccept;
+    private Button btnSave;
 
     public void initialPage(ActionEvent actionEvent) throws IOException {
         App.setRoot("HomePageCandidate");
@@ -62,5 +50,4 @@ public class MatchVacancyPageUIController {
     public void config(ActionEvent actionEvent) throws IOException {
         App.setRoot("ConfigPage");
     }
-
 }

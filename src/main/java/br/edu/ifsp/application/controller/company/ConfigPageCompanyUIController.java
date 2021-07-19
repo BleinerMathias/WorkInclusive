@@ -1,18 +1,15 @@
 package br.edu.ifsp.application.controller.company;
 
 import br.edu.ifsp.application.view.App;
-import br.edu.ifsp.domain.entities.company.Company;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
-public class HomePageCompanyUIController {
+public class ConfigPageCompanyUIController {
 
     @FXML
     private Button btnhome;
@@ -30,19 +27,16 @@ public class HomePageCompanyUIController {
     private Button btnConfig;
 
     @FXML
-    private TableView<Company> tableView;
+    private ColorPicker cpTxtColor;
 
     @FXML
-    private TableColumn<Company, Integer> cId;
+    private ColorPicker cpViewColor;
 
     @FXML
-    private TableColumn<Company, LocalDate> cDateTime;
+    private TextField txtFontSize;
 
     @FXML
-    private TableColumn<Company, String> cAddress;
-
-    @FXML
-    private TableColumn<Company, String> cCandidate;
+    private Button btnSave;
 
     public void initialPage(ActionEvent actionEvent) throws IOException {
         App.setRoot("HomePageCompany");

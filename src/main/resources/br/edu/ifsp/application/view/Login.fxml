@@ -16,16 +16,16 @@
             <Font size="16.0" />
          </font></Label>
       <PasswordField fx:id="txtPassword" layoutX="119.0" layoutY="147.0" prefHeight="25.0" prefWidth="193.0" />
-      <Button fx:id="btnLogin" layoutX="81.0" layoutY="204.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="199.0" text="Acessar">
+      <Button fx:id="btnLogin" layoutX="81.0" layoutY="204.0" mnemonicParsing="false"  onAction="#Access" prefHeight="31.0" prefWidth="199.0" text="Acessar">
          <font>
             <Font size="15.0" />
          </font></Button>
       <Hyperlink />
-      <Button fx:id="btnCandidate" layoutX="107.0" layoutY="487.0" mnemonicParsing="false" prefWidth="150.0" text="Candidato" visible="true">
+      <Button fx:id="btnCandidate" layoutX="107.0" layoutY="487.0" mnemonicParsing="false" onAction="#createAccountCandidate" prefWidth="150.0" text="Candidato" visible="true">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="btnCompany" layoutX="107.0" layoutY="427.0" mnemonicParsing="false" prefWidth="150.0" text="Empresa" visible="true">
+      <Button fx:id="btnCompany" layoutX="107.0" layoutY="427.0" mnemonicParsing="false" onAction="#createAccountCompany" prefWidth="150.0" text="Empresa" visible="true">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -39,5 +39,6 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Label fx:id="lbUser" layoutX="166.0" layoutY="272.0" text="Label" />
    </children>
 </AnchorPane>

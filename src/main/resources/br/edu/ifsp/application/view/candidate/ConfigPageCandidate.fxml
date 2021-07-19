@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.candidate.ConfigPageCandidateUIController">
+    <Button fx:id="btnhome" layoutX="35.0" layoutY="8.0" mnemonicParsing="false" onAction="#initialPage" style="-fx-border-color: default; -fx-background-color: default;" text="Inicio" />
+    <Button fx:id="btnProfile" layoutX="112.0" layoutY="8.0" mnemonicParsing="false" onAction="#Account" style="-fx-border-color: default; -fx-background-color: default;" text="Perfil" />
+    <Button fx:id="btnVacany" layoutX="181.0" layoutY="8.0" mnemonicParsing="false" onAction="#vacancy" style="-fx-border-color: default; -fx-background-color: default;" text="Vagas" />
+    <Button fx:id="btnConfig" layoutX="253.0" layoutY="8.0" mnemonicParsing="false" onAction="#config" style="-fx-border-color: default; -fx-background-color: default;" text="Configurações" />
+    <Label layoutX="133.0" layoutY="56.0" text="Configurações">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Label>
+    <ColorPicker fx:id="cpTxtColor" layoutX="133.0" layoutY="117.0" promptText="Preto">
+        <value>
+            <Color red="0.02631578966975212" green="0.017178362235426903" blue="0.017178362235426903" />
+            <Color red="0.933845043182373" green="0.9356237649917603" blue="0.9605262875556946" />
+        </value>
+    </ColorPicker>
+
+    <ColorPicker fx:id="cpViewColor" layoutX="133.0" layoutY="185.0" promptText="Branco">
+        <value>
+            <Color red="0.933845043182373" green="0.9356237649917603" blue="0.9605262875556946" />
+            <Color red="0.02631578966975212" green="0.017178362235426903" blue="0.017178362235426903" />
+        </value>
+    </ColorPicker>
+    <Label layoutX="35.0" layoutY="121.0" text="Cor do texto">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <Label layoutX="40.0" layoutY="188.0" text="Cor da tela">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <Button fx:id="btnSave" layoutX="135.0" layoutY="533.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="90.0" text="Salvar">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Button>
+    <Label layoutX="25.0" layoutY="267.0" text="Tamanho da fonte">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <TextField fx:id="txtFontSize" layoutX="142.0" layoutY="265.0" prefHeight="25.0" prefWidth="78.0" />
+
+</AnchorPane>
