@@ -21,6 +21,7 @@ public class DatabaseBuilder {
     private void buildTables() {
         try(Statement statement = ConnectionFactory.createStatement()){
             statement.addBatch(createUser());
+            statement.addBatch(createCandidate());
             statement.addBatch(createAcademicEducationCandidates());
             statement.addBatch(createProfessionalExperienceCandidates());
             statement.addBatch(createVacancy());
@@ -59,8 +60,6 @@ public class DatabaseBuilder {
         sqlBuilder.append("dateOfBirth TEXT NOT NULL, \n");
         sqlBuilder.append("postCode TEXT NOT NULL, \n");
         sqlBuilder.append("nationality TEXT NOT NULL, \n");
-        sqlBuilder.append("username TEXT NOT NULL, \n");
-        sqlBuilder.append("password TEXT NOT NULL, \n");
         sqlBuilder.append("FOREIGN KEY(id) REFERENCES User(id) \n");
 
         sqlBuilder.append(");");

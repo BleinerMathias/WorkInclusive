@@ -1,6 +1,6 @@
-package br.edu.ifsp;
+package br.edu.ifsp.application.main;
 
-import br.edu.ifsp.application.repository.*;
+import br.edu.ifsp.application.repository.inMemory.*;
 import br.edu.ifsp.application.repository.sqlite.DatabaseBuilder;
 import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.*;
 
-public class Main {
+public class MainTest {
 
     private static CreateCandidateUseCase createCandidateUseCase;
     private static FindCandidateUseCase   findCandidateUseCase;
@@ -74,8 +74,6 @@ public class Main {
         p_c1.addEmail("larissa2@teste.com.br");
         p_c1.addPhone("(19) 3333-3333");
         p_c1.addPhone("(16) 3333-3333");
-
-
 
         Candidate c1 = new Candidate(p_c1);
 

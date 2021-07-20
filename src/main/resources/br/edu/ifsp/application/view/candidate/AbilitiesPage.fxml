@@ -13,7 +13,7 @@
       </Label>
       <TextField fx:id="txtAbility" layoutX="39.0" layoutY="149.0" prefHeight="46.0" prefWidth="283.0" />
       <Button fx:id="btnPrevious" layoutX="47.0" layoutY="548.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Voltar" />
-      <Button fx:id="btnNext" layoutX="237.0" layoutY="548.0" mnemonicParsing="false" onAction="#SaveCandidate" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
+      <Button fx:id="btnNext" layoutX="237.0" layoutY="548.0" mnemonicParsing="false" onAction="#SaveCandidate" prefHeight="40.0" prefWidth="90.0" text="Salvar" />
       <Button fx:id="btnNewAbility" layoutX="40.0" layoutY="201.0" mnemonicParsing="false" onAction="#addNewAbility" prefHeight="50.0" prefWidth="280.0" text="Nova Habilidade" />
       <TableView fx:id="tableAbility" layoutX="41.0" layoutY="261.0" prefHeight="211.0" prefWidth="280.0">
         <columns>

@@ -14,7 +14,7 @@ public class CreateCompanyUseCase {
         this.companyDAO = companyDAO;
     }
 
-    public String insert(Company company){
+    public Integer insert(Company company){
         Validator<Company> validator = new CompanyInputValidator();
         Notification notification = validator.validate(company);
 

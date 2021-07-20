@@ -1,4 +1,4 @@
-package br.edu.ifsp.application.repository;
+package br.edu.ifsp.application.repository.inMemory;
 
 import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.usecases.Company.CompanyDAO;
@@ -6,7 +6,8 @@ import br.edu.ifsp.domain.usecases.Company.CompanyDAO;
 import java.util.*;
 
 public class InMemoryCompanyDAO implements CompanyDAO {
-    private static final Map<String, Company> db = new LinkedHashMap<>();
+    private static final Map<Integer, Company> db = new LinkedHashMap<>();
+    private static int id;
     @Override
     public Optional<Company> findByCNPJ(String cnpj) {
         return db.values().stream()
@@ -15,9 +16,10 @@ public class InMemoryCompanyDAO implements CompanyDAO {
     }
 
     @Override
-    public String create(Company company) {
-        db.put(company.getCNPJ(), company);
-        return company.getCNPJ();
+    public Integer create(Company company) {
+        id++;
+        db.put(id, company);
+        return id;
     }
 
     @Override
@@ -35,9 +37,9 @@ public class InMemoryCompanyDAO implements CompanyDAO {
 
     @Override
     public boolean update(Company company) {
-        String cnpj =  company.getCNPJ();
-        if(db.containsKey(cnpj)){
-            db.replace(cnpj,company);
+        Integer id =  company.getId();
+        if(db.containsKey(id)){
+            db.replace(id,company);
             return true;
         }
         return false;

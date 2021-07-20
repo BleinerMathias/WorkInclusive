@@ -10,38 +10,46 @@
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="50.0" layoutY="53.0" text="Usuário" />
-      <Label layoutX="54.0" layoutY="87.0" text="Senha" />
-      <Label layoutX="53.0" layoutY="121.0" text="Nome" />
-      <Label layoutX="17.0" layoutY="186.0" text="Data de nascimento" />
-      <Label layoutX="59.0" layoutY="220.0" text="CEP" />
-      <Label layoutX="31.0" layoutY="255.0" text="Nacionalidade" />
-      <Label layoutX="50.0" layoutY="288.0" text="Telefone" />
-      <Label layoutX="56.0" layoutY="417.0" text="E-mail" />
-      <Button fx:id="btnAddPhone" layoutX="308.0" layoutY="286.0" mnemonicParsing="false" onAction="#addPhone" prefHeight="25.0" prefWidth="33.0" text="+" />
-      <Button fx:id="btnAddEmail" layoutX="308.0" layoutY="414.0" mnemonicParsing="false" onAction="#addEmail" prefHeight="25.0" prefWidth="33.0" text="+" />
-      <Button fx:id="btnNxtUserData" layoutX="239.0" layoutY="567.0" mnemonicParsing="false" onAction="#nxtUserData" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
-      <Button fx:id="btnCancel" layoutX="35.0" layoutY="567.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
-      <TextField fx:id="txtUsername" layoutX="131.0" layoutY="48.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtPassword" layoutX="131.0" layoutY="82.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtName" layoutX="131.0" layoutY="116.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtPostCode" layoutX="131.0" layoutY="216.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtNationality" layoutX="131.0" layoutY="251.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtPhone" layoutX="129.0" layoutY="286.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtEmail" layoutX="129.0" layoutY="413.0" prefHeight="25.0" prefWidth="169.0" />
-      <DatePicker fx:id="dtBirthday" layoutX="131.0" layoutY="182.0" prefHeight="25.0" prefWidth="169.0" />
-      <TableView fx:id="tablePhones" layoutX="36.0" layoutY="320.0" prefHeight="76.0" prefWidth="305.0">
+      <Label layoutX="23.0" layoutY="38.0" text="Usuário" />
+      <Label layoutX="197.0" layoutY="38.0" text="Senha" />
+      <Label layoutX="24.0" layoutY="93.0" text="Nome" />
+      <Label layoutX="236.0" layoutY="147.0" text="Data de nascimento" />
+      <Label layoutX="25.0" layoutY="147.0" text="CEP" />
+      <Label layoutX="25.0" layoutY="199.0" text="Nacionalidade" />
+      <Label layoutX="29.0" layoutY="354.0" text="Telefone" />
+      <Label layoutX="29.0" layoutY="462.0" text="E-mail" />
+      <Button fx:id="btnAddPhone" layoutX="29.0" layoutY="409.0" mnemonicParsing="false" onAction="#addPhone" prefHeight="25.0" prefWidth="127.0" text="+" />
+      <Button fx:id="btnAddEmail" layoutX="29.0" layoutY="514.0" mnemonicParsing="false" onAction="#addEmail" prefHeight="25.0" prefWidth="127.0" text="+" />
+      <Button fx:id="btnNxtUserData" layoutX="237.0" layoutY="576.0" mnemonicParsing="false" onAction="#nxtUserData" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
+      <Button fx:id="btnCancel" layoutX="33.0" layoutY="576.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
+      <TextField fx:id="txtUsername" layoutX="22.0" layoutY="59.0" prefHeight="25.0" prefWidth="148.0" />
+      <TextField fx:id="txtPassword" layoutX="194.0" layoutY="59.0" prefHeight="25.0" prefWidth="148.0" />
+      <TextField fx:id="txtName" layoutX="22.0" layoutY="113.0" prefHeight="25.0" prefWidth="196.0" />
+      <TextField fx:id="txtPostCode" layoutX="23.0" layoutY="166.0" prefHeight="25.0" prefWidth="196.0" />
+      <TextField fx:id="txtNationality" layoutX="24.0" layoutY="218.0" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="txtPhone" layoutX="29.0" layoutY="377.0" prefHeight="25.0" prefWidth="127.0" />
+      <TextField fx:id="txtEmail" layoutX="28.0" layoutY="481.0" prefHeight="25.0" prefWidth="127.0" />
+      <DatePicker fx:id="dtBirthday" layoutX="229.0" layoutY="167.0" prefHeight="25.0" prefWidth="119.0" />
+      <TableView fx:id="tablePhones" layoutX="162.0" layoutY="357.0" onMousePressed="#deletePhone" prefHeight="85.0" prefWidth="185.0">
         <columns>
-          <TableColumn fx:id="cNumber" prefWidth="304.0" text="Telefones adicionados" />
+          <TableColumn fx:id="cNumber" prefWidth="182.0"  text="Telefones adicionados" />
         </columns>
       </TableView>
-      <TableView fx:id="tableEmails" layoutX="37.0" layoutY="450.0" prefHeight="76.0" prefWidth="305.0">
+      <TableView fx:id="tableEmails" layoutX="162.0"  onMousePressed="#deleteEmail" layoutY="467.0" prefHeight="85.0" prefWidth="185.0">
          <columns>
-            <TableColumn fx:id="cEmail" prefWidth="304.0" text="Emails adicionados" />
+            <TableColumn fx:id="cEmail" prefWidth="188.0" text="Emails adicionados" />
          </columns>
       </TableView>
-      <Label layoutX="54.0" layoutY="154.0" text="CPF" />
-      <TextField fx:id="txtCpf" layoutX="131.0" layoutY="150.0" prefHeight="25.0" prefWidth="169.0" />
+      <Label layoutX="234.0" layoutY="93.0" text="CPF" />
+      <TextField fx:id="txtCpf" layoutX="229.0" layoutY="113.0" prefHeight="25.0" prefWidth="119.0" />
+      <ComboBox fx:id="cbAccessibility" layoutX="152.0" layoutY="217.0" prefHeight="25.0" prefWidth="162.0" />
+      <Label layoutX="155.0" layoutY="199.0" text="Sou" />
+      <Button layoutX="321.0" layoutY="217.0" mnemonicParsing="false" onAction="#addAccessiblity" prefHeight="25.0" prefWidth="27.0" text="+" />
+      <TableView fx:id="tableAccessibility" onMousePressed="#deleteAccessibility" layoutX="25.0" layoutY="255.0" prefHeight="85.0" prefWidth="324.0">
+        <columns>
+          <TableColumn fx:id="cAccessibility" prefWidth="323.0" text="Vagas acessíveis para" />
+        </columns>
+      </TableView>
 
    </children>
 

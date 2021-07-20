@@ -9,12 +9,20 @@ public class Candidacy {
     private Candidate candidate;
     private StatusCandidacy statusCandidacy;
 
+    public Candidacy() {
+    }
 
     public Candidacy(Vacancy vacancy, Candidate candidate) {
+        this(0,vacancy,candidate, null);
+    }
+
+    public Candidacy(int id, Vacancy vacancy, Candidate candidate, StatusCandidacy statusCandidacy) {
+        this.id = id;
         this.vacancy = vacancy;
         this.candidate = candidate;
-        this.statusCandidacy = StatusCandidacy.IN_ANALYSIS;
+        this.statusCandidacy = statusCandidacy;
     }
+
 
 
     public int getId() {

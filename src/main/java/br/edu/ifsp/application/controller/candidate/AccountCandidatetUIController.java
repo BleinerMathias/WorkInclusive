@@ -2,12 +2,14 @@ package br.edu.ifsp.application.controller.candidate;
 
 import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidate.*;
+import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 
 import java.io.IOException;
@@ -45,6 +47,16 @@ public class AccountCandidatetUIController {
     private TableColumn<Phone, String> cNumber;
 
     @FXML
+    private ComboBox<Accessibility> cbAccessibility;
+
+    @FXML
+    private TableView<Accessibility> tableAccessibility;
+
+    @FXML
+    private TableColumn<Accessibility, Enum> cAccessibility;
+
+
+    @FXML
     private TextField txtPhone;
 
     @FXML
@@ -70,6 +82,7 @@ public class AccountCandidatetUIController {
 
     ObservableList<Phone> phones;
     ObservableList<Email> emails;
+    ObservableList<Accessibility> accessibilityObservableList;
 
     private Candidate candidate;
     private PersonalData personalData;
@@ -78,30 +91,56 @@ public class AccountCandidatetUIController {
     private void initialize(){
         candidate = new Candidate();
         personalData = new PersonalData();
+        cbAccessibility.getItems().addAll(Accessibility.values());
         bindTaleViewToItemsList();
         bindColumnsToValueSources();
+       // carregaDados();
+    }
+
+    private void carregaDados() {
+        PersonalData p_c1 = new PersonalData("Larissa Aline", "111.111.111-11",
+                LocalDate.of(1996,5,5),"13690-000","Brasileira");
+
+        p_c1.addEmail("larissa@teste.com.br");
+        p_c1.addEmail("larissa2@teste.com.br");
+        p_c1.addPhone("(19) 3333-3333");
+        p_c1.addPhone("(16) 3333-3333");
+
+        Candidate c1 = new Candidate(p_c1);
+
+        c1.createLogin("larissaaline", "123123");
+
+        c1.addAcademicEducation(new AcademicEducation("Técnico em enfermagem", LocalDate.of(2017, 6, 5),
+                LocalDate.of(2019, 6, 5),true, AcademicDegree.TECHNOLOSIT,"SENAC"));
+
+        c1.addAcademicEducation(new AcademicEducation("Análise e desenolvimento de sistemas", LocalDate.of(2019, 1, 25),
+                LocalDate.of(2022, 1, 25),false, AcademicDegree.TECHNOLOSIT,"IFSP" ));
+
+        c1.addAccessibility(Accessibility.VISUAL_DEFICIENT);
+
+        c1.addAbility("JAVA");
+        c1.addAbility("JAVASCRIPT");
+        c1.addAbility("NODEJS");
+        setCandidate(c1);
     }
 
     private void bindTaleViewToItemsList() {
         phones = FXCollections.observableArrayList();
         emails = FXCollections.observableArrayList();
+        accessibilityObservableList = FXCollections.observableArrayList();
+
         tablePhones.setItems(phones);
         tableEmails.setItems(emails);
-
-        personalData.setPhone(phones);
-        personalData.setEmail(emails);
+        tableAccessibility.setItems(accessibilityObservableList);
 
     }
 
     private void bindColumnsToValueSources() {
         cNumber.setCellValueFactory(new PropertyValueFactory<>("phone"));
         cEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        cAccessibility.setCellValueFactory(new PropertyValueFactory<>("label"));
     }
 
-
-    public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
-
-    }
 
     public void setCandidate(Candidate candidate){
         this.candidate = candidate;
@@ -117,11 +156,12 @@ public class AccountCandidatetUIController {
         txtName.setText(candidate.getPersonalData().getName());
         txtCpf.setText(candidate.getPersonalData().getCpf());
         dtBirthday.setValue(candidate.getPersonalData().getDateOfBirth());
-        txtPostCode.setText(candidate.getPersonalData().getCpf());
+        txtPostCode.setText(candidate.getPersonalData().getPostCode());
         txtNationality.setText(candidate.getPersonalData().getNationality());
 
         phones.addAll(candidate.getPersonalData().getPhone());
         emails.addAll(candidate.getPersonalData().getEmail());
+        accessibilityObservableList.addAll(candidate.getAccessibilities());
     }
 
     public void addPhone(ActionEvent actionEvent) {
@@ -146,6 +186,8 @@ public class AccountCandidatetUIController {
         personalData.setDateOfBirth(LocalDate.parse(dtBirthday.getValue().toString()));
         personalData.setNationality(txtNationality.getText());
         personalData.setPostCode(txtPostCode.getText());
+        personalData.setEmail(emails);
+        personalData.setPhone(phones);
         candidate.setPersonalData(personalData);
 
         WindowLoader.setRoot("candidate/AcademicEducation");
@@ -153,4 +195,25 @@ public class AccountCandidatetUIController {
         controller.setCandidate(candidate);
     }
 
+    public void addAccessiblity(ActionEvent actionEvent) {
+        accessibilityObservableList.add(cbAccessibility.getValue());
+    }
+
+    public void deletePhone(MouseEvent mouseEvent) {
+        if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+          phones.remove(tablePhones.getSelectionModel().getSelectedItem());
+        }
+    }
+
+    public void deleteAccessibility(MouseEvent mouseEvent) {
+        if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+            accessibilityObservableList.remove(tableAccessibility.getSelectionModel().getSelectedItem());
+        }
+    }
+
+    public void deleteEmail(MouseEvent mouseEvent) {
+        if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+            emails.remove(tableEmails.getSelectionModel().getSelectedItem());
+        }
+    }
 }

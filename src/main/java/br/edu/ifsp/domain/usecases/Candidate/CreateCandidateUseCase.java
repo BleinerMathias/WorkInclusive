@@ -13,7 +13,7 @@ public class CreateCandidateUseCase {
         this.candidateDAO = candidateDAO;
     }
 
-    public String insert(Candidate candidate){
+    public Integer insert(Candidate candidate){
         Validator<Candidate> validator = new CandidateInputValidator();
         Notification notification = validator.validate(candidate);
 

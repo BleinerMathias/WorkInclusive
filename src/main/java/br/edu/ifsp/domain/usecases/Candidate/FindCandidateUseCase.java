@@ -16,7 +16,13 @@ public class FindCandidateUseCase {
     public Optional<Candidate> findByCPF(String cpf){
         if (cpf == null)
             throw new IllegalArgumentException("CPF can not be null.");
-        return candidateDAO.findOne(cpf);
+        return candidateDAO.findByCPF(cpf);
+    }
+
+    public Optional<Candidate> findByUserId(Integer id){
+        if (id == null)
+            throw new IllegalArgumentException("UserID can not be null.");
+        return candidateDAO.findByUserId(id);
     }
 
     public List<Candidate> findAll(){

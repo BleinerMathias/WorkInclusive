@@ -16,6 +16,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 
+import static br.edu.ifsp.application.main.Main.createCandidateUseCase;
+
 public class AbilitiesPageUIController {
 
     @FXML
@@ -73,6 +75,9 @@ public class AbilitiesPageUIController {
     }
 
     public void SaveCandidate(ActionEvent actionEvent) {
+        if(candidate!=null){
+            createCandidateUseCase.insert(candidate);
+        }
     }
 
     public void addNewAbility(ActionEvent actionEvent) {
