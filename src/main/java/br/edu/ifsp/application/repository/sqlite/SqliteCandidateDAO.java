@@ -1,7 +1,10 @@
 package br.edu.ifsp.application.repository.sqlite;
 
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
+import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
+import br.edu.ifsp.domain.entities.candidate.AcademicEducation;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
+import br.edu.ifsp.domain.entities.candidate.ProfessionalExperience;
 import br.edu.ifsp.domain.usecases.Candidate.CandidateDAO;
 
 import java.sql.PreparedStatement;
@@ -30,26 +33,74 @@ public class SqliteCandidateDAO implements CandidateDAO {
     public Integer create(Candidate candidate) {
 
         int user_id = createUser(candidate);
+        createCandidate(user_id, candidate);
+        insertAcademicEducationCandidate(user_id, candidate);
+        insertProfessionalExperienceCandidate(user_id, candidate);
+        return user_id;
+    }
+
+
+    private boolean insertAcademicEducationCandidate(int userID, Candidate candidate) {
+        String sql = "INSERT INTO AcademicEducationCandidate(user_id, course, courseStart, courseEnd," +
+                "completed, academicDegree, academicInstituion) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
+            stmt.setInt(1, userID);
+            for(AcademicEducation ae : candidate.getAcademicEducationsList()){
+                stmt.setString(2, ae.getCourse());
+                stmt.setString(3, ae.getCourseStart().toString());
+                stmt.setString(4, ae.getCourseEnd().toString());
+                stmt.setInt(5, ae.isCompleted()?1:0);
+                stmt.setString(6, ae.getAcademicDegree().toString());
+                stmt.setString(7, ae.getAcademicInstitution());
+                stmt.execute();
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean insertProfessionalExperienceCandidate(int userID, Candidate candidate) {
+        String sql = "INSERT INTO ProfessionalExperienceCandidate(user_id, companyName, admissionDate, resignationDate," +
+                "office, carriedActivities) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
+            stmt.setInt(1, userID);
+            for(ProfessionalExperience pe : candidate.getProfessionalExperienceList()){
+                stmt.setString(2, pe.getCompanyName());
+                stmt.setString(3, pe.getAdmissionDate().toString());
+                stmt.setString(4, pe.getResignationDate().toString());
+                stmt.setString(5, pe.getOffice());
+                stmt.setString(6, pe.getCarriedActivities());
+                stmt.execute();
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private Boolean createCandidate(Integer userID, Candidate candidate) {
 
         String sql = "INSERT INTO Candidate(id, name, cpf, dateOfBirth," +
                 "postCode, nationality) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
-            stmt.setInt(1, user_id);
+            stmt.setInt(1, userID);
             stmt.setString(2, candidate.getPersonalData().getName());
             stmt.setString(3, candidate.getPersonalData().getCpf());
             stmt.setString(4, candidate.getPersonalData().getDateOfBirth().toString());
             stmt.setString(5, candidate.getPersonalData().getPostCode());
             stmt.setString(6, candidate.getPersonalData().getNationality());
             stmt.execute();
-
-            ResultSet resultSet = stmt.getGeneratedKeys();
-            int generatedKey = resultSet.getInt(1);
-            return generatedKey;
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override

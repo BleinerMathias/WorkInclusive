@@ -73,8 +73,8 @@ public class DatabaseBuilder {
         sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
         sqlBuilder.append("user_id NOT NULL, \n");
         sqlBuilder.append("course TEXT NOT NULL, \n ");
-        sqlBuilder.append("couseStart TEXT NOT NULL, \n");
-        sqlBuilder.append("couseEnd TEXT NOT NULL, \n");
+        sqlBuilder.append("courseStart TEXT NOT NULL, \n");
+        sqlBuilder.append("courseEnd TEXT NOT NULL, \n");
         sqlBuilder.append("completed INTEGER NOT NULL, \n");
         sqlBuilder.append("academicDegree TEXT NOT NULL, \n");
         sqlBuilder.append("academicInstituion TEXT NOT NULL, \n");
@@ -91,8 +91,8 @@ public class DatabaseBuilder {
         sqlBuilder.append("user_id NOT NULL, \n");
         sqlBuilder.append("companyName TEXT NOT NULL, \n ");
         sqlBuilder.append("admissionDate TEXT NOT NULL, \n");
-        sqlBuilder.append("resignationDate TEXT NOT NULL, \n");
-        sqlBuilder.append("office INTEGER NOT NULL, \n");
+        sqlBuilder.append("resignationDate TEXT, \n");
+        sqlBuilder.append("office TEXT NOT NULL, \n");
         sqlBuilder.append("carriedActivities TEXT NOT NULL, \n");
         sqlBuilder.append("FOREIGN KEY(user_id) REFERENCES User(id) \n");
         sqlBuilder.append(");");
