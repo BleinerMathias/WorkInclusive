@@ -11,14 +11,15 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class WindowLoader extends Application {
+
 
     private static Scene scene;
     private static Object controller;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Login"), 360, 640);
+        scene = new Scene(loadFXML("candidate/AccountCandidate"), 360, 640);
         stage.setScene(scene);
         stage.show();
     }
@@ -29,7 +30,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent parent = fxmlLoader.load(Application.class.getResource(fxml + ".fxml").openStream());
+        Parent parent = fxmlLoader.load(WindowLoader.class.getResource(fxml + ".fxml").openStream());
         controller = fxmlLoader.getController();
         return parent;
     }
@@ -41,5 +42,6 @@ public class App extends Application {
     public static Object getController() {
         return controller;
     }
+
 
 }

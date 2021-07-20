@@ -1,7 +1,7 @@
 package br.edu.ifsp.application.controller;
 
-import br.edu.ifsp.application.repository.sqlite.ConnectionFactory;
-import br.edu.ifsp.application.view.App;
+
+import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,10 +70,10 @@ public class LoginUIController {
      */
 
     public void createAccountCompany(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AccountCandidate");
+        WindowLoader.setRoot("AccountCandidate");
     }
 
     public void createAccountCandidate(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AccountCompany");
+        WindowLoader.setRoot("AccountCompany");
     }
 }

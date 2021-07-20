@@ -10,14 +10,14 @@ public class PersonalData {
     private LocalDate dateOfBirth;
     private String postCode;
     private String nationality;
-    private List<String> phones;
-    private List<String> emails;
+    private List<Phone> phones;
+    private List<Email> emails;
 
     public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality) {
         this(name, cpf, dateOfBirth, postCode, nationality,null,null);
     }
 
-    public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality, List<String> phones, List<String> emails) {
+    public PersonalData(String name, String cpf, LocalDate dateOfBirth, String postCode, String nationality, List<Phone> phones, List<Email> emails) {
         this.name = name;
         this.cpf = cpf;
         this.dateOfBirth = dateOfBirth;
@@ -27,12 +27,20 @@ public class PersonalData {
         this.emails = new ArrayList<>();
     }
 
+    public PersonalData() {
+
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getCpf() {
@@ -64,30 +72,30 @@ public class PersonalData {
     }
 
     // ?
-    public List<String> getPhone() {
+    public List<Phone> getPhone() {
         return phones;
     }
-    public void setPhone(List<String> phones) {
+    public void setPhone(List<Phone> phones) {
         this.phones = phones;
     }
-    public List<String> getEmail() {
+    public List<Email> getEmail() {
         return emails;
     }
-    public void setEmail(List<String> emails) {
+    public void setEmail(List<Email> emails) {
         this.emails = emails;
     }
     //?
 
 
     public void addPhone(String phoneNumber){
-        phones.add(phoneNumber);
+        phones.add(new Phone(phoneNumber));
     }
     public void removePhone(String phoneNumber){
         phones.remove(phoneNumber);
     }
 
     public void addEmail(String emailAddress){
-        emails.add(emailAddress);
+        emails.add(new Email(emailAddress));
     }
     public void removeEmail(String emailAddress){
         emails.remove(emailAddress);

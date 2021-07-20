@@ -11,20 +11,33 @@
             <Font size="15.0" />
          </font></Label>
       <Label layoutX="59.0" layoutY="81.0" text="Curso" />
-      <Label layoutX="46.0" layoutY="136.0" text="Data Inicio" />
-      <Label layoutX="51.0" layoutY="193.0" text="Data Fim" />
-      <Label layoutX="39.0" layoutY="245.0" text="Andamento" />
-      <Label layoutX="57.0" layoutY="298.0" text="Nivel" />
-      <ComboBox fx:id="cbAcademicDegree" layoutX="149.0" layoutY="294.0" prefHeight="25.0" prefWidth="165.0" />
-      <Label layoutX="48.0" layoutY="356.0" text="Instituição" />
+      <Label layoutX="46.0" layoutY="117.0" text="Data Inicio" />
+      <Label layoutX="52.0" layoutY="155.0" text="Data Fim" />
+      <Label layoutX="39.0" layoutY="196.0" text="Andamento" />
+      <Label layoutX="57.0" layoutY="230.0" text="Nivel" />
+      <ComboBox fx:id="cbAcademicDegree" layoutX="149.0" layoutY="226.0" prefHeight="25.0" prefWidth="165.0" />
+      <Label layoutX="48.0" layoutY="267.0" text="Instituição" />
       <TextField fx:id="txtCourse" layoutX="149.0" layoutY="77.0" prefHeight="25.0" prefWidth="165.0" />
-      <CheckBox fx:id="ckYes" layoutX="157.0" layoutY="237.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="48.0" text="Sim" />
-      <CheckBox fx:id="ckNo" layoutX="240.0" layoutY="237.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="63.0" text="Não" />
-      <TextField fx:id="txtAcademicInstitution" layoutX="149.0" layoutY="352.0" prefHeight="25.0" prefWidth="165.0" />
-      <Button fx:id="btnNext" layoutX="226.0" layoutY="557.0" mnemonicParsing="false" onAction="#nextToScene" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
+      <TextField fx:id="txtAcademicInstitution" layoutX="149.0" layoutY="263.0" prefHeight="25.0" prefWidth="165.0" />
+      <Button fx:id="btnNext" layoutX="226.0" layoutY="557.0" mnemonicParsing="false" onAction="#nextAddProfessionalEducation" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
       <Button fx:id="btnPrevious" layoutX="45.0" layoutY="557.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Voltar" />
-      <DatePicker fx:id="dtCourseStart" layoutX="150.0" layoutY="132.0" prefHeight="25.0" prefWidth="165.0" />
-      <DatePicker fx:id="dtCourseEnd" layoutX="149.0" layoutY="189.0" prefHeight="25.0" prefWidth="165.0" />
-      <Button fx:id="btnNewAcademicEducation" layoutX="43.0" layoutY="431.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="Nova formação" />
+      <DatePicker fx:id="dtCourseStart" layoutX="150.0" layoutY="113.0" prefHeight="25.0" prefWidth="165.0" />
+      <DatePicker fx:id="dtCourseEnd" layoutX="150.0" layoutY="151.0" prefHeight="25.0" prefWidth="165.0" />
+      <Button fx:id="btnNewAcademicEducation" layoutX="48.0" layoutY="303.0" mnemonicParsing="false" onAction="#addNewAcademicEducation" prefHeight="40.0" prefWidth="268.0" text="Adicionar" />
+      <TableView fx:id="academicEducationTableView" layoutX="24.0" layoutY="357.0" prefHeight="186.0" prefWidth="317.0">
+        <columns>
+          <TableColumn fx:id="cCourse" prefWidth="130.0" text="Curso" />
+          <TableColumn fx:id="cDateStart" prefWidth="80.0" text="Início" />
+          <TableColumn fx:id="cDateEnd" prefWidth="80.0" text="Término" />
+          <TableColumn fx:id="cStatus" prefWidth="110.0" text="Em andamento" />
+          <TableColumn fx:id="cAcademicDegree" prefWidth="90.0" text="Nível" />
+          <TableColumn fx:id="cInstitution" prefWidth="150.0" text="Instituição" />
+        </columns>
+      </TableView>
+      <RadioButton layoutX="175.0" layoutY="196.0" mnemonicParsing="false" selected="true" text="SIM">
+         <toggleGroup>
+            <ToggleGroup fx:id="statusAcademicEducation" />
+         </toggleGroup></RadioButton>
+      <RadioButton layoutX="236.0" layoutY="196.0" mnemonicParsing="false" text="NÃO" toggleGroup="$statusAcademicEducation" />
    </children>
 </AnchorPane>

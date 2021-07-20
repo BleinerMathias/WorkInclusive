@@ -1,6 +1,5 @@
 package br.edu.ifsp.application.controller.candidate;
 
-import br.edu.ifsp.application.view.App;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.interview.Interview;
 import javafx.collections.FXCollections;
@@ -48,6 +47,7 @@ public class HomeCandidatePageUIController {
 
     private ObservableList<Interview> tableData;
 
+/*
     public void initialPage(ActionEvent actionEvent) throws IOException {
         App.setRoot("HomePageCandidate");
     }
@@ -88,4 +88,6 @@ public class HomeCandidatePageUIController {
         tableData.clear();
         //tableData.addAll(interviewList);
     }
+    */
+
 }

@@ -1,6 +1,8 @@
 package br.edu.ifsp.domain.usecases.Candidate;
 
 import br.edu.ifsp.domain.entities.candidate.Candidate;
+import br.edu.ifsp.domain.entities.candidate.Email;
+import br.edu.ifsp.domain.entities.candidate.Phone;
 import br.edu.ifsp.domain.usecases.utils.Notification;
 import br.edu.ifsp.domain.usecases.utils.Validator;
 
@@ -17,12 +19,12 @@ public class UpdateCandidateInputValidator extends Validator<Candidate> {
             return notification;
         }
 
-        ArrayList<String> emails = new ArrayList<>(candidate.getPersonalData().getEmail());
+        ArrayList<Email> emails = new ArrayList<>(candidate.getPersonalData().getEmail());
         if(emails.size() < 1){
             notification.addError("Email can't be null");
         }
 
-        ArrayList<String> phones = new ArrayList<>(candidate.getPersonalData().getPhone());
+        ArrayList<Phone> phones = new ArrayList<>(candidate.getPersonalData().getPhone());
         if(phones.size() < 1){
             notification.addError("Phone can't be null");
         }

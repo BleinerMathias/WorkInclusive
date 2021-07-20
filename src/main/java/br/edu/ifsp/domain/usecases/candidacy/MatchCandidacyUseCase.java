@@ -1,5 +1,6 @@
 package br.edu.ifsp.domain.usecases.candidacy;
 
+import br.edu.ifsp.domain.entities.candidate.Ability;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.candidate.ProfessionalExperience;
 import br.edu.ifsp.domain.entities.vacancy.Abiliity;
@@ -51,7 +52,7 @@ public class MatchCandidacyUseCase {
            Integer countAbility = 0;
            Integer coenfient = (vm.getAbiliityList().size() * 70)/100;
 
-           for(String abiliity: candidate.getAbiliities()){
+           for(Ability abiliity: candidate.getAbiliities()){
                if (vm.getAbiliityList().contains(abiliity)){
                    countAbility++;
                }

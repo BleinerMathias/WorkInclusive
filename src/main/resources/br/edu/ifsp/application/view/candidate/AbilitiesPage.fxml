@@ -6,14 +6,19 @@
 
 <AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.candidate.AbilitiesPageUIController">
    <children>
-      <Label layoutX="141.0" layoutY="40.0" text="Habilidades">
+      <Label layoutX="136.0" layoutY="85.0" prefHeight="25.0" prefWidth="90.0" text="Habilidades">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAbility" layoutX="39.0" layoutY="108.0" prefHeight="46.0" prefWidth="283.0" />
+      <TextField fx:id="txtAbility" layoutX="39.0" layoutY="149.0" prefHeight="46.0" prefWidth="283.0" />
       <Button fx:id="btnPrevious" layoutX="47.0" layoutY="548.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Voltar" />
-      <Button fx:id="btnNext" layoutX="237.0" layoutY="548.0" mnemonicParsing="false" onAction="#NextToScene" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
-      <Button fx:id="btnNewAbility" layoutX="47.0" layoutY="320.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="Nova Habilidade" />
+      <Button fx:id="btnNext" layoutX="237.0" layoutY="548.0" mnemonicParsing="false" onAction="#SaveCandidate" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
+      <Button fx:id="btnNewAbility" layoutX="40.0" layoutY="201.0" mnemonicParsing="false" onAction="#addNewAbility" prefHeight="50.0" prefWidth="280.0" text="Nova Habilidade" />
+      <TableView fx:id="tableAbility" layoutX="41.0" layoutY="261.0" prefHeight="211.0" prefWidth="280.0">
+        <columns>
+          <TableColumn fx:id="cAbility" prefWidth="279.0" text="Minhas habilidades" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

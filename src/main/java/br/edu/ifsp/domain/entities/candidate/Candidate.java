@@ -15,7 +15,7 @@ public class Candidate extends User{
     private List<AcademicEducation> academicEducationsList;
     private List<ProfessionalExperience> professionalExperienceList;
     private List<Accessibility> accessibilities;
-    private List<String> abiliities;
+    private List<Ability> abiliities;
 
     public Candidate() {
     }
@@ -24,7 +24,7 @@ public class Candidate extends User{
         this(personalData, null,null,null,null);
     }
 
-    public Candidate(PersonalData personalData, List<AcademicEducation> academicEducationsList, List<ProfessionalExperience> professionalExperienceList, List<Accessibility> accessibilities, List<String> abiliities) {
+    public Candidate(PersonalData personalData, List<AcademicEducation> academicEducationsList, List<ProfessionalExperience> professionalExperienceList, List<Accessibility> accessibilities, List<Ability> abiliities) {
         this.personalData = personalData;
         this.academicEducationsList = new ArrayList<>();
         this.professionalExperienceList = new ArrayList<>();
@@ -64,11 +64,11 @@ public class Candidate extends User{
         this.accessibilities = accessibilities;
     }
 
-    public List<String> getAbiliities() {
+    public List<Ability> getAbiliities() {
         return abiliities;
     }
 
-    public void setAbiliities(List<String> abiliities) {
+    public void setAbiliities(List<Ability> abiliities) {
         this.abiliities = abiliities;
     }
 
@@ -94,7 +94,7 @@ public class Candidate extends User{
     }
 
     public void addAbility(String abiliity){
-        abiliities.add(abiliity);
+        abiliities.add(new Ability(abiliity));
     }
     public void removeAbility(String abiliity){
         abiliities.remove(abiliity);

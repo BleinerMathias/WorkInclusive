@@ -1,6 +1,6 @@
 package br.edu.ifsp.application.controller.company;
 
-import br.edu.ifsp.application.view.App;
+import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 import javafx.event.ActionEvent;
@@ -51,22 +51,22 @@ public class ListVacancyCompanyUIController {
     private Button btnNewVacancy;
 
     public void initialPage(ActionEvent actionEvent) throws IOException {
-        App.setRoot("HomePageCompany");
+        WindowLoader.setRoot("HomePageCompany");
     }
 
     public void Account(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AccountCompany");
+        WindowLoader.setRoot("AccountCompany");
     }
 
     public void vacancy(ActionEvent actionEvent) throws IOException {
-        App.setRoot("ListVacancyCompanyPage");
+        WindowLoader.setRoot("ListVacancyCompanyPage");
     }
 
     public void interviews(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AcceptInterviewsPage");
+        WindowLoader.setRoot("AcceptInterviewsPage");
     }
 
     public void config(ActionEvent actionEvent) throws IOException {
-        App.setRoot("ConfigPage");
+        WindowLoader.setRoot("ConfigPage");
     }
 }

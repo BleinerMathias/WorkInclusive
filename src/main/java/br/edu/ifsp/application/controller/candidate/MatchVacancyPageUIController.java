@@ -1,6 +1,5 @@
 package br.edu.ifsp.application.controller.candidate;
 
-import br.edu.ifsp.application.view.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,7 +45,7 @@ public class MatchVacancyPageUIController {
 
     @FXML
     private Button btnAccept;
-
+/*
     public void initialPage(ActionEvent actionEvent) throws IOException {
         App.setRoot("HomePageCandidate");
     }
@@ -62,5 +61,6 @@ public class MatchVacancyPageUIController {
     public void config(ActionEvent actionEvent) throws IOException {
         App.setRoot("ConfigPage");
     }
+    */
 
 }

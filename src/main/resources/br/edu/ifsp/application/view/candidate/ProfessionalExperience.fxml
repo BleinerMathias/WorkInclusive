@@ -11,17 +11,26 @@
             <Font size="15.0" />
          </font></Label>
       <Label layoutX="38.0" layoutY="76.0" text="Nome da empresa" />
-      <Label layoutX="53.0" layoutY="126.0" text="Data entrada" />
-      <Label layoutX="60.0" layoutY="175.0" text="Data saida" />
-      <Label layoutX="71.0" layoutY="224.0" text="Cargo" />
-      <Label layoutX="33.0" layoutY="278.0" text="Atividades exercidas" />
-      <TextField fx:id="txtName" layoutX="163.0" layoutY="72.0" prefHeight="25.0" prefWidth="159.0" />
-      <TextField fx:id="txtOffice" layoutX="163.0" layoutY="220.0" prefHeight="25.0" prefWidth="159.0" />
-      <DatePicker fx:id="dtAdimission" layoutX="163.0" layoutY="122.0" prefHeight="25.0" prefWidth="159.0" />
-      <DatePicker fx:id="dtResignation" layoutX="163.0" layoutY="171.0" prefHeight="25.0" prefWidth="159.0" />
-      <TextArea fx:id="txtActivities" layoutX="163.0" layoutY="278.0" prefHeight="119.0" prefWidth="159.0" />
+      <Label layoutX="54.0" layoutY="112.0" text="Data entrada" />
+      <Label layoutX="60.0" layoutY="148.0" text="Data saida" />
+      <Label layoutX="71.0" layoutY="184.0" text="Cargo" />
+      <Label layoutX="33.0" layoutY="217.0" text="Atividades exercidas" />
+      <TextField fx:id="txtCompanyName" layoutX="163.0" layoutY="72.0" prefHeight="25.0" prefWidth="159.0" />
+      <TextField fx:id="txtOffice" layoutX="163.0" layoutY="180.0" prefHeight="25.0" prefWidth="159.0" />
+      <DatePicker fx:id="dtAdimission" layoutX="164.0" layoutY="108.0" prefHeight="25.0" prefWidth="159.0" />
+      <DatePicker fx:id="dtResignation" layoutX="163.0" layoutY="144.0" prefHeight="25.0" prefWidth="159.0" />
+      <TextArea fx:id="txtActivities" layoutX="163.0" layoutY="217.0" prefHeight="119.0" prefWidth="159.0" />
       <Button fx:id="btnPrevious" layoutX="38.0" layoutY="571.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Voltar" />
-      <Button fx:id="btnNext" layoutX="232.0" layoutY="571.0" mnemonicParsing="false" onAction="#nextToScene" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
-      <Button fx:id="btnNewProfessionalExperience" layoutX="40.0" layoutY="452.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="Nova Experiencia profissional" />
+      <Button fx:id="btnNext" layoutX="232.0" layoutY="571.0" mnemonicParsing="false" onAction="#nextToAddLIP" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
+      <Button fx:id="btnNewProfessionalExperience" layoutX="40.0" layoutY="344.0" onAction="#addNewProfessionalExperience" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="Nova Experiencia profissional" />
+      <TableView fx:id="professionalExperienceTableView" layoutX="15.0" layoutY="404.0" prefHeight="137.0" prefWidth="327.0">
+        <columns>
+          <TableColumn fx:id="cCompanyName" prefWidth="150.0" text="Empresa" />
+          <TableColumn fx:id="cAdmissionDate" prefWidth="90.0" text="Data de admissão" />
+          <TableColumn fx:id="cResignationDate" prefWidth="90.0" text="Data de demissao" />
+          <TableColumn fx:id="cOffice" prefWidth="150.0" text="Cargo" />
+          <TableColumn fx:id="cCarriedActivities" prefWidth="200.0" text="Atividades exercida" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -1,6 +1,6 @@
 package br.edu.ifsp.application.controller.candidacy;
 
-import br.edu.ifsp.application.view.App;
+import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.user.User;
 import javafx.event.ActionEvent;
@@ -50,23 +50,25 @@ public class CandidacyPageUIController {
     @FXML
     private Button btnAccept;
 
+
     public void initialPage(ActionEvent actionEvent) throws IOException {
-        App.setRoot("HomePageCompany");
+        WindowLoader.setRoot("HomePageCompany");
     }
 
     public void Account(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AccountCompany");
+        WindowLoader.setRoot("AccountCompany");
     }
 
     public void vacancy(ActionEvent actionEvent) throws IOException {
-        App.setRoot("ListVacancyCompanyPage");
+        WindowLoader.setRoot("ListVacancyCompanyPage");
     }
 
     public void interviews(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AcceptInterviewsPage");
+        WindowLoader.setRoot("AcceptInterviewsPage");
     }
 
     public void config(ActionEvent actionEvent) throws IOException {
-        App.setRoot("ConfigPage");
+        WindowLoader.setRoot("ConfigPage");
     }
+
 }

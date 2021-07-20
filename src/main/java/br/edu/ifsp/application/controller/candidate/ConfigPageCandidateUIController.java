@@ -1,6 +1,5 @@
 package br.edu.ifsp.application.controller.candidate;
 
-import br.edu.ifsp.application.view.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,6 +34,7 @@ public class ConfigPageCandidateUIController {
     @FXML
     private Button btnSave;
 
+    /*
     public void initialPage(ActionEvent actionEvent) throws IOException {
         App.setRoot("HomePageCandidate");
     }
@@ -50,4 +50,6 @@ public class ConfigPageCandidateUIController {
     public void config(ActionEvent actionEvent) throws IOException {
         App.setRoot("ConfigPage");
     }
+*/
 }
+

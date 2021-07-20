@@ -2,6 +2,7 @@ package br.edu.ifsp;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.application.repository.sqlite.DatabaseBuilder;
+import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.interview.Interview;
 import br.edu.ifsp.domain.entities.interview.SchedulesHistory;
@@ -62,6 +63,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         configureInjection();
         setupDatabase();
+        WindowLoader.main(args);
     }
 
     private static void populateDatabase(){
