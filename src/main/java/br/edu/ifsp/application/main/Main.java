@@ -4,7 +4,6 @@ import br.edu.ifsp.application.repository.inMemory.*;
 import br.edu.ifsp.application.repository.sqlite.DatabaseBuilder;
 import br.edu.ifsp.application.repository.sqlite.SqliteCandidacyDAO;
 import br.edu.ifsp.application.repository.sqlite.SqliteCandidateDAO;
-import br.edu.ifsp.application.repository.sqlite.SqliteVacancyDAO;
 import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
@@ -90,7 +89,7 @@ public class Main {
         updateCompanyUseCase = new UpdateCompanyUseCase(companyDAO);
         findCompanyUseCase = new FindCompanyUseCase(companyDAO);
 
-        SqliteVacancyDAO vacancyDAO = new SqliteVacancyDAO();
+        VacancyDAO vacancyDAO = new InMemoryVacancyDAO();
         createVacancyUseCase = new CreateVacancyUseCase(vacancyDAO);
         updateVacancyUseCase = new UpdateVacancyUseCase(vacancyDAO);
         findVacancyUseCase = new FindVacancyUseCase(vacancyDAO);

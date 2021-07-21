@@ -1,10 +1,9 @@
 package br.edu.ifsp.domain.entities.company;
 
-import br.edu.ifsp.domain.entities.candidacy.Candidacy;
+import br.edu.ifsp.domain.entities.candidate.Email;
+import br.edu.ifsp.domain.entities.candidate.Phone;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
-import br.edu.ifsp.domain.entities.vacancy.Vacancy;
-import br.edu.ifsp.domain.usecases.candidacy.ListCandidacyUseCase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +14,8 @@ public class Company extends User {
     private String companyName;
     private String sector;
     private String CNPJ;
-    private List<String> emails;
-    private List<String> phones;
+    private List<Email> emails;
+    private List<Phone> phones;
     private String address;
     private String postCode;
     private List<Accessibility> accessibilities;
@@ -24,13 +23,22 @@ public class Company extends User {
     public Company(){
     }
 
-    public Company(String name, String companyName, String sector, String CNPJ,  String address, String postCode) {
+    public Company(String name, String companyName, String sector, String CNPJ, String address, String postCode) {
+        this.name = name;
+        this.companyName = companyName;
+        this.sector = sector;
+        this.CNPJ = CNPJ;
+        this.address = address;
+        this.postCode = postCode;
+    }
+
+    public Company(String name, String companyName, String sector, String CNPJ, List<Phone> phones, List<Email> emails,  String address, String postCode, List<Accessibility> accessibilities) {
         this.name = name;
         this.companyName = companyName;
         this.sector = sector;
         this.CNPJ = CNPJ;
         this.emails = new ArrayList<>();
-        this.phones = new ArrayList<>();;
+        this.phones = new ArrayList<>();
         this.address = address;
         this.postCode = postCode;
         this.accessibilities = new ArrayList<>();
@@ -68,21 +76,20 @@ public class Company extends User {
         this.CNPJ = CNPJ;
     }
 
-    public List<String> getEmail() {
-        return emails;
-    }
-
-    public void setEmail(List<String> emails) {
-        this.emails = emails;
-    }
-
-    public List<String> getPhone() {
+    // ?
+    public List<Phone> getPhone() {
         return phones;
     }
-
-    public void setPhone(List<String> phones) {
+    public void setPhone(List<Phone> phones) {
         this.phones = phones;
     }
+    public List<Email> getEmail() {
+        return emails;
+    }
+    public void setEmail(List<Email> emails) {
+        this.emails = emails;
+    }
+    //?
 
     public String getAddress() {
         return address;
@@ -104,16 +111,15 @@ public class Company extends User {
         return accessibilities;
     }
 
-
     public void addPhone(String phoneNumber){
-        phones.add(phoneNumber);
+        phones.add(new Phone(phoneNumber));
     }
     public void removePhone(String phoneNumber){
         phones.remove(phoneNumber);
     }
 
     public void addEmail(String emailAddress){
-        emails.add(emailAddress);
+        emails.add(new Email(emailAddress));
     }
     public void removeEmail(String emailAddress){
         emails.remove(emailAddress);
@@ -132,6 +138,20 @@ public class Company extends User {
         this.setTypeUser(2);
     }
 
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", sector='" + sector + '\'' +
+                ", CNPJ='" + CNPJ + '\'' +
+                ", emails=" + emails +
+                ", phones=" + phones +
+                ", address='" + address + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", accessibilities=" + accessibilities +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {

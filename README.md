@@ -120,3 +120,40 @@ Bleiner / Larissa / Guilherme
     <li>Criando combinação de data e horario [candidato <---> empresa]</li>
 </ul>
 
+**15/07/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Continuando criação de layout de telas FXML</li>
+    <li>Criando entrevista</li>
+    <li>Criando combinação de data e horario [candidato <---> empresa]</li>
+</ul>
+
+**17/07/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Refatoração de telas FXML</li>
+    <li>Criando entrevista</li>
+    <li>Criando combinação de data e horario [candidato <---> empresa]</li>
+</ul>
+
+**18/07/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Refatoração de telas FXML</li>
+    <li>Criando combinação de data e horario [candidato <---> empresa]</li>
+</ul>
+
+**20/07/2021** Reunião com a equipe \
+(Programando em conjunto com o Code With Me) \
+Bleiner / Larissa / Guilherme
+
+<ul>
+    <li>Finalizando criação dos controllers</li>
+    <li>Finalizando os Sqlite's</li>
+</ul>

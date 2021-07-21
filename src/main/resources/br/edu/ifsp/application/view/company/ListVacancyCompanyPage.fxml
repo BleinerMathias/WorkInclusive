@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -24,7 +23,7 @@
          <TableColumn fx:id="cStatus" minWidth="0.0" prefWidth="72.0" text="Status" />
         </columns>
     </TableView>
-   <Button fx:id="btnNewVacancy" layoutX="191.0" layoutY="580.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="149.0" text="Nova vaga">
+   <Button fx:id="btnNewVacancy" layoutX="191.0" layoutY="580.0" mnemonicParsing="false" onAction="#addNewVacancy" prefHeight="46.0" prefWidth="149.0" text="Nova vaga">
       <font>
          <Font size="14.0" />
       </font>

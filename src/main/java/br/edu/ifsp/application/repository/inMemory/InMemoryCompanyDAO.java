@@ -28,9 +28,9 @@ public class InMemoryCompanyDAO implements CompanyDAO {
     }
 
     @Override
-    public Optional<Company> findOne(String cnpj) {
-      if(db.containsKey(cnpj)){
-          return Optional.of(db.get(cnpj));
+    public Optional<Company> findOne(Integer id) {
+      if(db.containsKey(id)){
+          return Optional.of(db.get(id));
       }
       return Optional.empty();
     }
@@ -51,9 +51,9 @@ public class InMemoryCompanyDAO implements CompanyDAO {
     }
 
     @Override
-    public boolean deleteByKey(String cnpj) {
-        if(db.containsKey(cnpj)){
-            db.remove(cnpj);
+    public boolean deleteByKey(Integer id) {
+        if(db.containsKey(id)){
+            db.remove(id);
             return true;
         }
         return false;
@@ -61,6 +61,6 @@ public class InMemoryCompanyDAO implements CompanyDAO {
 
     @Override
     public boolean delete(Company company) {
-        return deleteByKey(company.getCNPJ());
+        return deleteByKey(company.getId());
     }
 }

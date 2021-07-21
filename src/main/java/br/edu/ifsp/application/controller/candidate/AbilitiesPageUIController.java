@@ -2,7 +2,6 @@ package br.edu.ifsp.application.controller.candidate;
 
 import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidate.Ability;
-import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,7 +35,7 @@ public class AbilitiesPageUIController {
     private Button btnPrevious;
 
     @FXML
-    private Button btnNext;
+    private Button btnSave;
 
     private Candidate candidate;
     private Ability ability;
