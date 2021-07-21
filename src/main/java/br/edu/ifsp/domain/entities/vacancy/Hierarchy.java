@@ -1,5 +1,9 @@
 package br.edu.ifsp.domain.entities.vacancy;
 
+import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
+
+import java.util.Arrays;
+
 public enum Hierarchy {
     TRAINEE("Estagiário"),
     JUNIOR("Junior"),
@@ -23,5 +27,12 @@ public enum Hierarchy {
     @Override
     public String toString() {
         return label;
+    }
+
+    public static Hierarchy toEnum(String value){
+        return Arrays.stream(Hierarchy.values())
+                .filter(c -> value.equals(c.toString()))
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

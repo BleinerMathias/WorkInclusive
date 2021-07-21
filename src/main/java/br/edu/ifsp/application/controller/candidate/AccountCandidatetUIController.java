@@ -189,6 +189,7 @@ public class AccountCandidatetUIController {
         personalData.setEmail(emails);
         personalData.setPhone(phones);
         candidate.setPersonalData(personalData);
+        candidate.setAccessibilities(accessibilityObservableList);
 
         WindowLoader.setRoot("candidate/AcademicEducation");
         AcademicEducationUIController controller = (AcademicEducationUIController) WindowLoader.getController();

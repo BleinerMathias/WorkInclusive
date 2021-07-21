@@ -74,15 +74,14 @@ public class AbilitiesPageUIController {
     }
 
     public void SaveCandidate(ActionEvent actionEvent) {
+        this.candidate.setAbiliities(abilityObservableList);
         if(candidate!=null){
             createCandidateUseCase.insert(candidate);
         }
     }
 
     public void addNewAbility(ActionEvent actionEvent) {
-        ability.setAbility(txtAbility.getText());
-        abilityObservableList.add(ability);
+        abilityObservableList.add(new Ability(txtAbility.getText()));
         txtAbility.clear();
-        txtAbility.requestFocus();
     }
 }

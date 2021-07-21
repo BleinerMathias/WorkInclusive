@@ -17,10 +17,6 @@ public class InMemoryCandidateDAO implements CandidateDAO {
                 .findAny();
     }
 
-    @Override
-    public Optional<Candidate> findByUserId(Integer id) {
-        return Optional.empty();
-    }
 
     @Override
     public Integer create(Candidate candidate) {

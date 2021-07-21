@@ -7,5 +7,4 @@ import java.util.Optional;
 
 public interface CandidateDAO extends DAO<Candidate, Integer> {
     Optional<Candidate> findByCPF(String cpf);
-    Optional<Candidate> findByUserId(Integer id);
 }

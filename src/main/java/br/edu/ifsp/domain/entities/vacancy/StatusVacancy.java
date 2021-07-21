@@ -1,5 +1,9 @@
 package br.edu.ifsp.domain.entities.vacancy;
 
+import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
+
+import java.util.Arrays;
+
 public enum StatusVacancy {
     AVAILABLE("Disponivel"),
     UNAVAILABLE("Indisponivel");
@@ -21,5 +25,12 @@ public enum StatusVacancy {
     @Override
     public String toString() {
         return label;
+    }
+
+    public static StatusVacancy toEnum(String value){
+        return Arrays.stream(StatusVacancy.values())
+                .filter(c -> value.equals(c.toString()))
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

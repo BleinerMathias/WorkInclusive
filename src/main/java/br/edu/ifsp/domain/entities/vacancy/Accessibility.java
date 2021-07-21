@@ -1,5 +1,9 @@
 package br.edu.ifsp.domain.entities.vacancy;
 
+import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
+
+import java.util.Arrays;
+
 public enum Accessibility {
 
     // Fisic deficient
@@ -24,5 +28,12 @@ public enum Accessibility {
     @Override
     public String toString() {
         return label;
+    }
+
+    public static Accessibility toEnum(String value){
+        return Arrays.stream(Accessibility.values())
+                .filter(c -> value.equals(c.toString()))
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

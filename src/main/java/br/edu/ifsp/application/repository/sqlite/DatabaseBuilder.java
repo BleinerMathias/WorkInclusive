@@ -24,6 +24,8 @@ public class DatabaseBuilder {
             statement.addBatch(createCandidate());
             statement.addBatch(createAcademicEducationCandidates());
             statement.addBatch(createProfessionalExperienceCandidates());
+            statement.addBatch(createAbilityCandidates());
+            statement.addBatch(createAccessibilityCandidates());
             statement.addBatch(createCompany());
             statement.addBatch(createVacancy());
             statement.addBatch(createBenefitsListVacancy());
@@ -86,6 +88,21 @@ public class DatabaseBuilder {
         System.out.println(sqlBuilder.toString());
         return sqlBuilder.toString();
     }
+
+    private String createAccessibilityCandidates() {
+        StringBuilder sqlBuilder = new StringBuilder();
+        sqlBuilder.append("CREATE TABLE AccessibilityCandidates(\n");
+        sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
+        sqlBuilder.append("user_id NOT NULL, \n");
+        sqlBuilder.append("name TEXT NOT NULL, \n ");
+        sqlBuilder.append("FOREIGN KEY(user_id) REFERENCES User(id) \n");
+        sqlBuilder.append(");");
+
+        System.out.println(sqlBuilder.toString());
+        return sqlBuilder.toString();
+    }
+
+
     private String createProfessionalExperienceCandidates() {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("CREATE TABLE ProfessionalExperienceCandidate(\n");
@@ -102,6 +119,20 @@ public class DatabaseBuilder {
         System.out.println(sqlBuilder.toString());
         return sqlBuilder.toString();
     }
+
+    private String createAbilityCandidates() {
+        StringBuilder sqlBuilder = new StringBuilder();
+        sqlBuilder.append("CREATE TABLE AbilityCandidates(\n");
+        sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
+        sqlBuilder.append("user_id NOT NULL, \n");
+        sqlBuilder.append("name TEXT NOT NULL, \n ");
+        sqlBuilder.append("FOREIGN KEY(user_id) REFERENCES User(id) \n");
+        sqlBuilder.append(");");
+
+        System.out.println(sqlBuilder.toString());
+        return sqlBuilder.toString();
+    }
+
     private String createCompany() {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("CREATE TABLE Company(\n");

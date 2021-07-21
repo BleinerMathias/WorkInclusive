@@ -14,7 +14,7 @@ public class SqliteCompanyDAO implements CompanyDAO {
 
     @Override
     public Integer create(Company company) {
-        String sql = "INSERT INTO Company(name, companyCompany, sector, CNPJ, address, postCode)" +
+        String sql = "INSERT INTO Company(name, companyName, sector, CNPJ, address, postCode)" +
                 "VALUES(?, ?, ?, ?, ?, ?)";
 
         try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
@@ -70,6 +70,23 @@ public class SqliteCompanyDAO implements CompanyDAO {
 
         try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
             stmt.setString(1, cnpj);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                company = resultSetToEntity(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.ofNullable(company);
+    }
+
+    @Override
+    public Optional<Company> findByUserID(int user_id) {
+        String sql = "SELECT * FROM Company WHERE id = ?";
+        Company company = null;
+
+        try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
+            stmt.setInt(1, user_id);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){
                 company = resultSetToEntity(rs);

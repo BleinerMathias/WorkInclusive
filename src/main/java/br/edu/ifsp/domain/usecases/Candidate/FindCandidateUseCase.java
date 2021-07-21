@@ -22,7 +22,7 @@ public class FindCandidateUseCase {
     public Optional<Candidate> findByUserId(Integer id){
         if (id == null)
             throw new IllegalArgumentException("UserID can not be null.");
-        return candidateDAO.findByUserId(id);
+        return candidateDAO.findOne(id);
     }
 
     public List<Candidate> findAll(){

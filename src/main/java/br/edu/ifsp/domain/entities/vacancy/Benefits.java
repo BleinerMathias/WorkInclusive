@@ -1,5 +1,9 @@
 package br.edu.ifsp.domain.entities.vacancy;
 
+import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
+
+import java.util.Arrays;
+
 public enum Benefits {
 
     NONE("Nenhum"),
@@ -25,5 +29,12 @@ public enum Benefits {
     @Override
     public String toString() {
         return label;
+    }
+
+    public static Benefits toEnum(String value){
+        return Arrays.stream(Benefits.values())
+                .filter(c -> value.equals(c.toString()))
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }
