@@ -16,6 +16,11 @@ public class InMemoryCompanyDAO implements CompanyDAO {
     }
 
     @Override
+    public Optional<Company> findByUserID(int user_id) {
+        return Optional.empty();
+    }
+
+    @Override
     public Integer create(Company company) {
         id++;
         db.put(id, company);

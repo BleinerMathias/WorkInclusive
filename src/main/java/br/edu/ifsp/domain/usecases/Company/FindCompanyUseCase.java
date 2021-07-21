@@ -22,4 +22,8 @@ public class FindCompanyUseCase {
     public List<Company> findAll(){
         return companyDAO.findAll();
     }
+
+    public Optional<Company> findByUserID(int user_id) {
+        return companyDAO.findByUserID(user_id);
+    }
 }

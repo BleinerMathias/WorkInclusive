@@ -14,7 +14,7 @@ public class Vacancy {
     private Double salary;
     private List<Benefits> benefitsList;
     private List<Accessibility> accessibilityList;
-    private List<String> abiliityList;
+    private List<ProgrammingLanguage> abiliityList;
     private StatusVacancy statusVacancy;
     private Company company;
 
@@ -22,7 +22,7 @@ public class Vacancy {
       this(null, name, description, hierarchy, 0,salary,null,null,null, statusVacancy, company);
     }
 
-    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<String> abiliityList, StatusVacancy statusVacancy, Company company) {
+    public Vacancy(Integer id, String name, String description, Hierarchy hierarchy, Integer compatibilidade, Double salary, List<Benefits> benefitsList, List<Accessibility> accessibilityList, List<ProgrammingLanguage> abiliityList, StatusVacancy statusVacancy, Company company) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -36,8 +36,12 @@ public class Vacancy {
         this.company = company;
     }
 
+
     public Vacancy() {
         compatibilidade = 0;
+        this.benefitsList = new ArrayList<>();
+        this.accessibilityList= new ArrayList<>();
+        this.abiliityList = new ArrayList<>();
         statusVacancy = StatusVacancy.AVAILABLE;
     }
 
@@ -74,11 +78,11 @@ public class Vacancy {
         this.accessibilityList = accessibilityList;
     }
 
-    public List<String> getAbiliityList() {
+    public List<ProgrammingLanguage> getAbiliityList() {
         return abiliityList;
     }
 
-    public void setAbiliityList(List<String> abiliityList) {
+    public void setAbiliityList(List<ProgrammingLanguage> abiliityList) {
         this.abiliityList = abiliityList;
     }
 
@@ -137,12 +141,26 @@ public class Vacancy {
     }
 
     public void addAbiliity(String abiliity){
-        abiliityList.add(abiliity);
+        abiliityList.add(new ProgrammingLanguage(abiliity));
     }
     public void removeAbiliity(String abiliity){
         abiliityList.remove(abiliity);
     }
 
+    public Integer getCompatibilidade() {
+        return compatibilidade;
+    }
+
+    public void setCompatibilidade(Integer compatibilidade) {
+        this.compatibilidade = compatibilidade;
+    }
+
+    public void setUnavaliable(){
+        this.statusVacancy = StatusVacancy.UNAVAILABLE;
+    }
+    public void setAvaliable(){
+        this.statusVacancy = StatusVacancy.AVAILABLE;
+    }
 
 
     @Override

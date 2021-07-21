@@ -6,26 +6,32 @@
 
 <AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.vacancy.VacancyUIController">
    <children>
-      <Button fx:id="btnCancel" layoutX="37.0" layoutY="562.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
+      <Button fx:id="btnCancel" layoutX="37.0" layoutY="562.0" mnemonicParsing="false" onAction="#backMainCompanyUI" prefHeight="40.0" prefWidth="90.0" text="Cancelar" />
       <Label layoutX="163.0" layoutY="35.0" text="Vaga">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="52.0" layoutY="118.0" text="Nome" />
-      <Label layoutX="43.0" layoutY="158.0" text="Descrição" />
-      <Label layoutX="55.0" layoutY="330.0" prefHeight="17.0" prefWidth="27.0" text="Nível" />
-      <Label layoutX="51.0" layoutY="452.0" prefHeight="10.0" prefWidth="36.0" text="Salário" />
-      <Button fx:id="btnNext" layoutX="233.0" layoutY="562.0" mnemonicParsing="false" onAction="#nextToScene" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
-      <TextField fx:id="txtNameVacancy" layoutX="119.0" layoutY="114.0" prefHeight="25.0" prefWidth="196.0" />
-      <TextField fx:id="txtCompatibility" layoutX="138.0" layoutY="388.0" prefHeight="25.0" prefWidth="70.0" />
-      <TextField fx:id="txtSalary" layoutX="138.0" layoutY="448.0" prefHeight="25.0" prefWidth="97.0" />
-      <ComboBox fx:id="cbHierarchy" layoutX="119.0" layoutY="326.0" prefHeight="25.0" prefWidth="196.0" />
-      <Label layoutX="25.0" layoutY="392.0" text="Compatibilidade" />
-      <TextArea fx:id="txtDescripition" layoutX="119.0" layoutY="158.0" prefHeight="134.0" prefWidth="196.0" />
-      <Label layoutX="53.0" layoutY="500.0" text="Status" />
-      <CheckBox fx:id="ckAvailable" layoutX="125.0" layoutY="500.0" mnemonicParsing="false" text="Disponível" />
-      <CheckBox fx:id="ckUnavailable" layoutX="223.0" layoutY="500.0" mnemonicParsing="false" text="Indisponível" />
-      <TextField fx:id="txtNameCompany" layoutX="119.0" layoutY="69.0" prefHeight="25.0" prefWidth="196.0" />
-      <Label layoutX="46.0" layoutY="73.0" text="Empresa" />
+      <Label layoutX="39.0" layoutY="78.0" text="Nome" />
+      <Label layoutX="33.0" layoutY="112.0" text="Descrição" />
+      <Label layoutX="39.0" layoutY="260.0" prefHeight="17.0" prefWidth="77.0" text="Hierarquia" />
+      <Label layoutX="223.0" layoutY="260.0" prefHeight="17.0" prefWidth="70.0" text="Salário (R$)" />
+      <Button fx:id="btnNext" layoutX="233.0" layoutY="562.0" mnemonicParsing="false" onAction="#nextAddMoreInfo" prefHeight="40.0" prefWidth="90.0" text="Próximo" />
+      <TextField fx:id="txtNameVacancy" layoutX="93.0" layoutY="79.0" prefHeight="25.0" prefWidth="232.0" />
+      <TextField fx:id="txtCompatibility" layoutX="237.0" layoutY="502.0" prefHeight="25.0" prefWidth="70.0" />
+      <TextField fx:id="txtSalary" layoutX="221.0" layoutY="281.0" prefHeight="25.0" prefWidth="102.0" />
+      <ComboBox fx:id="cbHierarchy" layoutX="37.0" layoutY="281.0" prefHeight="25.0" prefWidth="165.0" />
+      <Label layoutX="218.0" layoutY="482.0" text="Compatibilidade (%)" />
+      <TextArea fx:id="txtDescripition" layoutX="93.0" layoutY="117.0" prefHeight="134.0" prefWidth="232.0" />
+      <Label layoutX="42.0" layoutY="482.0" text=" Status da vaga" />
+      <CheckBox fx:id="chbAvaliable" layoutX="54.0" layoutY="506.0" mnemonicParsing="false" text="Aberta" />
+      <TextField fx:id="txtNewAbility" layoutX="39.0" layoutY="341.0" prefHeight="25.0" prefWidth="239.0" />
+      <Label layoutX="37.0" layoutY="317.0" text="Requisito de linguagem" />
+      <Button fx:id="btnNext1" layoutX="285.0" layoutY="341.0" mnemonicParsing="false" onAction="#addLIP" prefHeight="25.0" prefWidth="40.0" text="+" />
+      <TableView  fx:id="languageTableView" layoutX="39.0" layoutY="373.0" prefHeight="97.0" prefWidth="286.0">
+        <columns>
+          <TableColumn  fx:id="cLIP" prefWidth="285.0" text="Requisitos de linguagens" />
+        </columns>
+      </TableView>
+
    </children>
 </AnchorPane>
