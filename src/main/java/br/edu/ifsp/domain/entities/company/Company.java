@@ -1,6 +1,8 @@
 package br.edu.ifsp.domain.entities.company;
 
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
+import br.edu.ifsp.domain.entities.candidate.Email;
+import br.edu.ifsp.domain.entities.candidate.Phone;
 import br.edu.ifsp.domain.entities.vacancy.Accessibility;
 import br.edu.ifsp.domain.entities.user.User;
 import br.edu.ifsp.domain.entities.vacancy.Vacancy;
@@ -15,8 +17,8 @@ public class Company extends User {
     private String companyName;
     private String sector;
     private String CNPJ;
-    private List<String> emails;
-    private List<String> phones;
+    private List<Email> emails;
+    private List<Phone> phones;
     private String address;
     private String postCode;
     private List<Accessibility> accessibilities;
@@ -68,21 +70,20 @@ public class Company extends User {
         this.CNPJ = CNPJ;
     }
 
-    public List<String> getEmail() {
-        return emails;
-    }
-
-    public void setEmail(List<String> emails) {
-        this.emails = emails;
-    }
-
-    public List<String> getPhone() {
+    // ?
+    public List<Phone> getPhone() {
         return phones;
     }
-
-    public void setPhone(List<String> phones) {
+    public void setPhone(List<Phone> phones) {
         this.phones = phones;
     }
+    public List<Email> getEmail() {
+        return emails;
+    }
+    public void setEmail(List<Email> emails) {
+        this.emails = emails;
+    }
+    //?
 
     public String getAddress() {
         return address;
@@ -104,16 +105,15 @@ public class Company extends User {
         return accessibilities;
     }
 
-
     public void addPhone(String phoneNumber){
-        phones.add(phoneNumber);
+        phones.add(new Phone(phoneNumber));
     }
     public void removePhone(String phoneNumber){
         phones.remove(phoneNumber);
     }
 
     public void addEmail(String emailAddress){
-        emails.add(emailAddress);
+        emails.add(new Email(emailAddress));
     }
     public void removeEmail(String emailAddress){
         emails.remove(emailAddress);

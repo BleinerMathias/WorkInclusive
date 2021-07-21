@@ -40,23 +40,23 @@ public class ConfigPageCompanyUIController {
 
 
     public void initialPage(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("HomePageCompany");
+        WindowLoader.setRoot("company/HomePageCompany");
     }
 
     public void Account(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AccountCompany");
+        WindowLoader.setRoot("company/AccountCompany");
     }
 
     public void vacancy(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("ListVacancyCompanyPage");
+        WindowLoader.setRoot("company/ListVacancyCompanyPage");
     }
 
     public void interviews(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AcceptInterviewsPage");
+        WindowLoader.setRoot("company/AcceptInterviewsPage");
     }
 
     public void config(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("ConfigPage");
+        WindowLoader.setRoot("company/ConfigPage");
     }
 
 

@@ -94,7 +94,7 @@ public class AccountCandidatetUIController {
         cbAccessibility.getItems().addAll(Accessibility.values());
         bindTaleViewToItemsList();
         bindColumnsToValueSources();
-       // carregaDados();
+        // carregaDados();
     }
 
     private void carregaDados() {

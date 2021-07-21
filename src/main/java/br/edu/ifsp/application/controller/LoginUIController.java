@@ -70,10 +70,10 @@ public class LoginUIController {
      */
 
     public void createAccountCompany(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AccountCandidate");
+        WindowLoader.setRoot("candidate/AccountCandidate");
     }
 
     public void createAccountCandidate(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AccountCompany");
+        WindowLoader.setRoot("company/AccountCompany");
     }
 }

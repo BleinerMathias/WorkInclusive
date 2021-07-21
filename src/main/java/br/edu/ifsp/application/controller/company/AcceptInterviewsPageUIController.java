@@ -1,16 +1,24 @@
 package br.edu.ifsp.application.controller.company;
 
 import br.edu.ifsp.application.view.WindowLoader;
+import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.company.Company;
+import br.edu.ifsp.domain.entities.interview.Interview;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
+
+import static br.edu.ifsp.application.main.Main.createCompanyUseCase;
 
 public class AcceptInterviewsPageUIController {
 
@@ -30,19 +38,19 @@ public class AcceptInterviewsPageUIController {
     private Button btnConfig;
 
     @FXML
-    private TableView<Company> tableView;
+    private TableView<Interview> tableView;
 
     @FXML
-    private TableColumn<Company, Integer> cId;
+    private TableColumn<Interview, Integer> cId;
 
     @FXML
-    private TableColumn<Company, LocalDate> cDateTime;
+    private TableColumn<Interview, LocalDate> cDateTime;
 
     @FXML
-    private TableColumn<Company, String> cCandidate;
+    private TableColumn<Interview, String> cCandidate;
 
     @FXML
-    private TableColumn<Company, String> cStatus;
+    private TableColumn<Interview, String> cStatus;
 
     @FXML
     private Button btnDecline;
@@ -50,6 +58,7 @@ public class AcceptInterviewsPageUIController {
     @FXML
     private Button btnAccept;
 
+    private ObservableList<Interview> tableData;
 
 
     public void initialPage(ActionEvent actionEvent) throws IOException {
@@ -72,5 +81,29 @@ public class AcceptInterviewsPageUIController {
         WindowLoader.setRoot("ConfigPage");
     }
 
+    @FXML
+    private void initialize(){
+        bindTableViewToItemsList();
+        bindColumnsToValueSources();
+        loadDataAndShow();
+    }
+
+    private void bindTableViewToItemsList() {
+        cId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cDateTime.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
+        cCandidate.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cStatus.setCellValueFactory(new PropertyValueFactory<>("label"));
+    }
+
+    private void bindColumnsToValueSources() {
+        tableData = FXCollections.observableArrayList();
+        tableView.setItems(tableData);
+    }
+
+    private void loadDataAndShow() {
+        //List<Interview> interviewList = ;
+        tableData.clear();
+        //tableData.addAll(interviewList);
+    }
 
 }

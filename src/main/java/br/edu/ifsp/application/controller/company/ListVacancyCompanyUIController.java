@@ -1,16 +1,21 @@
 package br.edu.ifsp.application.controller.company;
 
 import br.edu.ifsp.application.view.WindowLoader;
-import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.vacancy.Vacancy;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.util.List;
+
+import static br.edu.ifsp.application.main.Main.findVacancyUseCase;
 
 public class ListVacancyCompanyUIController {
 
@@ -50,23 +55,58 @@ public class ListVacancyCompanyUIController {
     @FXML
     private Button btnNewVacancy;
 
+    private ObservableList<Vacancy> tableData;
+
+    private Vacancy vacancy;
+
     public void initialPage(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("HomePageCompany");
+        WindowLoader.setRoot("company/HomePageCompany");
     }
 
     public void Account(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AccountCompany");
+        WindowLoader.setRoot("company/AccountCompany");
     }
 
     public void vacancy(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("ListVacancyCompanyPage");
+        WindowLoader.setRoot("company/ListVacancyCompanyPage");
     }
 
     public void interviews(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AcceptInterviewsPage");
+        WindowLoader.setRoot("company/AcceptInterviewsPage");
     }
 
     public void config(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("ConfigPage");
+        WindowLoader.setRoot("company/ConfigPage");
+    }
+
+    @FXML
+    private void initialize(){
+        bindTableViewToItemsList();
+        bindColumnsToValueSources();
+        loadDataAndShow();
+    }
+
+    private void bindTableViewToItemsList() {
+        cId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cVacancy.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cHierarch.setCellValueFactory(new PropertyValueFactory<>("hierarchy"));
+        cSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        cStatus.setCellValueFactory(new PropertyValueFactory<>("label"));
+    }
+
+    private void bindColumnsToValueSources() {
+        tableData = FXCollections.observableArrayList();
+        tableView.setItems(tableData);
+    }
+
+    private void loadDataAndShow() {
+        List<Vacancy> vacancyList = findVacancyUseCase.findAll();
+        tableData.clear();
+        tableData.addAll(vacancyList);
+
+    }
+
+    public void addNewVacancy(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("vacancy/Vacancy");
     }
 }
