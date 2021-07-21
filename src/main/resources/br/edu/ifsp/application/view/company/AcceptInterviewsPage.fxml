@@ -16,18 +16,18 @@
       </font></Label>
     <TableView fx:id="tableView" layoutY="84.0" prefHeight="426.0" prefWidth="360.0">
         <columns>
-            <TableColumn fx:id="cId" prefWidth="54.0" text="Id" />
-            <TableColumn fx:id="cDateTime" minWidth="0.0" prefWidth="112.0" text="Data e Horário" />
-            <TableColumn fx:id="cCandidate" minWidth="0.0" prefWidth="121.0" text="Candidato" />
-         <TableColumn fx:id="cStatus" prefWidth="72.0" text="Status" />
+            <TableColumn fx:id="cId" prefWidth="41.0" text="Id" />
+            <TableColumn fx:id="cDateTime" minWidth="0.0" prefWidth="115.0" text="Data e Horário" />
+            <TableColumn fx:id="cCandidate" minWidth="0.0" prefWidth="117.0" text="Candidato" />
+         <TableColumn fx:id="cCombined" prefWidth="86.0" text="Combinação" />
         </columns>
     </TableView>
-   <Button fx:id="btnDecline" layoutX="39.0" layoutY="563.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Recusar">
+   <Button fx:id="btnDecline" layoutX="39.0" layoutY="563.0" mnemonicParsing="false" onAction="#unacceptInterview" prefHeight="40.0" prefWidth="90.0" text="Recusar">
       <font>
          <Font size="14.0" />
       </font>
    </Button>
-   <Button fx:id="btnAccept" layoutX="232.0" layoutY="563.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Aceitar">
+   <Button fx:id="btnAccept" layoutX="232.0" layoutY="563.0" mnemonicParsing="false" onAction="#acceptInterview" prefHeight="40.0" prefWidth="90.0" text="Aceitar">
       <font>
          <Font size="14.0" />
       </font>

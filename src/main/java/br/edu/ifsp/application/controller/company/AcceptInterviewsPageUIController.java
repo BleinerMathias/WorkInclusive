@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-import static br.edu.ifsp.application.main.Main.createCompanyUseCase;
+import static br.edu.ifsp.application.main.Main.*;
 
 public class AcceptInterviewsPageUIController {
 
@@ -50,7 +50,7 @@ public class AcceptInterviewsPageUIController {
     private TableColumn<Interview, String> cCandidate;
 
     @FXML
-    private TableColumn<Interview, String> cStatus;
+    private TableColumn<Interview, String> cCombined;
 
     @FXML
     private Button btnDecline;
@@ -62,23 +62,23 @@ public class AcceptInterviewsPageUIController {
 
 
     public void initialPage(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("HomePageCompany");
+        WindowLoader.setRoot("company/HomePageCompany");
     }
 
     public void Account(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AccountCompany");
+        WindowLoader.setRoot("company/AccountCompany");
     }
 
     public void vacancy(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("ListVacancyCompanyPage");
+        WindowLoader.setRoot("company/ListVacancyCompanyPage");
     }
 
     public void interviews(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("AcceptInterviewsPage");
+        WindowLoader.setRoot("company/AcceptInterviewsPage");
     }
 
     public void config(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("ConfigPage");
+        WindowLoader.setRoot("company/ConfigPage");
     }
 
     @FXML
@@ -92,7 +92,7 @@ public class AcceptInterviewsPageUIController {
         cId.setCellValueFactory(new PropertyValueFactory<>("id"));
         cDateTime.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
         cCandidate.setCellValueFactory(new PropertyValueFactory<>("name"));
-        cStatus.setCellValueFactory(new PropertyValueFactory<>("label"));
+        cCombined.setCellValueFactory(new PropertyValueFactory<>("combined"));
     }
 
     private void bindColumnsToValueSources() {
@@ -101,9 +101,23 @@ public class AcceptInterviewsPageUIController {
     }
 
     private void loadDataAndShow() {
-        //List<Interview> interviewList = ;
+        //List<Interview> interviewList = findInterviewUseCase.findInterviewById() ;
         tableData.clear();
         //tableData.addAll(interviewList);
+    }
+
+    public void acceptInterview(ActionEvent actionEvent) {
+        Interview selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null){
+            acceptCombineInterview.companyAcceptInterview(selectedItem.getCompany(), selectedItem);
+        }
+    }
+
+    public void unacceptInterview(ActionEvent actionEvent) throws IOException {
+        Interview selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null){
+            WindowLoader.setRoot("interview/DateInterviewPage");
+        }
     }
 
 }

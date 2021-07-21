@@ -24,9 +24,11 @@ public class DatabaseBuilder {
             statement.addBatch(createCandidate());
             statement.addBatch(createAcademicEducationCandidates());
             statement.addBatch(createProfessionalExperienceCandidates());
+            statement.addBatch(createCompany());
             statement.addBatch(createVacancy());
             statement.addBatch(createBenefitsListVacancy());
             statement.addBatch(createAccessibilityListVacancy());
+            statement.addBatch(createAbilityListVacancy());
             statement.addBatch(createCandidacy());
             statement.addBatch(createInterview());
             statement.addBatch(createSchedulesHistory());
@@ -110,7 +112,7 @@ public class DatabaseBuilder {
         sqlBuilder.append("CNPJ TEXT NOT NULL UNIQUE, \n");
         sqlBuilder.append("address TEXT NOT NULL, \n");
         sqlBuilder.append("postCode TEXT NOT NULL, \n");
-        sqlBuilder.append("FOREIGN KEY(id) REFERENCES User(id), \n");
+        sqlBuilder.append("FOREIGN KEY(id) REFERENCES User(id) \n");
         sqlBuilder.append(");");
 
         System.out.println(sqlBuilder.toString());
@@ -160,7 +162,7 @@ public class DatabaseBuilder {
     private String createAbilityListVacancy() {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("CREATE TABLE AbilityListVacancy(\n");
-        sqlBuilder.append("id INTEGER AUTOINCREMENT, \n");
+        sqlBuilder.append("id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
         sqlBuilder.append("vacancy_id NOT NULL, \n");
         sqlBuilder.append("name TEXT NOT NULL, \n ");
         sqlBuilder.append("FOREIGN KEY(vacancy_id) REFERENCES Vacancy(id) \n");

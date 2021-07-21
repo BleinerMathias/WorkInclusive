@@ -17,6 +17,7 @@ import java.io.IOException;
 
 import static br.edu.ifsp.application.main.Main.createCompanyUseCase;
 
+
 public class AccountCompanyUIController {
 
     @FXML

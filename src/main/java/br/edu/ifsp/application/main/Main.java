@@ -4,6 +4,7 @@ import br.edu.ifsp.application.repository.inMemory.*;
 import br.edu.ifsp.application.repository.sqlite.DatabaseBuilder;
 import br.edu.ifsp.application.repository.sqlite.SqliteCandidacyDAO;
 import br.edu.ifsp.application.repository.sqlite.SqliteCandidateDAO;
+import br.edu.ifsp.application.repository.sqlite.SqliteCompanyDAO;
 import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidacy.Candidacy;
 import br.edu.ifsp.domain.entities.candidate.AcademicDegree;
@@ -84,10 +85,10 @@ public class Main {
         findCandidateUseCase = new FindCandidateUseCase(sqliteCandidateDAO);
 
 
-        CompanyDAO companyDAO = new InMemoryCompanyDAO();
-        createCompanyUseCase = new CreateCompanyUseCase(companyDAO);
-        updateCompanyUseCase = new UpdateCompanyUseCase(companyDAO);
-        findCompanyUseCase = new FindCompanyUseCase(companyDAO);
+        SqliteCompanyDAO sqliteCompanyDAO = new SqliteCompanyDAO();
+        createCompanyUseCase = new CreateCompanyUseCase(sqliteCompanyDAO);
+        updateCompanyUseCase = new UpdateCompanyUseCase(sqliteCompanyDAO);
+        findCompanyUseCase = new FindCompanyUseCase(sqliteCompanyDAO);
 
         VacancyDAO vacancyDAO = new InMemoryVacancyDAO();
         createVacancyUseCase = new CreateVacancyUseCase(vacancyDAO);

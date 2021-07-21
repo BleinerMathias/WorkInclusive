@@ -68,6 +68,8 @@ public class CompanyInputValidator extends Validator<Company> {
         } else {
             notification.addError("Phones are null or empty");
         }
+
+
         return notification;
     }
 }
