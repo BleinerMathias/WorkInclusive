@@ -14,16 +14,19 @@ public class SqliteCompanyDAO implements CompanyDAO {
 
     @Override
     public Integer create(Company company) {
-        String sql = "INSERT INTO Company(name, companyName, sector, CNPJ, address, postCode)" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
+
+        int user_id = createUser(company);
+        String sql = "INSERT INTO Company(id, name, companyName, sector, CNPJ, address, postCode)" +
+                "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
-            stmt.setString(1, company.getName());
-            stmt.setString(2, company.getCompanyName());
-            stmt.setString(3, company.getSector());
-            stmt.setString(4, company.getCNPJ());
-            stmt.setString(5, company.getAddress());
-            stmt.setString(6, company.getPostCode());
+            stmt.setInt(1, user_id);
+            stmt.setString(2, company.getName());
+            stmt.setString(3, company.getCompanyName());
+            stmt.setString(4, company.getSector());
+            stmt.setString(5, company.getCNPJ());
+            stmt.setString(6, company.getAddress());
+            stmt.setString(7, company.getPostCode());
             stmt.execute();
 
             ResultSet resultSet = stmt.getGeneratedKeys();
@@ -31,6 +34,26 @@ public class SqliteCompanyDAO implements CompanyDAO {
             return generatedKey;
 
         } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Integer createUser(Company company) {
+        System.out.println("criando usuario");
+        String sql = "INSERT INTO User(username, password, typeUser" +
+                ") VALUES (?, ?, ?)";
+
+        try (PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
+            stmt.setString(1, company.getUsername());
+            stmt.setString(2, company.getPassword());
+            stmt.setInt(3, company.getTypeUser());
+            stmt.execute();
+
+            ResultSet resultSet = stmt.getGeneratedKeys();
+            int generatedKey = resultSet.getInt(1);
+            return generatedKey;
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;

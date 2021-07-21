@@ -95,21 +95,6 @@ public class AccountCompanyUIController {
         cbAccessibility.getItems().addAll(Accessibility.values());
         bindTaleViewToItemsList();
         bindColumnsToValueSources();
-        //carregaDados();
-    }
-
-    private void carregaDados() {
-        // Create a Company
-        Company comp1 = new Company("Grupo", "Grupo Empresa", "Informática", "13.146.255/0001-09", "Rua Manoel Vasques Pineda, 717", "18114-440");
-
-        comp1.addEmail("grupoempresa@company.com.br");
-        comp1.addEmail("grupo@company.com.br");
-        comp1.addPhone("(16) 3343-3343");
-        comp1.addPhone("(19) 3434-2233");
-        comp1.addAccessibility(Accessibility.VISUAL_DEFICIENT);
-        comp1.createLogin("grupo1", "12233");
-
-        setCompany(comp1);
     }
 
     private void bindTaleViewToItemsList() {
@@ -185,6 +170,17 @@ public class AccountCompanyUIController {
     }
 
     public void saveCompany(ActionEvent actionEvent) {
+        this.company.setCompanyName(txtCompanyName.getText());
+        this.company.setCNPJ(txtCNPJ.getText());
+        this.company.setAddress(txtAddress.getText());
+        this.company.setName(txtName.getText());
+        this.company.setPostCode(txtPostCode.getText());
+        this.company.setSector(txtSector.getText());
+        this.company.createLogin(txtUsername.getText(), txtPassword.getText());
+        this.company.setEmails(emails);
+        this.company.setPhones(phones);
+        this.company.setAccessibilities(accessibilityObservableList);
+
         if(company!=null){
             createCompanyUseCase.insert(company);
         }

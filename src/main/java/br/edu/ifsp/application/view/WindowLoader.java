@@ -19,7 +19,7 @@ public class WindowLoader extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("candidate/MatchVacancyPage"), 360, 640);
+        scene = new Scene(loadFXML("company/AccountCompany"), 360, 640);
         stage.setScene(scene);
         stage.show();
     }

@@ -138,6 +138,18 @@ public class Company extends User {
         this.setTypeUser(2);
     }
 
+    public void setEmails(List<Email> emails) {
+        this.emails = emails;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
+    }
+
+    public void setAccessibilities(List<Accessibility> accessibilities) {
+        this.accessibilities = accessibilities;
+    }
+
     @Override
     public String toString() {
         return "Company{" +

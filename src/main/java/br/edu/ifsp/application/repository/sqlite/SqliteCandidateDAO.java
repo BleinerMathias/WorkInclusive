@@ -115,6 +115,7 @@ public class SqliteCandidateDAO implements CandidateDAO {
         }
         return accessibilityList;
     }
+
     private List<ProfessionalExperience> professionalExperience(int id) {
         String sql = "SELECT * FROM AccessibilityCandidates WHERE user_id = ? ";
         List<ProfessionalExperience> professionalExperienceList = new ArrayList<>();
