@@ -28,4 +28,10 @@ public class FindCandidateUseCase {
     public List<Candidate> findAll(){
         return candidateDAO.findAll();
     }
+
+    public Optional<Candidate> findByLogin(String username, String password){
+        return candidateDAO.findByLogin(username, password);
+    }
+
+
 }

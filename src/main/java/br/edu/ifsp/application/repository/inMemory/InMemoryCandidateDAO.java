@@ -17,6 +17,11 @@ public class InMemoryCandidateDAO implements CandidateDAO {
                 .findAny();
     }
 
+    @Override
+    public Optional<Candidate> findByLogin(String userName, String password) {
+        return Optional.empty();
+    }
+
 
     @Override
     public Integer create(Candidate candidate) {

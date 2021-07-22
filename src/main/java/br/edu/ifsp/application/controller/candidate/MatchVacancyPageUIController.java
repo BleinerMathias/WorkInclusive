@@ -63,6 +63,7 @@ public class MatchVacancyPageUIController {
         candidate = new Candidate();
         System.out.println("Mostrando usuarios");
         System.out.println(findCandidateUseCase.findByUserId(4));
+
         // carregaDados();
         List<Vacancy> myMatchVacancyC1 = matchCandidacyUseCase.match(candidate);
         System.out.println(myMatchVacancyC1);

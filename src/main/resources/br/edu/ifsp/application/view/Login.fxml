@@ -16,7 +16,7 @@
             <Font size="16.0" />
          </font></Label>
       <PasswordField fx:id="txtPassword" layoutX="119.0" layoutY="147.0" prefHeight="25.0" prefWidth="193.0" />
-      <Button fx:id="btnLogin" layoutX="81.0" layoutY="204.0" mnemonicParsing="false"  onAction="#Access" prefHeight="31.0" prefWidth="199.0" text="Acessar">
+      <Button fx:id="btnLogin" layoutX="40.0" layoutY="202.0" mnemonicParsing="false" onAction="#acessCompany" prefHeight="31.0" prefWidth="141.0" text="Acesso empresa">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -39,6 +39,10 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbUser" layoutX="166.0" layoutY="272.0" text="Label" />
+      <Button fx:id="btnLogin1" layoutX="187.0" layoutY="202.0" mnemonicParsing="false" onAction="#accessCandidate" prefHeight="31.0" prefWidth="141.0" text="Acesso candidato">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

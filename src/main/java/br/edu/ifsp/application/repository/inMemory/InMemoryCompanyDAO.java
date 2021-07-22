@@ -21,6 +21,11 @@ public class InMemoryCompanyDAO implements CompanyDAO {
     }
 
     @Override
+    public Optional<Company> findByLogin(String userName, String password) {
+        return Optional.empty();
+    }
+
+    @Override
     public Integer create(Company company) {
         id++;
         db.put(id, company);

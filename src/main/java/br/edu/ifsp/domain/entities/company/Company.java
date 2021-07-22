@@ -21,15 +21,11 @@ public class Company extends User {
     private List<Accessibility> accessibilities;
 
     public Company(){
+
     }
 
     public Company(String name, String companyName, String sector, String CNPJ, String address, String postCode) {
-        this.name = name;
-        this.companyName = companyName;
-        this.sector = sector;
-        this.CNPJ = CNPJ;
-        this.address = address;
-        this.postCode = postCode;
+        this(name,companyName,sector,CNPJ, null, null,address,postCode,null);
     }
 
     public Company(String name, String companyName, String sector, String CNPJ, List<Phone> phones, List<Email> emails,  String address, String postCode, List<Accessibility> accessibilities) {

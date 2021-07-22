@@ -1,5 +1,6 @@
 package br.edu.ifsp.application.controller.candidate;
 
+import br.edu.ifsp.application.view.WindowLoader;
 import br.edu.ifsp.domain.entities.candidate.Candidate;
 import br.edu.ifsp.domain.entities.interview.Interview;
 import javafx.collections.FXCollections;
@@ -47,22 +48,6 @@ public class HomeCandidatePageUIController {
 
     private ObservableList<Interview> tableData;
 
-/*
-    public void initialPage(ActionEvent actionEvent) throws IOException {
-        App.setRoot("HomePageCandidate");
-    }
-
-    public void Account(ActionEvent actionEvent) throws IOException {
-        App.setRoot("AccountCandidate");
-    }
-
-    public void vacancy(ActionEvent actionEvent) throws IOException {
-        App.setRoot("MathVacancyPage");
-    }
-
-    public void config(ActionEvent actionEvent) throws IOException {
-        App.setRoot("ConfigPage");
-    }
 
     @FXML
     private void initialize(){
@@ -70,6 +55,24 @@ public class HomeCandidatePageUIController {
         bindColumnsToValueSources();
         loadDataAndShow();
     }
+
+    public void initialPage(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("HomePageCandidate");
+    }
+
+    public void Account(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("AccountCandidate");
+    }
+
+    public void vacancy(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("MathVacancyPage");
+    }
+
+    public void config(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("ConfigPage");
+    }
+
+
 
     private void bindTableViewToItemsList() {
         cId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -88,6 +91,6 @@ public class HomeCandidatePageUIController {
         tableData.clear();
         //tableData.addAll(interviewList);
     }
-    */
+
 
 }

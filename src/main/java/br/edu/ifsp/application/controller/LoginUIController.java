@@ -1,8 +1,13 @@
 package br.edu.ifsp.application.controller;
 
 
+import br.edu.ifsp.application.controller.candidate.AcademicEducationUIController;
 import br.edu.ifsp.application.view.WindowLoader;
+import br.edu.ifsp.domain.entities.candidate.Candidate;
+import br.edu.ifsp.domain.entities.company.Company;
 import br.edu.ifsp.domain.entities.user.User;
+import br.edu.ifsp.domain.entities.vacancy.Hierarchy;
+import br.edu.ifsp.domain.entities.vacancy.Vacancy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,6 +17,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import static br.edu.ifsp.application.main.Main.findCompanyUseCase;
+import static br.edu.ifsp.application.main.Main.findCandidateUseCase;
 public class LoginUIController {
 
     @FXML
@@ -32,42 +39,12 @@ public class LoginUIController {
     @FXML
     private Button btnCandidate;
 
-    private User user;
 
-    Connection conn = null;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
 
     @FXML
-    /*
-    public void isAccess(ActionEvent event){
-        //existe usuário? se sim, identificar o tipo do usuário para acessar telas da empresa ou telas do candiato
-        // se não, exibir mensagem "Usuário não encontrado" na label lbUser
+    private void initialize(){
 
-        String userName;
-        userName = txtUsername.getText();
-
-        conn = ConnectionFactory.createConnection();
-        String sql= "SELECT * FROM user WHERE username=? AND password=?";
-        try{
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtUsername.getText());
-            pst.setString(2, txtPassword.getText());
-            rs=pst.executeQuery();
-            if(rs.next()){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }catch (Exception e){
-            return false;
-        }finally {
-            pst.close();
-            rs.close();
-        }
     }
-     */
 
     public void createAccountCompany(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("candidate/AccountCandidate");
@@ -75,5 +52,19 @@ public class LoginUIController {
 
     public void createAccountCandidate(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("company/AccountCompany");
+    }
+
+    public void acessCompany(ActionEvent actionEvent) {
+        System.out.println(findCompanyUseCase.findByLogin(txtUsername.getText(), txtPassword.getText()));
+    }
+
+    public void accessCandidate(ActionEvent actionEvent) throws IOException {
+
+        WindowLoader.setRoot("candidate/HomePageCandidate");
+        AcademicEducationUIController controller = (AcademicEducationUIController) WindowLoader.getController();
+        Candidate candidateLogin = findCandidateUseCase.findByLogin(txtUsername.getText(), txtPassword.getText()).get();
+        controller.setCandidate(candidateLogin);
+
+
     }
 }

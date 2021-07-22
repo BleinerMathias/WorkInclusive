@@ -26,4 +26,9 @@ public class FindCompanyUseCase {
     public Optional<Company> findByUserID(int user_id) {
         return companyDAO.findByUserID(user_id);
     }
+
+    public Optional<Company> findByLogin(String userName, String password){
+        return companyDAO.findByLogin(userName, password);
+    }
+
 }

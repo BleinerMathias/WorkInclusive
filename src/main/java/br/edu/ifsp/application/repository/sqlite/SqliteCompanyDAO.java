@@ -121,6 +121,24 @@ public class SqliteCompanyDAO implements CompanyDAO {
     }
 
     @Override
+    public Optional<Company> findByLogin(String userName, String password) {
+        String sql = "SELECT * FROM Company WHERE username = ?, password =?";
+        Company company = null;
+
+        try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
+            stmt.setString(1, userName);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                company = resultSetToEntity(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.ofNullable(company);
+    }
+
+    @Override
     public List<Company> findAll() {
         String sql = "SELECT * FROM Company";
         List<Company> companyList = new ArrayList<>();

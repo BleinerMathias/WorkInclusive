@@ -343,6 +343,26 @@ public class SqliteCandidateDAO implements CandidateDAO {
     }
 
     @Override
+    public Optional<Candidate> findByLogin(String userName, String password) {
+        String sql = "SELECT * FROM User WHERE username = ? and password = ?;";
+
+        Candidate candidate = null;
+
+        try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
+            stmt.setString(1, userName);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                int user_id = rs.getInt("id");
+                candidate = findOne(user_id).get();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.ofNullable(candidate);
+    }
+
+    @Override
     public boolean update(Candidate candidate) {
         String sql = "UPDATE Candidate SET name = ?, cpf = ?, dateOfBirth = ? WHERE id = ?";
 

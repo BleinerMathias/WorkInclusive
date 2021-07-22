@@ -45,6 +45,7 @@ public class BenefitsPageUIController {
     private Company company;
     private Vacancy vacancy;
 
+
     @FXML
     private void initialize(){
         company = new Company();
@@ -52,6 +53,7 @@ public class BenefitsPageUIController {
         cbBenefities.getItems().addAll(Benefits.values());
         bindTaleViewToItemsList();
         bindColumnsToValueSources();
+        this.company.setId(8);
     }
 
     private void bindTaleViewToItemsList() {

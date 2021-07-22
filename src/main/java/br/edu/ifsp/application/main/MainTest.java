@@ -62,8 +62,7 @@ public class MainTest {
 
     public static void main(String[] args) throws InterruptedException {
         configureInjection();
-        setupDatabase();
-        WindowLoader.main(args);
+        populateDatabase();
     }
 
     private static void populateDatabase(){
